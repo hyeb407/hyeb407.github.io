@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       .contact{   
+            height: 70px;
+            display: flex;
+            padding: 0 10px;
+            background-color: #343434;
+        }
+        
+        .contact .lo{
+            display: inline-block;
+            padding: 6px 0;
+        }
+       .header{
+            height: 120px; 
+            
+                 
+                    
+        }
+        .header .logo{                         
+            display: flex;
+            padding: 30px 0px 0px 30px;      
+        }
+       
+        
+        .header .logo .h1{
+            display: flex;
+            text-align:center;
+            
+        }
+        .header .logo a{
+            text-decoration: none;
+            font-size:20px;
+            font-style: oblique;
+            padding: 0 10px 50px 0px;
+            color:#494343;
+        }
+        .header nav{          
+            position:absolute;
+            top: 130px; 
+            left:300px;
+            justify-content: center;
+            transition: .5s; 
+        }
+        
+        .header nav a{
+            text-decoration: none;
+            color: #797a75 ;
+            padding:10px 5px;
+            font-size: 20px;;          
+        }
+     
+        .banner{
+            position: relative;
+        }
+        .banner img{
+            width:115%;
+            
+        }
+        .banner .title h1{
+            position: absolute;
+            display: flex;
+            top: 40px;
+            left: 10px;
+            font-size: 60px;
+            color:rgb(99, 183, 228);
+        }
+        .banner .title h2{
+            position: absolute;
+            display: flex;
+            top: 10px;
+            left: 10px;
+            font-size: 35px;
+            color: #494343;;
+        }
+        .banner .title p{
+            position: absolute;
+            display: flex;
+            top: 140px;
+            left: 10px;
+            font-size: 20px;
+            color: #494343;;
+        }
+        .banner .title .btn{            
+            position:relative;            
+            z-index: 1;
+            width:150px;
+            height: 50px;
+            border-radius: 5px;
+            text-align: center;          
+            background-color: #e18b00;
+            transition: padding 1s 0s ease, background-color 1s 1s; 
+        }
+        .banner .title .btn a{             
+            font-size: 20px;          
+            text-decoration: none;
+            color: #fff;
+        }
+        .btn:hover{
+            background-color: #f00; 
+            color: #ff0; 
+            padding: 1px 3px;
+        }
+
+        .list{
+            background-color: #e4e4e4;
+            justify-content: center;
+                       
+        }
+        .list .h1{
+            
+            text-align: center;
+            
+            font-size: 80px;
+            color:#494343;
+        }
+        .list .h2{
+            
+            text-align: center;
+            font-size: 60px;
+            color:rgb(110, 168, 200);
+        }
+        .card gp{
+            
+            display:flex;
+            flex-wrap: wrap; /* 多行 */
+            justify-content: center;
+        }
+        .card{
+            display:flex;
+            flex-wrap: wrap; /* 多行 */
+            width: 300px;
+            background-color: transparent;
+            margin: 10px;     
+            padding: 0px;      
+        }
+        .card img{
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="contact">
+        <p>Toll-free</p>>
+        <a href="">(123)4567890</a>
+        
+        
+    </div>
+    <div class="header">
+        <div class="logo"> 
+            <a href="https://www.youtube.com">
+                <img src="asset 0.png" alt="">                
+            </a>
+            <a href="https://www.youtube.com">
+                <h1>Anilove</h1>
+            </a>
+        </div>
+        <nav>
+            <a href="a"> Home </a>
+            <a href="a"> About </a>
+            <a href="a"> Events</a>
+            <a href="a"> News </a>
+            <a href="a"> Contacts </a>
+        </nav>          
+    </div>
+
+    <div class="banner">        
+        <img src="asset 4.jpeg" alt="">      
+            <div class="title">
+                <h2>Animals Need</h2>
+                <h1>YOUR Help！</h1>
+                <p>You can chip in with money & effort！</p>
+                <div class="btn">
+                    <a href="#" class="btn">送出</a>
+                </div>
+            </div>    
+    </div>
+
+    <div>
+        <img src="asset 1.jpeg"></img>
+        <h1>About Us</h1>
+        <h2>What Makes Us Care About Pets?</h2>
+        <p>If it wasn’t for our founder’s childhood spent on a ranch in northern Texas, surrounded by domestic animals and pets all the time till she went to college – there might have been no Anilove animal shelter now. So as soon as she graduated with her Veterinary degree 12 years ago, she already knew what she will be doing for a living.
+            All in all, with thousands of animals saved off the streets and cared for every year, we hope to encourage much more pet adoptions to happen!</p>
+        <div class="btn2">LEARN MORE</div>
+    </div>
+
+    <div class="list">
+        
+            <h1>How You Can Help</h1>
+            <h2>There Are Countless Ways You Can Join In & Help Us!</h2>
+        
+        <div class="card-gp">
+            <div class="card">
+                <img src="asset 5.jpeg">
+            </div>
+            <div class="card">
+                <img src="asset 6.jpeg">
+            </div>
+            <div class="card">
+                <img src="asset 7.jpeg">
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
