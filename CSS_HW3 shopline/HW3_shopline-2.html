@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Document</title>
+    <link rel="stylesheet" href="normalize.css">  
+    <style>
+        .header{
+            width: 100%;
+            height: 230px;         
+            background-color: rgb(247, 247, 247);     
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;            
+        }
+        .content{
+            margin: auto;        
+        }
+        
+
+         
+        .list{
+            width:1200px;          
+            margin: auto;       
+        }
+        .item{
+            display: flex;
+        }
+        .item:nth-child(even){
+            flex-direction: row-reverse;
+        }
+        .item .pic{
+            width:600px;
+        }
+        .item .pic img{
+            width:80%; /* 600px*80% = 480px*/
+            margin:60px;
+        }
+        .item .text{
+            width:600px;
+            padding:80px 0px 0px 60px;      
+        }
+        .item h1 {
+            font-size: 28px;
+        }
+        .item p{
+            width: 88%;
+            line-height: 25px; 
+        }
+        table{
+            line-height: 35px;
+            font-size: 16px;                  
+        }
+        td{
+            padding-right: 40px;
+        }
+
+        a{
+            text-decoration: 4pt bold;
+            line-height: 100px;
+            font-size: 18px;
+            color:rgb(50, 100, 180);
+        }
+            
+        .more-list{          
+            width:100%;
+            background-color: rgb(247, 247, 247);
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: center;             
+            text-align: center;           
+            padding-bottom: 40px;
+        }
+        .more-list-h1{
+            width: 100%;               
+            padding-top: 40px;         
+        }
+        .more-list h1{
+            font-size: 28px;      
+        }
+        .more-item{
+            width: 380px;
+            height:300px;                      
+        }
+        .more-pic{
+            height:100px;
+            padding-top:60px;           
+        }
+        .more-pic img{
+            width: 100px;           
+        }
+        .more-text{
+            margin: auto;          
+            padding: 20px 30px 0 30px;        
+        }
+
+        .more-text h2{
+            font-size: 20px;
+        }
+
+        .more-text p{
+            line-height: 25px;
+        }
+
+        h1, h2, p, td {
+            color: rgb(35, 55, 85);
+            font-family: Arial, Helvetica, sans-serif;
+           
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="content">
+            <h1>單一平台就能助你<br>
+                在全通路輕鬆開店創業</h1>
+            <p>從網路商店架站到實體門市管理，只需要一個平台，就能輕鬆實現開店創業，並能同步管理所有銷售管道，SHOPLINE 助你賣得更多、賣得更好！</p>
+        </div>
+    </div>
+
+
+    <div class="list">
+        <div class="item">
+            <div class="text">
+                <h1>免寫程式、多款版型<br>
+                    輕鬆打造全能電商網站</h1>
+                <p>不會寫程式也能輕鬆架設品牌電商官網！任何產業都能找到合適的專業設計版型，以滑鼠拖曳就能完成網頁編輯，讓架設網站就像堆積木一樣簡單。</p>
+                <table>
+                    <tr>
+                        <td>🔹 豐富版型主題與自型搭配</td>
+                        <td>🔹SEO 搜尋引擎優化</td>
+                    </tr>
+                    <tr>
+                        <td>🔹RWD 響應式網頁設計</td>
+                        <td>🔹一頁商店</td>
+                    </tr>
+                    <tr>
+                        <td>🔹讀友網址 & SSL安全憑證</td>
+                        <td>🔹開放HTML / CSS 編輯</td>
+                    </tr>
+                </table>
+                <a href="guide">看看開店秘技 -></a>
+            </div>
+        
+            <div class="pic">
+                <img src="shopline 1.webp">
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="text">
+                <h1>支持海內外電商<br>
+                    金流、物流一次搞定</h1>
+                <p>支持在地及國際金流、物流串接服務，提供海內外顧客最便利的付款及送貨服務，加速消費者完成下單交易，大幅降低購物車放棄率！</p>
+                <table>
+                    <tr>
+                        <td>🔹線上／線下信用卡刷卡</td>
+                        <td>🔹多溫層宅配並指定運費</td>
+                    </tr>
+                    <tr>
+                        <td>🔹第三方金流／行動支付整合</td>
+                        <td>🔹超商／宅配貨到付款</td>
+                    </tr>
+                    <tr>
+                        <td>🔹超商代碼／條碼繳費</td>
+                        <td>🔹發票開立與串接</td>
+                    </tr>
+                </table>
+                <a href="guide">了解更多金物流 -></a>
+            </div>
+        
+            <div class="pic">
+                <img src="shopline 2.webp">
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="text">
+                <h1>刺激下單，創造回購<br>
+                    行銷導流、促購模組任你玩</h1>
+                <p>多元優惠活動、會員集客機制、網紅分潤等多種優惠促銷，將電商行銷玩法一網打盡；加上廣告追蹤助你有效優化行銷活動，刺激顧客下單、吸引鐵粉回購！</p>
+                <table>
+                    <tr>
+                        <td>🔹推薦活動與分潤</td>
+                        <td>🔹買Ｘ享Ｙ優惠</td>
+                    </tr>
+                    <tr>
+                        <td>🔹A+B 優惠活動</td>
+                        <td>🔹會員推薦獎賞</td>
+                    </tr>
+                    <tr>
+                        <td>🔹會員分級／點數／購物金</td>
+                        <td>🔹FB／Google／LINE 廣告追蹤</td>
+                    </tr>
+                </table>
+                <a href="guide">看更多優惠模組 -></a>
+            </div>
+        
+            <div class="pic">
+                <img src="shopline 3.webp">
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="text">
+                <h1>「社群+電商」輕鬆開賣<br>
+                    打造一致的社群購物體驗</h1>
+                <p>善用社群與顧客頻繁互動，讓你透過社群也能輕鬆開賣！從直播 +1 接單、聊天機器人到各管道的訊息整合，我們都為你準備好了，不放過每個銷售環節，打造全方位的社群購物體驗！</p>
+                <table>
+                    <tr>
+                        <td>🔹社群直播購物系統</td>
+                        <td>🔹FB／IG／LINE 直播 +1</td>
+                    </tr>
+                    <tr>
+                        <td>🔹FB & IG 貼文 +1</td>
+                        <td>🔹FB／IG／LINE 對話式購物</td>
+                    </tr>
+                    <tr>
+                        <td>🔹自訂聊天機器人腳本</td>
+                        <td>🔹訊息整合中心</td>
+                    </tr>
+                </table>
+                <a href="guide">看更多社群購物功能 -></a>
+            </div>
+        
+            <div class="pic">
+                <img src="shopline 4.webp">
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="text">
+                <h1>OMO 全通路無縫整併<br>
+                    輕鬆管理網店、門市以及其他通路</h1>
+                <p>不論是網店拓展門市，還是門市想發展網路生意，從商品、庫存、訂單到會員等各項虛實店舖的資料都能完善整併，輕鬆實現全通路會員經營到多店營運。</p>
+                <table>
+                    <tr>
+                        <td>🔹門市 POS 系統</td>
+                        <td>🔹線上買門市取</td>
+                    </tr>
+                    <tr>
+                        <td>🔹線上線下會員／商品／庫存整合</td>
+                        <td>🔹進銷庫存／調撥／多店管理</td>
+                    </tr>
+                    <tr>
+                        <td>🔹門市快速集客工具</td>
+                        <td>🔹Smart OMO 會員導購工具</td>
+                    </tr>
+                </table>
+                <a href="guide">了解更多全通路整合 -></a>
+            </div>
+        
+            <div class="pic">
+                <img src="shopline 5.webp">
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="more-list">
+        <div class="more-list-h1">
+            <h1>更多功能與服務</h1>
+        </div>
+        <div class="more-item">
+            <div class="more-pic">
+                <img src="icon 1.png">
+            </div>
+            <div class="more-text">
+                <h2>強大庫存與訂單系統</h2>
+                <p>從商品數量、貨況到訂單付款狀態、物流貨態一目瞭然，提升營運效率超有感。</p>
+            </div>
+        </div>
+    
+        <div class="more-item">
+            <div class="more-pic">
+                <img src="icon 2.png">
+            </div>
+            <div class="more-text">
+                <h2>即時化商店業績分析</h2>
+                <p>圖表化報表助你一手掌握商店概況，讓數據助攻企業成長，營運策略更有方向。
+
+                </p>
+            </div>
+        </div>
+    
+    
+        <div class="more-item">
+            <div class="more-pic">
+                <img src="icon 3.png">
+            </div>
+            <div class="more-text">
+                <h2>多國語系、幣值切換</h2>
+                <p>想做跨境電商也ＯＫ！提供語言、幣別、稅金等進階功能，友善應對海外消費需求。</p>
+            </div>
+        </div>
+
+        <div class="more-item">
+            <div class="more-pic">
+                <img src="icon 4.png">
+            </div>
+            <div class="more-text">
+                <h2>專業顧問線上支援</h2>
+                <p>迅速、透明的溝通管道，協助你快速解決從線上到線下、從在地到海外的網店疑難。</p>
+            </div>
+        </div>
+    
+        <div class="more-item">
+            <div class="more-pic">
+                <img src="icon 5.png">
+            </div>
+            <div class="more-text">
+                <h2>廣告行銷加值服務</h2>
+                <p>由官方認證的專業投手團隊，協助品牌投遞 Facebook、Google、LINE 等廣告。                </p>
+            </div>
+        </div>
+    
+    
+        <div class="more-item">
+            <div class="more-pic">
+                <img src="icon 6.png">
+            </div>
+            <div class="more-text">
+                <h2>品牌專屬成長社群</h2>
+                <p>致力為品牌店家打造能深度交流且互助的生態體系，是拓展人脈、商機的絕佳場域。</p>
+            </div>
+        </div>
+
+    </div>
+ 
+    
+</body>
+</html>
