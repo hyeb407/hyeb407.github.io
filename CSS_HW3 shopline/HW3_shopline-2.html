@@ -7,9 +7,13 @@
     <title>Document</title>
     <link rel="stylesheet" href="normalize.css">  
     <style>
+        * {
+            margin: 0;
+            padding:0;
+        }
         .header{
             width: 100%;
-            height: 230px;         
+            height: 250px;         
             background-color: rgb(247, 247, 247);     
             text-align: center;
             display: flex;
@@ -17,9 +21,11 @@
             justify-content: center;            
         }
         .content{
-            margin: auto;        
+            margin: auto;      
         }
-        
+        .content p{
+            padding-top: 30px;
+        }
 
          
         .list{
@@ -48,7 +54,8 @@
         }
         .item p{
             width: 88%;
-            line-height: 25px; 
+            line-height: 25px;
+            padding: 20px 0;
         }
         table{
             line-height: 35px;
@@ -56,6 +63,13 @@
         }
         td{
             padding-right: 40px;
+        }
+        td::before{
+            content:'●';
+            color:#0061ff;
+            font-size: 20px;
+            padding-right: 10px;
+
         }
 
         a{
@@ -104,6 +118,7 @@
         }
 
         .more-text p{
+            padding-top: 30px;
             line-height: 25px;
         }
 
@@ -135,16 +150,16 @@
                 <p>不會寫程式也能輕鬆架設品牌電商官網！任何產業都能找到合適的專業設計版型，以滑鼠拖曳就能完成網頁編輯，讓架設網站就像堆積木一樣簡單。</p>
                 <table>
                     <tr>
-                        <td>🔹 豐富版型主題與自型搭配</td>
-                        <td>🔹SEO 搜尋引擎優化</td>
+                        <td>豐富版型主題與自型搭配</td>
+                        <td>SEO 搜尋引擎優化</td>
                     </tr>
                     <tr>
-                        <td>🔹RWD 響應式網頁設計</td>
-                        <td>🔹一頁商店</td>
+                        <td>RWD 響應式網頁設計</td>
+                        <td>一頁商店</td>
                     </tr>
                     <tr>
-                        <td>🔹讀友網址 & SSL安全憑證</td>
-                        <td>🔹開放HTML / CSS 編輯</td>
+                        <td>讀友網址 & SSL安全憑證</td>
+                        <td>開放HTML / CSS 編輯</td>
                     </tr>
                 </table>
                 <a href="guide">看看開店秘技 -></a>
@@ -162,16 +177,16 @@
                 <p>支持在地及國際金流、物流串接服務，提供海內外顧客最便利的付款及送貨服務，加速消費者完成下單交易，大幅降低購物車放棄率！</p>
                 <table>
                     <tr>
-                        <td>🔹線上／線下信用卡刷卡</td>
-                        <td>🔹多溫層宅配並指定運費</td>
+                        <td>線上／線下信用卡刷卡</td>
+                        <td>多溫層宅配並指定運費</td>
                     </tr>
                     <tr>
-                        <td>🔹第三方金流／行動支付整合</td>
-                        <td>🔹超商／宅配貨到付款</td>
+                        <td>第三方金流／行動支付整合</td>
+                        <td>超商／宅配貨到付款</td>
                     </tr>
                     <tr>
-                        <td>🔹超商代碼／條碼繳費</td>
-                        <td>🔹發票開立與串接</td>
+                        <td>超商代碼／條碼繳費</td>
+                        <td>發票開立與串接</td>
                     </tr>
                 </table>
                 <a href="guide">了解更多金物流 -></a>
@@ -189,16 +204,16 @@
                 <p>多元優惠活動、會員集客機制、網紅分潤等多種優惠促銷，將電商行銷玩法一網打盡；加上廣告追蹤助你有效優化行銷活動，刺激顧客下單、吸引鐵粉回購！</p>
                 <table>
                     <tr>
-                        <td>🔹推薦活動與分潤</td>
-                        <td>🔹買Ｘ享Ｙ優惠</td>
+                        <td>推薦活動與分潤</td>
+                        <td>買Ｘ享Ｙ優惠</td>
                     </tr>
                     <tr>
-                        <td>🔹A+B 優惠活動</td>
-                        <td>🔹會員推薦獎賞</td>
+                        <td>A+B 優惠活動</td>
+                        <td>會員推薦獎賞</td>
                     </tr>
                     <tr>
-                        <td>🔹會員分級／點數／購物金</td>
-                        <td>🔹FB／Google／LINE 廣告追蹤</td>
+                        <td>會員分級／點數／購物金</td>
+                        <td>FB／Google／LINE 廣告追蹤</td>
                     </tr>
                 </table>
                 <a href="guide">看更多優惠模組 -></a>
@@ -216,16 +231,16 @@
                 <p>善用社群與顧客頻繁互動，讓你透過社群也能輕鬆開賣！從直播 +1 接單、聊天機器人到各管道的訊息整合，我們都為你準備好了，不放過每個銷售環節，打造全方位的社群購物體驗！</p>
                 <table>
                     <tr>
-                        <td>🔹社群直播購物系統</td>
-                        <td>🔹FB／IG／LINE 直播 +1</td>
+                        <td>社群直播購物系統</td>
+                        <td>FB／IG／LINE 直播 +1</td>
                     </tr>
                     <tr>
-                        <td>🔹FB & IG 貼文 +1</td>
-                        <td>🔹FB／IG／LINE 對話式購物</td>
+                        <td>FB & IG 貼文 +1</td>
+                        <td>FB／IG／LINE 對話式購物</td>
                     </tr>
                     <tr>
-                        <td>🔹自訂聊天機器人腳本</td>
-                        <td>🔹訊息整合中心</td>
+                        <td>自訂聊天機器人腳本</td>
+                        <td>訊息整合中心</td>
                     </tr>
                 </table>
                 <a href="guide">看更多社群購物功能 -></a>
@@ -243,16 +258,16 @@
                 <p>不論是網店拓展門市，還是門市想發展網路生意，從商品、庫存、訂單到會員等各項虛實店舖的資料都能完善整併，輕鬆實現全通路會員經營到多店營運。</p>
                 <table>
                     <tr>
-                        <td>🔹門市 POS 系統</td>
-                        <td>🔹線上買門市取</td>
+                        <td>線上買門市取</td>
+                        <td>門市 POS 系統</td>
                     </tr>
                     <tr>
-                        <td>🔹線上線下會員／商品／庫存整合</td>
-                        <td>🔹進銷庫存／調撥／多店管理</td>
+                        <td>線上線下會員／商品／庫存整合</td>
+                        <td>進銷庫存／調撥／多店管理</td>
                     </tr>
                     <tr>
-                        <td>🔹門市快速集客工具</td>
-                        <td>🔹Smart OMO 會員導購工具</td>
+                        <td>門市快速集客工具</td>
+                        <td>Smart OMO 會員導購工具</td>
                     </tr>
                 </table>
                 <a href="guide">了解更多全通路整合 -></a>
