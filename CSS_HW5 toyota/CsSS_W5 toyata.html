@@ -97,26 +97,23 @@
         .title-wrap-odd:hover {
             transform: translateX(0%);
         }
-        .title {
+        .title-wrap-odd .title {
             display: flex;
             height: 125px;
             align-items: center;
+            position: relative;
+            left:-13px;
         }
         .title h1 {
             font-size: 110px;;
             rotate: 90deg;
             font-weight: 100;
             font-family: 'Inter','Montserrat', 'Noto Sans TC',sans-serif;         
-            position: relative;
-            left:-13px;
         }
         .title h2 {
             font-size: 54px;
             font-weight: 100;
-            font-family: 'Montserrat', sans-serif;
-            position: relative;
-            left:-13px;
-      
+            font-family: 'Montserrat', sans-serif;   
         }
         .subtitle {
             background-color: black;
@@ -136,8 +133,7 @@
             background-color: #edf1f2;
             position: absolute;
             top:143%;
-            left: 20%;
-          
+            left: 20%;        
         }
         .description{
             display: flex;
@@ -192,7 +188,7 @@
             top:25%;
         }
 
-
+        /* even 偶數區域 */
         .iframe-even {
             width: 48%;
             transform: translate(36%, 50%);
@@ -211,6 +207,13 @@
         }
         .title-wrap-even:hover {
             transform: translateX(0%);
+        }
+        .title-wrap-even .title {
+            display: flex;
+            height: 125px;
+            align-items: center;
+            position: relative;
+            left:13px;
         }
 
         .introduce-wrap-even {
@@ -297,8 +300,8 @@
 
         <div class="title-wrap-even">
             <div class="title">
-                <h1>02</h1>
                 <h2>安全守護</h2>
+                <h1>02</h1>
             </div>
             <div class="subtitle">
                 <h3>行車更安心的高剛性車體</h3>
@@ -359,8 +362,8 @@
 
         <div class="title-wrap-even">
             <div class="title">
-                <h1>04</h1>
                 <h2>以人為本</h2>
+                <h1>04</h1>
             </div>
             <div class="subtitle">
                 <h3>使用者導向的貼心設計</h3>
