@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .wrap {
+            width: 400px;
+            height: 500px;
+            background-color: antiquewhite;
+            margin: 10px ;
+            position: relative;
+            vertical-align: center;
+            
+        }
+        .input {
+            width: 300px;
+            height: 80px;
+            background-color: #ccc;
+            opacity: 0.5;
+            border-radius: 30px;
+            color: rgb(56, 97, 132);
+            margin: auto;
+            position: relative;
+            top: 20px;
+        }
+        .msgbox {
+            width: 100px;
+            height: 50px;
+            background-color:aquamarine;
+            color:black
+            opacity: 0.5;
+            position: absolute;
+            top: 110px;
+            right: 30px;
+            border-radius: 50px;
+        }
+        .button-wrap {
+            display: flex;
+            flex-flow: row wrap;
+            width: 300px;
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%, -25%);
+        }
+        button {
+            width: 80px;
+            height: 60px;
+            margin: 8px 10px;
+            border-radius: 50px;
+            border-color:bisque;
+            font-size: 25px;
+            color:#6f6d6d;
+        }
+
+        .enter{
+            background-color: #6f6d6d;
+            color: antiquewhite;
+            width: 80px;
+            height: 60px;         
+            border-radius: 50px;
+            font-size: 20px;
+            position: absolute;
+            bottom: 30px;
+            right: 55px;
+            text-align: center;
+            z-index: 1;
+        }
+        .enter:hover{
+            background-color:#c57676 ;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="input"></div>
+        <div class="msgbox">
+        </div>
+        <div class="button-wrap">
+            <button class="num" id="button1">1</button>
+            <button class="num" id="button2">2</button>
+            <button class="num" id="button3">3</button>
+            <button class="num" id="button4">4</button>
+            <button class="num" id="button5">5</button>
+            <button class="num" id="button6">6</button>
+            <button class="num" id="button7">7</button>
+            <button class="num" id="button8">8</button>
+            <button class="num" id="button9">9</button>
+            <button class="num" id="button0">0</button>
+        </div>
+        <div class="enter">送出</div>
+    </div>
+
+    <script>
+        // 一、宣告
+        let answer = -1;
+        let min = 1;
+        let max = 99;
+        
+        
+        // 二、取得 DOM 元素 + 掛監聽事件
+              
+        const inputNum = document.querySelector(".input");
+        const showMsg = document.querySelector(".msgbox");
+        const guessBtn = document.querySelector(".enter")
+        
+        
+        const oneBtn = document.getElementById("button1");
+        const twoBtn = document.getElementById("button2");
+        const threeBtn = document.getElementById("button3");
+        const fourBtn = document.getElementById("button4");
+        const fiveBtn = document.getElementById("button5");
+        const sixBtn = document.getElementById("button6");
+        const sevenBtn = document.getElementById("button7");
+        const eightBtn = document.getElementById("button8");
+        const nineBtn = document.getElementById("button9");
+        const zeroBtn = document.getElementById("button0");
+
+        // 三、方法
+        function getAnswer() {
+             return Math.floor( Math.random() * ( 100-1 ) +1 )
+        };
+
+        function guess() {
+            console.log(inputNum)
+           
+
+            let guess = inputNum.innerText;
+            let winOrLose = false;
+
+            
+            if (guess < min || guess > max) return alert('不再範圍內')
+            
+            if(guess < answer){
+                min = guess
+            }
+
+            else if(guess > answer){
+                max = guess
+            }
+            else if(guess == answer){
+                winOrLose = true;
+            }
+
+            refreshMsg(winOrLose)
+            console.log(showMsg)
+            inputNum.innerText=''
+            
+        }
+
+        function refreshMsg(winOrLose){
+            if(!winOrLose){
+                showMsg.innerText =`請輸入${min} ~ ${max}的整數`               
+            }
+
+            else{
+                showMsg.innerText = "猜對了"
+            }
+            
+        }
+
+        // 四、前台顯示
+        window.onload = function() {
+            answer = getAnswer();
+            console.log(answer);
+
+            
+
+            
+            guessBtn.onclick = function () {
+                guess()
+                guessBtn.innertext = ''
+            }
+           
+            refreshMsg();
+            // showMsg.addEventListener("click", function(){
+            //     refreshMsg()
+            // }
+
+            
+            
+            
+            oneBtn.onclick = function() {
+                inputNum.innerText +=1
+            }
+
+            twoBtn.onclick = function() {
+                inputNum.innerText +=2
+            }
+
+            threeBtn.onclick = function() {
+                inputNum.innerText +=3
+            }
+            fourBtn.onclick = function() {
+                inputNum.innerText +=4
+            }
+            fiveBtn.onclick = function() {
+                inputNum.innerText +=5
+            }
+            sixBtn.onclick = function() {
+                inputNum.innerText +=6
+            }
+            sevenBtn.onclick = function() {
+                inputNum.innerText +=7
+            }
+            eightBtn.onclick = function() {
+                inputNum.innerText +=8
+            }
+            nineBtn.onclick = function() {
+                inputNum.innerText +=9
+            }
+            zeroBtn.onclick = function() {
+                inputNum.innerText +=0
+            }
+
+        
+        }
+
+    </script>
+</body>
+</html>
