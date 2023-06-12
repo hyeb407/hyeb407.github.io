@@ -123,17 +123,18 @@
             }
         */
 
-        const oneBtn = document.getElementById("button1");
-        const twoBtn = document.getElementById("button2");
-        const threeBtn = document.getElementById("button3");
-        const fourBtn = document.getElementById("button4");
-        const fiveBtn = document.getElementById("button5");
-        const sixBtn = document.getElementById("button6");
-        const sevenBtn = document.getElementById("button7");
-        const eightBtn = document.getElementById("button8");
-        const nineBtn = document.getElementById("button9");
-        const zeroBtn = document.getElementById("button0");
+        // const oneBtn = document.getElementById("button1");
+        // const twoBtn = document.getElementById("button2");
+        // const threeBtn = document.getElementById("button3");
+        // const fourBtn = document.getElementById("button4");
+        // const fiveBtn = document.getElementById("button5");
+        // const sixBtn = document.getElementById("button6");
+        // const sevenBtn = document.getElementById("button7");
+        // const eightBtn = document.getElementById("button8");
+        // const nineBtn = document.getElementById("button9");
+        // const zeroBtn = document.getElementById("button0");
 
+        /*
         oneBtn.onclick = function() {
                 inputNum.innerText +=1
             }
@@ -166,6 +167,21 @@
         zeroBtn.onclick = function() {
             inputNum.innerText +=0
         }
+        */
+
+        // 傳入的參數不確定，但一定會傳入，暫用 e 取代
+        function insertNum(e){
+            console.log(e.target)
+            inputNum.innerText +=  e.target.innerText;
+            // inputNum.value +=  e.target.innerText;
+        }
+
+        document.querySelectorAll('.num').forEach(function (e2){
+          
+            e2.addEventListener("click", insertNum )
+        })
+
+      
 
         // 三、方法
         function getAnswer() {
