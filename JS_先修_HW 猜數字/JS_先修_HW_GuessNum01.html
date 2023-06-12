@@ -29,17 +29,19 @@
             margin: auto;
             position: relative;
             top: 20px;
+            
         }
         .msgbox {
-            width: 100px;
-            height: 50px;
+            width: 200px;
+            height: 40px;
             background-color:aquamarine;
-            color:black
-            opacity: 0.5;
+            color:black;
+            opacity: 0.8;
             position: absolute;
             top: 110px;
-            right: 30px;
+            right: 50px;
             border-radius: 50px;
+            
         }
         .button-wrap {
             display: flex;
@@ -105,13 +107,22 @@
         let max = 99;
         
         
-        // 二、取得 DOM 元素 + 掛監聽事件
-              
+        // 二、取得 DOM 元素 + 掛監聽事件             
         const inputNum = document.querySelector(".input");
         const showMsg = document.querySelector(".msgbox");
         const guessBtn = document.querySelector(".enter")
         
+        guessBtn.onclick = function () {
+                guess()
+                guessBtn.innertext = ''
+            }
         
+        /* showMsg 不用被 click 不用監聽
+        showMsg.addEventListener("click", function(){
+                refreshMsg()
+            }
+        */
+
         const oneBtn = document.getElementById("button1");
         const twoBtn = document.getElementById("button2");
         const threeBtn = document.getElementById("button3");
@@ -123,104 +134,80 @@
         const nineBtn = document.getElementById("button9");
         const zeroBtn = document.getElementById("button0");
 
+        oneBtn.onclick = function() {
+                inputNum.innerText +=1
+            }
+
+        twoBtn.onclick = function() {
+            inputNum.innerText +=2
+        }
+
+        threeBtn.onclick = function() {
+            inputNum.innerText +=3
+        }
+        fourBtn.onclick = function() {
+            inputNum.innerText +=4
+        }
+        fiveBtn.onclick = function() {
+            inputNum.innerText +=5
+        }
+        sixBtn.onclick = function() {
+            inputNum.innerText +=6
+        }
+        sevenBtn.onclick = function() {
+            inputNum.innerText +=7
+        }
+        eightBtn.onclick = function() {
+            inputNum.innerText +=8
+        }
+        nineBtn.onclick = function() {
+            inputNum.innerText +=9
+        }
+        zeroBtn.onclick = function() {
+            inputNum.innerText +=0
+        }
+
         // 三、方法
         function getAnswer() {
              return Math.floor( Math.random() * ( 100-1 ) +1 )
         };
 
         function guess() {
-            console.log(inputNum)
-           
-
             let guess = inputNum.innerText;
-            let winOrLose = false;
+            let winOrLose = false; //注意：一定要這行，才會清空
+           
+            if (guess < min || guess > max){
+                alert('不再範圍內' )
+                inputNum.innerText=''   
+                return
+            } 
+                    
+            if(guess < answer){ min = guess }
+            else if(guess > answer){ max = guess }
+            else if(guess == answer){ winOrLose = true;}
 
-            
-            if (guess < min || guess > max) return alert('不再範圍內')
-            
-            if(guess < answer){
-                min = guess
-            }
-
-            else if(guess > answer){
-                max = guess
-            }
-            else if(guess == answer){
-                winOrLose = true;
-            }
-
-            refreshMsg(winOrLose)
-            console.log(showMsg)
-            inputNum.innerText=''
-            
+            refreshMsg(winOrLose)            
         }
 
         function refreshMsg(winOrLose){
             if(!winOrLose){
                 showMsg.innerText =`請輸入${min} ~ ${max}的整數`               
             }
-
             else{
                 showMsg.innerText = "猜對了"
             }
             
+            inputNum.innerText=''   
         }
 
         // 四、前台顯示
-        window.onload = function() {
+        window.onload = function() {           
             answer = getAnswer();
+             //先看一下答案
             console.log(answer);
-
-            
-
-            
-            guessBtn.onclick = function () {
-                guess()
-                guessBtn.innertext = ''
-            }
-           
+          
+            //有這行才會一開始顯示 showMsg
             refreshMsg();
-            // showMsg.addEventListener("click", function(){
-            //     refreshMsg()
-            // }
-
-            
-            
-            
-            oneBtn.onclick = function() {
-                inputNum.innerText +=1
-            }
-
-            twoBtn.onclick = function() {
-                inputNum.innerText +=2
-            }
-
-            threeBtn.onclick = function() {
-                inputNum.innerText +=3
-            }
-            fourBtn.onclick = function() {
-                inputNum.innerText +=4
-            }
-            fiveBtn.onclick = function() {
-                inputNum.innerText +=5
-            }
-            sixBtn.onclick = function() {
-                inputNum.innerText +=6
-            }
-            sevenBtn.onclick = function() {
-                inputNum.innerText +=7
-            }
-            eightBtn.onclick = function() {
-                inputNum.innerText +=8
-            }
-            nineBtn.onclick = function() {
-                inputNum.innerText +=9
-            }
-            zeroBtn.onclick = function() {
-                inputNum.innerText +=0
-            }
-
-        
         }
 
     </script>
