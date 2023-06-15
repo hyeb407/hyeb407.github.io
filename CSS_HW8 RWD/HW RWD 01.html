@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./grid.css">
+    <style>
+        .card {
+            border: 1px solid #666;
+            border-radius: 3px;
+            display: flex;
+        }
+        .card img {
+            display: block;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            /* vertical-align: top; */
+        }
+        .txt {
+            padding: 3px;
+        }
+
+        @media screen and (min-width:768px){
+            .card {
+                display: block;        
+            }
+            .card img {
+                width: 100%;
+                height: 200px;
+            }
+        }
+
+        @media screen and (min-width:1024px){
+            .card {
+                display: block;        
+            }
+            .card img {
+                width: 100%;
+                height: 200px;
+            }
+        }
+
+        @media screen and (min-width:1200px){
+            .card-odd {
+                display: flex;
+                border: 1px solid #666;
+                border-radius: 3px;                      
+            }
+            .card-even {
+                display: block;
+                border: 1px solid #666;
+                border-radius: 3px;                      
+            }
+            .card img {
+                width: 100%;
+                height: 100%;             
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-4 col-lg-3 col-xl-12">
+                <div class="card card-odd">
+                    <div class="pic">
+                        <img src="./Malama Hawaii57.jpg">
+                    </div>
+
+                    <div class="txt">
+                        <h3>title</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur,adipisicindolores? Perferendis iure nobis beataeconsectetur!</p>
+                    </div>
+                </div>
+            </div> 
+
+            <!-- <div class="row"> -->
+            <div class="col-12 col-md-4 col-lg-3 col-xl-4">
+                <div class="card card-even">
+                    <div class="pic">
+                        <img src="./Malama Hawaii29.jpg">
+                    </div>
+
+                    <div class="txt">
+                        <h3>title</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur,adipisicindolores? Perferendis iure nobis beataeconsectetur!</p>
+                    </div>
+                </div>
+            </div> 
+
+            <div class="col-12 col-md-4 col-lg-3 col-xl-4">
+                <div class="card card-even">
+                    <div class="pic">
+                        <img src="./Malama Hawaii29.jpg">
+                    </div>
+
+                    <div class="txt">
+                        <h3>title</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur,adipisicindolores? Perferendis iure nobis beataeconsectetur!</p>
+                    </div>
+                </div>
+            </div> 
+
+            <div class="col-12 col-md-4 col-lg-3 col-xl-4">
+                <div class="card card-even">
+                    <div class="pic">
+                        <img src="./Malama Hawaii29.jpg">
+                    </div>
+
+                    <div class="txt">
+                        <h3>title</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur,adipisicindolores? Perferendis iure nobis beataeconsectetur!</p>
+                    </div>
+                </div>
+            </div> 
+            <!-- </div> -->
+
+            <div class="col-12 col-md-4 col-lg-3 col-xl-6">
+                <div class="card card-odd">
+                    <div class="pic">
+                        <img src="./Malama Hawaii27.jpg">
+                    </div>
+
+                    <div class="txt">
+                        <h3>title</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur,adipisicindolores? Perferendis iure nobis beataeconsectetur!</p>
+                    </div>
+                </div>
+            </div> 
+
+            <div class="col-12 col-md-4 col-lg-3 col-xl-6">
+                <div class="card card-odd">
+                    <div class="pic">
+                        <img src="./Malama Hawaii27.jpg">
+                    </div>
+
+                    <div class="txt">
+                        <h3>title</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur,adipisicindolores? Perferendis iure nobis beataeconsectetur!</p>
+                    </div>
+                </div>
+            </div> 
+
+
+        </div>
+    </div>
+</body>
+</html>
