@@ -128,6 +128,27 @@
         let marketingShare2Arr= [];
 
         window.onload = function(){
+            
+        };
+
+        
+        window.onload = function(){
+            //HW. 表格    
+            marketingShare.data.forEach(data => {
+                let values = Object.values(data);
+                marketingShare2Arr.push(values);
+            })
+
+            CreateThead(marketingShare.titles);
+            CreateTbody(marketingShare2Arr);
+            
+            
+            //Q1：想實驗把 style 用方法寫，但失敗了...QQ
+            // DesignTableStyle(CreateTbody(marketingShare2Arr)); 
+           
+
+
+            //HW. 繪圖 Pie
             //  方法 1：for loop 針對陣列長度作抓取 > 列長度是 data
             marketingShare.data.forEach( ( item,i ) =>{
                 companies[i] = marketingShare.data[i].Name;
@@ -141,29 +162,10 @@
                 companies.push(item);
                 countries.push(item);
                 ratio.push(item);
-            })
-            
-            //繪圖的部分
+            })          
             drawChart('bar',companies, ratio);
-        };
-
-        
-        window.onload = function(){
-                    
-            marketingShare.data.forEach(data => {
-                let values = Object.values(data);
-                marketingShare2Arr.push(values);
-            })
-
-            CreateThead(marketingShare.titles);
-            CreateTbody(marketingShare2Arr);
-            
-            
-            //Q1：想實驗把 style 用方法寫，但失敗了...QQ
-            // DesignTableStyle(CreateTbody(marketingShare2Arr)); 
-            
-            //Q2：想透過 CreateThead 方法再長出一個表格，但不行
-            //CreateThead(companies);
+            drawChart('pie',companies, ratio);
+           
         };
         
         
