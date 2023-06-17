@@ -2197,9 +2197,10 @@
                     let pics = role.querySelector(".card-img-top").src;
                     
                     let rolesData = { 
-                        Name: names, 
+                        Names: names, 
                         Description: des,
                         Photo: pics
+                        
                      }
                     
                     heroArray.push(rolesData)
@@ -2249,18 +2250,29 @@
                 
                 alert("以表格呈現英雄人物資料！");
 
+                // heroArray.forEach(data => {
+                //     let keys = Object.keys(data);
+                //     heroArray2.push(keys);
+                // })  
 
+                // heroArray2.forEach((title,index) => {
+                //     CreateThead(title,index);
+                // })
+                // //印出來很多筆資料，如何變成只有一筆索引
+                
                 let titles = ["Name" ,"Description", "Photo"]
                 CreateThead(titles);
-                // CreateTbody(heroArray2);
+               
+                 // 雖然上面寫過了，還是要再寫一次...values 取內容，不然會錯
+                 heroArray.forEach(data => {
+                    let values = Object.values(data);
+                    heroArray2.push(values);
+                })
+                
+                 CreateTbody(heroArray2);
 
-                //應該是要用這個建立表格
-                heroArray2.forEach( x => {
-                    let li =document.createElement("li");
-                    li.innerText = x;
-                    ulContainer.append(li);                 
-                });  
-
+    
+                        
 
             });
         
@@ -2271,6 +2283,7 @@
                 
                 thead = document.createElement("thead");
                 table.append(thead);
+                thead.style.textAlign = "center";
                 
                         
                 let theadTR = document.createElement("tr");
@@ -2280,26 +2293,37 @@
                     theadTR.append(th);
                 });
                 thead.append(theadTR);
-                };
-        
-        
-                function CreateTbody(arrayData){         
-                    tbody = document.createElement("tbody");
+                
+            }
+            
+            
+            function CreateTbody(arrayData){         
+                tbody = document.createElement("tbody");
                     
                     arrayData.forEach(data => {
                         let tbodyTR = document.createElement("tr");
                         
                         data.forEach(columndata => {
                             let td = document.createElement("td");
-                            td.innerText = columndata;
+
+                            // 如果迭代出來的item中有包含"http"或"https"字串的話
+                            if (columndata.includes("http") || columndata.includes("https")) {
+                                let img = document.createElement("img");
+                                img.src = columndata;//圖片的src=columndata
+                                img.style.width = "60%";
+                                img.style.justifySelf = "center" //沒用;
+                                td.append(img);
+                            }
+                            else{
+                                td.innerText = columndata;
+                                td.style.textAlign = "center";
+                            }
                             tbodyTR.append(td);
                         })
                         tbody.append(tbodyTR);
-                    })            
-                    table.append(tbody);
-                };
-        
-        
+                    }) 
+                    table.append(tbody);           
+                };    
         
         }
 
