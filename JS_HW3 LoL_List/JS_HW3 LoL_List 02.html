@@ -2169,6 +2169,7 @@
         let container;
         let btnCreateHeroArray, btnListHero, btnTableHero;
         let table, thead, tbody;
+        let rolesData;
 
         window.onload = function () {
             container =  document.querySelector("#container");
@@ -2249,30 +2250,41 @@
                 }
                 
                 alert("以表格呈現英雄人物資料！");
+                let title = [];
+                heroArray.forEach(data => {                   
+                    //let keys = Object.keys(data);
+                    if(title.length == 0 ){
+                         title = Object.keys(data);
+                         let heroArray3 = [];
+                         heroArray3.push(title);
 
-                // heroArray.forEach(data => {
-                //     let keys = Object.keys(data);
-                //     heroArray2.push(keys);
-                // })  
-
-                // heroArray2.forEach((title,index) => {
-                //     CreateThead(title,index);
-                // })
-                // //印出來很多筆資料，如何變成只有一筆索引
+                         //title 用keys 取出索引，會是陣列
+                         //要再變成一個一個，可以在這裡迭代或是寫在方法裡
+                         heroArray3.forEach(x=>{
+                            CreateThead(x); 
+                            })
+                         };
+                                
+                })  
+                                                                                     
+                //此法不可
+                // for (let item in rolesData){
+                //     console.log(item)
+                // }
                 
-                let titles = ["Name" ,"Description", "Photo"]
-                CreateThead(titles);
+                //此法太硬幹
+                // let titles = ["Name" ,"Description", "Photo"]
+                // CreateThead(titles);
                
-                 // 雖然上面寫過了，還是要再寫一次...values 取內容，不然會錯
+                 
+                // 雖然上面寫過了，還是要再寫一次...values 取內容，不然會錯
                  heroArray.forEach(data => {
                     let values = Object.values(data);
                     heroArray2.push(values);
                 })
+                heroArray2.shift();
                 
-                 CreateTbody(heroArray2);
-
-    
-                        
+                CreateTbody(heroArray2);
 
             });
         
@@ -2287,17 +2299,27 @@
                 
                         
                 let theadTR = document.createElement("tr");
+                
+
+
                 titleArr.forEach((title, index) =>{
-                    let th = document.createElement("th");
-                    th.innerText = title;
-                    theadTR.append(th);
+                    console.log('title')
+                    console.log(title)
+                   //for(let i = 0 ; i <3 ; i ++){
+                        let th = document.createElement("th");
+                        th.innerText = title;
+                        theadTR.append(th);
+                   // }
+                    
                 });
                 thead.append(theadTR);
                 
             }
             
             
-            function CreateTbody(arrayData){         
+            function CreateTbody(arrayData){  
+                // console.log('arrayData:')
+                // console.log(arrayData)       
                 tbody = document.createElement("tbody");
                     
                     arrayData.forEach(data => {
