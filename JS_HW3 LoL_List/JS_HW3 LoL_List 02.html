@@ -2251,6 +2251,14 @@
                 
                 alert("以表格呈現英雄人物資料！");
                 document.querySelector("ul").innerHTML = "";
+                // document.querySelector("table").innerHTML = ""
+
+                // if( document.querySelector("table").innerHTML != null){
+                //     document.querySelector("table").innerHTML = "";
+                // }
+                // else{
+                
+                
                 
                 let title = [];
                 heroArray.forEach(data => {                   
@@ -2287,6 +2295,8 @@
                 heroArray2.shift();
                 
                 CreateTbody(heroArray2);
+
+                // }
 
             });
         
