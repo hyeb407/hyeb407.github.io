@@ -41,7 +41,7 @@
                 console.log("猜：加入監聽成功");
                 //按下去的同時，要有亂數謎底、判斷正確與否
                 getRandom();
-                console.log(judgeInputValue())
+                judgeInputValue()
                 input.value ="";
             })
           
@@ -61,7 +61,7 @@
                 //不能用 for 因為當作了四次，發現有重複的，部會放入陣列，但那個是就被略過，不會補新的亂數
                 //for(let i=0; i<4; i++){
                 while(answerArr.length !=4){
-                    let randonNum = Math.floor(Math.random()* (10-1) +1)
+                    let randonNum = Math.floor(Math.random()* (10-0) +0)
                     
                     if(!answerArr.includes(randonNum) ){
                     answerArr.push(randonNum)
@@ -78,13 +78,11 @@
                 
                 inputArr = inputStr.split('').map(x => parseInt(x));
                 console.log(`分割 + 轉型後:${inputArr}`)
-                
-                
+                               
                 //檢查是否為正常輸入值：沒有四個、不是文字
                 if(inputArr.length !=4 || inputStr !=parseInt(inputStr)){
                     alert("請檢查輸入的數字！！")
                 }
-
                 // 檢查輸入的數值是否重複
                 //Set 輸入重複地值，會被忽略，他是物件，要展開
                 inputArr = new Set(inputArr)
@@ -106,6 +104,7 @@
                 console.log(`a:${a}`)
                 console.log(`b:${b}`)
                 
+                //判斷成功
                 if( a==4 && b==0){
                     alert("破關成功！！！！！！！")
                 }
