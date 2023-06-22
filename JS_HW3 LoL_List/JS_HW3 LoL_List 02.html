@@ -2188,7 +2188,6 @@
                 // 不能這樣用 const roleDes = cards.querySelector(".card-text");
 
 
-
                 //我要把查詢到的資料放進陣列
                 //一堆 card 裡面，每張只有一個名字、描述
                 //所以要線索是 card，才能拿到想要的資料
@@ -2201,9 +2200,7 @@
                         Names: names,
                         Description: des,
                         Photo: pics
-
                     }
-
                     heroArray.push(rolesData)
                     // heroArray.push( { names, des } );
                 })
@@ -2221,6 +2218,9 @@
                     return;
                 }
                 alert("以文字迭代英雄人物資料！");
+                if(document.querySelector("#container")){
+                    document.querySelector("#container").innerHTML = "";
+                }
 
                 // container.innerHTML += heroArray.forEach(item=>{item.innerText})
 
@@ -2250,12 +2250,13 @@
                 }
                 alert("以表格呈現英雄人物資料！");
               
-                document.querySelector("ul").innerHTML = "";
-                if (document.querySelector("table")) {
+               
+                if (document.querySelector("table")|| document.querySelector("ul")) {
                    document.querySelector("table").innerHTML = "";
+                   document.querySelector("ul").innerHTML = "";
                 }              
                 
-                
+           
                 
                 let title = [];
                 heroArray.forEach(data => {
@@ -2265,13 +2266,12 @@
                             let heroArray3 = [];
                             heroArray3.push(title);
                             
-                            //title 用keys 取出索引，會是陣列
+                            //title 用 keys 取出索引，會是陣列
                             //要再變成一個一個，可以在這裡迭代或是寫在方法裡
                             heroArray3.forEach(x => {
                                 CreateThead(x);
                             })
-                        };
-                        
+                        };                     
                     })
                     
                     //此法不可
@@ -2293,10 +2293,7 @@
                     heroArray4.shift();
                     console.log(heroArray4)
                     CreateTbody(heroArray4);
-                    
-                    
-                    
-                });
+                 });
 
                 function CreateThead(titleArr) {
                     table = document.createElement("table");
@@ -2306,22 +2303,16 @@
                     thead = document.createElement("thead");
                     table.append(thead);
                     thead.style.textAlign = "center";
-                    
-                    
-                    
+                   
                     let theadTR = document.createElement("tr");
-                    
-                    
-                    
                     titleArr.forEach((title, index) => {
-                    console.log('title')
-                    console.log(title)
+                    // console.log('title')
+                    // console.log(title)
                     //for(let i = 0 ; i <3 ; i ++){
-                    let th = document.createElement("th");
-                    th.innerText = title;
-                    theadTR.append(th);
+                        let th = document.createElement("th");
+                        th.innerText = title;
+                        theadTR.append(th);
                     // }
-
                 });
                 thead.append(theadTR);
 
