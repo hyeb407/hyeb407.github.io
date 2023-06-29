@@ -73,7 +73,7 @@
         .col-lg-12{ width:100%;}
     }
 
-    @media screen and(min-width:1200px){
+    @media screen and (min-width:1200px){
         .col-xl-1{ width:8.333333%;}
         .col-xl-2{ width:16.66666%;}
         .col-xl-3{ width:25%;}
