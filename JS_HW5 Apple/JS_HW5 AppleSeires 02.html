@@ -248,7 +248,18 @@
     </div>
 
     <!-- 定義一個 Template  -->
-    <template id="cardBtn">
+    <template id="subContainer">
+        <div class="sub-container col-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="section-title">儲存空間</div>
+            <section class="list listTemp col-12 col-md-12 col-lg-12 col-xl-12">
+
+            </section>
+        </div>
+    </template>
+    
+    
+    
+    <template id="cardBtnColor">
         <div class="col-6 col-md-6 col-lg-6 col-xl-6">
             <div class="card colorBtn cardTemp" id="太空灰色">
                 <!-- <div class="circle circleTemp"></div> -->
@@ -257,7 +268,17 @@
             </div>
         </div>
     </template>
+
+    <template id="cardBtn">
+        <div class="col-6 col-md-6 col-lg-6 col-xl-6">                             
+            <div class="card cardTemp2" id="每個按鈕的ID">
+                <h5 class="BtnName NameTemp">公版文字<span></span></h5>   
+            </div>
+        </div>
+    </template>
+   
     
+
     
     <script type="module">
         import { $g } from './helpers.js';
@@ -266,7 +287,7 @@
         const url = "https://raw.githubusercontent.com/hyeb407/hyeb407.github.io/main/JS_HW5%20Apple/AppleSeries.json";
         //陣列結構，其實還是文字，要 parse 還原陣列或物件
         
-        let ipadArray = [];
+        let jsonParseArr = [];
         let colorFilterArr;
         let storageFilterArr;
         let networkFilterArr;
@@ -283,8 +304,16 @@
         let storageBtns = document.querySelectorAll(".storageBtn")
         let networkBtns = document.querySelectorAll(".networkBtn")
        
-        // row = $g('.row');
+
+        let subContainer  =$g("#subContainer")
+        let btnTemplateColor = $g('#cardBtnColor'); //定義的 Template id
         let btnTemplate = $g('#cardBtn'); //定義的 Template id
+        let colorID , btnID
+        let allColorBtns, allStorageBtns
+        let specAutoArr=[];
+        let ipadSpecArr = [];
+        let xhr = new XMLHttpRequest();
+        
    
         //二、加入監聽
             colorBtns.forEach( colorNode => {
@@ -321,84 +350,101 @@
 
 
         //三、方法
-        let xhr = new XMLHttpRequest();
         window.onload = function(){
             getIpadJson(url)
-
-            //把該有的元素生出來，使用 Template
-
-     
         }
+
+
 
         function getIpadJson(uriii) {
             xhr.onload = function () {
-                ipadArray = JSON.parse(this.responseText);
-                console.log(`ipadArray...`)
-                console.log(ipadArray);
-
-
-                let colorArr = [];
-                let colorAutoArr=[];
-                ipadArray.forEach(item => {
-                // console.log(item)
-                    if(! colorAutoArr.includes(item.color)){
-                        colorAutoArr.push(item.color)
-                        document.body.append(getCard(item.color))
-                    }
-                console.log(colorAutoArr)
-            })
-            
-            
-            
-
-
+                jsonParseArr = JSON.parse(this.responseText);
+  
+                autoColorBtn()
+                storageFilter()
+                networkFilter()
+                               
             };
             xhr.open("GET", uriii);
             xhr.send();
         }
+
+        function autoColorBtn(){
+            let ipadOutWarddArr=[];             
+            ipadOutWarddArr = jsonParseArr.IPad.OutWard;
+                //現在是陣列，所以要 forEach 取裡面的 color
+            //(5) [{…}, {…}, {…}, {…}, {…}]
+            // 0: {color: '太空灰色', colorValue: '#6e6969', imageUrl: './ApplePics/ipadColor/太空灰色.png'}
+            // 1: {color: '星光色', colorValue: '#b9aeae', imageUrl: './ApplePics/ipadColor/星光色.png'}
+            // 2: {color: '粉紅色', colorValue: '#ceb7a8', imageUrl: './ApplePics/ipadColor/粉紅色.png'}
+            // 3: {color: '紫色', colorValue: '#ceb7a8', imageUrl: './ApplePics/ipadColor/紫色.png'}
+            // 4: {color: '天藍色', colorValue: '#ceb7a8', imageUrl: './ApplePics/ipadColor/天藍色.png'}
         
-        function getCard(item){
+            //生成顏色按鈕
+            ipadOutWarddArr.forEach(item =>{
+                allColorBtns = colorBtnInfo(item.color ,item.pic)   //顏色 & 平板圖片   
+                            
+                // 使用 template 一定要 .content.cloneNode(true)
+                let colneSubContainer = subContainer.content.cloneNode(true)
+                let section = colneSubContainer.querySelector(".listTemp")
+                section.append(allColorBtns)   //顏色 & 平板圖片   
+                
+                //創造一個 row 放 colneSubContainer
+                let row = document.createElement("div");
+                row.classList.add("row")
+                row.append(colneSubContainer)
+                document.body.append(row)               
+            })   
+        }
+        
+        function colorBtnInfo(item,pic){
+            console.log(item) // 太空灰色、星光色、粉紅色、紫色、天藍色
+            console.log(pic) 
+
+
             // <div class="card colorBtn cardTemp" id="太空灰色">
             //     <img src="" class="circle circleTemp">
             //     <h5 class="colorBtnName colorNameTemp">太空灰</h5> 
 
-            let cloneCard = btnTemplate.content.cloneNode(true); //參數要帶 true 才會層層複製
-            cloneCard.querySelector(".cardTemp").id = item;
+            let cloneCard = btnTemplateColor.content.cloneNode(true); //參數要帶 true 才會層層複製
+            colorID= cloneCard.querySelector(".cardTemp").id = item;
+            console.log(colorID)
+         
+
             cloneCard.querySelector(".circleTemp").src = uri+item+'.png';
 
             cloneCard.querySelector(".colorNameTemp").innerText = item;
 
             cloneCard.querySelector(".cardTemp").addEventListener("click" , function(){
-                alert(121234543234);
+                alert(item);
+                // colorFilter(colorID)
+                //呼叫更圖片的方法...重新撰寫
+             
+                colorPic=getPic(pic)
+                // console.log(pic)
+                // console.log(colorPic)
+                picBox.innerHTML = colorPic;
             });
-
+            console.log(colorPic)
+            
+            
             return cloneCard;
             //製作好的卡片回覆給呼叫端
         }
 
-        function colorFilter(color) {          
-                console.log(color);
-                colorFilterArr = ipadArray.filter(ipad => ipad.color == color) 
 
-                colorFilterArr.forEach(ipad => {
-                    console.log(ipad); //直接是物件
-                    colorPic = getPic(ipad);
-                    
-                    // console.log(`colorPic...`)
-                    // console.log(colorPic);
-                });
-
-                picBox.innerHTML = colorPic;          
-        }
-        
-        function getPic(ipad) {
+        function getPic(pic) {
             // console.log(ipad)
-       
-                let imgUrl = `https://raw.githubusercontent.com/hyeb407/FileStorage-02/main/iPadAir%20pics/${ipad.picture}`;
+            console.log(pic)
+            
+            
+            // let imgUrl = `https://raw.githubusercontent.com/hyeb407/hyeb407.github.io/main/JS_HW5%20Apple/ApplePics/ipad/${ipad.picture}`;
+            let imgUrl = `https://raw.githubusercontent.com/hyeb407/hyeb407.github.io/main/JS_HW5%20Apple/ApplePics/ipad/${pic}`;
+            console.log(imgUrl)
 
             
             let pics = `
-                <img src="${imgUrl}" class="pic" alt="${ipad.id}"> `;
+                <img src="${imgUrl}" class="pic" alt=""> `;
 
             // let cardString = `
             // <div class="card" style="width: 18rem;">
@@ -411,25 +457,100 @@
             return pics;
         }
 
-
-        function storageFilter(storage) { 
-            storageFilterArr = colorFilterArr.filter(ipad => ipad.storage == storage)
-
-            console.log(`storageFilterArr...`)
-            console.log(storageFilterArr);
+        function storageFilter() { 
+            // storageFilterArr = colorFilterArr.filter(ipad => ipad.storage == storage)
+            
+            //取得 jsonParseArr 裡面的 IPad 裡面的 Spec 資料
+            
+            ipadSpecArr = jsonParseArr.IPad.Spec;
+            console.log(`ipadSpecArr...`)
+            console.log(ipadSpecArr);
+            
+            // let storageArr = ipadSpecArr.filter( storageItem => storageItem.storage == storage)
+            
+            
+            ipadSpecArr.forEach(item=>{
+                if(! specAutoArr.includes(item.storage)){
+                     specAutoArr.push(item.storage)
+                     console.log(specAutoArr)    
+                        
+                        allStorageBtns = getBtn(item.storage)   
+                        console.log(item.storage)             
+                        
+                        // 使用 template 一定要 .content.cloneNode(true)
+                        let colneSubContainer = subContainer.content.cloneNode(true)
+                        let section = colneSubContainer.querySelector(".listTemp")
+                        section.append(allStorageBtns)   
+                        
+                        //創造一個 row 放 colneSubContainer
+                        let row = document.createElement("div");
+                        row.classList.add("row")
+                        row.append(colneSubContainer)
+                        document.body.append(row)
+                    }
+            })
 
         };
 
-        function networkFilter(network) { 
+        function getBtn(item){
+            console.log(item) 
+            
+            // <template id="cardBtn">
+            //     <div class="col-6 col-md-6 col-lg-6 col-xl-6">                             
+            //         <div class="card cardTemp2" id="每個按鈕的ID">
+            //             <h5 class="BtnName NameTemp">公版文字<span></span></h5>   
+            //         </div>
+            //     </div>
+            // </template>
 
-            storageFilterArr.filter(ipad => ipad.network == network).forEach(item => {
-                console.log(item);    
+            let cloneBtn = btnTemplate.content.cloneNode(true); //參數要帶 true 才會層層複製
+            btnID = cloneBtn.querySelector(".cardTemp2").id = item;
+            console.log(btnID)
+            cloneBtn.querySelector(".NameTemp").innerText = item;
+            cloneBtn.querySelector(".cardTemp2").addEventListener("click" , function(){
+                console.log(`${item}加裝監聽成功`);
+                console.log(ipadSpecArr.filter(x=>x.item == item))
                 showPrice = item.price
                 console.log(showPrice); 
-            })
-            priceBox.innerText = `$ ${showPrice}`;
+            });
+           
+            return cloneBtn;
+            //製作好的卡片回覆給呼叫端
+        }
+
+        function networkFilter() { 
+
+            // storageFilterArr.filter(ipad => ipad.network == network).forEach(item => {
+            //     console.log(item);    
+            //     showPrice = item.price
+            //     console.log(showPrice); 
+            // })
+            // priceBox.innerText = `$ ${showPrice}`;
             
-            networkFilterArr = storageFilterArr.filter(ipad => ipad.network == network)
+            // networkFilterArr = storageFilterArr.filter(ipad => ipad.network == network)
+
+            ipadSpecArr.forEach(item=>{
+                if(! specAutoArr.includes(item.network)){
+                     specAutoArr.push(item.network)
+                     console.log(specAutoArr)    
+                        
+                        allStorageBtns = getBtn(item.network)   
+                        console.log(item.network)             
+                        
+                        // 使用 template 一定要 .content.cloneNode(true)
+                        let colneSubContainer = subContainer.content.cloneNode(true)
+                        let section = colneSubContainer.querySelector(".listTemp")
+                        section.append(allStorageBtns)   
+                        
+                        //創造一個 row 放 colneSubContainer
+                        let row = document.createElement("div");
+                        row.classList.add("row")
+                        row.append(colneSubContainer)
+                        document.body.append(row)
+
+                        
+                    }
+            })
 
         };
 
