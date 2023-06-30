@@ -31,8 +31,8 @@
 
         "OutWard":
             [{ "color": "太空灰色", "colorValue": "#6e6969", "imageUrl": "./ApplePics/ipadColor/太空灰色.png" },
-            { "color": "銀色", "colorValue": "#b9aeae", "imageUrl": "./ApplePics/ipadColor/銀色.png" },
-            { "color": "玫瑰金色", "colorValue": "#ceb7a8", "imageUrl": "./ApplePics/ipadColor/玫瑰金色.png" },
+            { "color": "星光色", "colorValue": "#b9aeae", "imageUrl": "./ApplePics/ipadColor/星光色.png" },
+            { "color": "粉紅色", "colorValue": "#ceb7a8", "imageUrl": "./ApplePics/ipadColor/粉紅色.png" },
             { "color": "紫色", "colorValue": "#ceb7a8", "imageUrl": "./ApplePics/ipadColor/紫色.png" },
             { "color": "天藍色", "colorValue": "#ceb7a8", "imageUrl": "./ApplePics/ipadColor/天藍色.png" }],
 
