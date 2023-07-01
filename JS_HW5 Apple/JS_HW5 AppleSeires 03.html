@@ -60,21 +60,7 @@
             border-radius: 30px;
             margin: auto; 
         }
-        .gray{
-            background-color: #ccc;
-        }
-        .silver{
-            background-color: aliceblue;
-        }
-        .rose{
-            background-color: rgb(228, 192, 188);
-        }
-        .purple{
-            background-color: rgb(177, 154, 205);
-        }
-        .blue{
-            background-color: rgb(153, 176, 196);
-        }
+       
         h5{
             margin-top: 20px;
         }
@@ -124,15 +110,15 @@
               </li> -->
 
               <li class="nav-item">
-                <a class="nav-link" href="#">iPhone</a>
+                <a class="nav-link" href="#" id="ipad">iPad</a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="#">iPad</a>
+                <a class="nav-link" href="#" id="iphone">iPhone</a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="#">Mac</a>
+                <a class="nav-link" href="#" id="mac">Mac</a>
               </li>
 
             </ul>
@@ -144,7 +130,7 @@
   
 
     <!-- 圖片+選項區塊 -->
-    <div class="container">
+    <div class="container main-container">
         <div class="row">
             <!-- 圖片區 -->
             <div class="col-12 col-md-6 col-lg-6 col-xl-6">
@@ -155,9 +141,14 @@
                 
             <!-- 顏色選項 -->
             <div class="sub-container col-12 col-md-6 col-lg-6 col-xl-6">
+                <section class="list col-12 col-md-12 col-lg-12 col-xl-12" id="styleBtnSection">
+                    <div class="section-title">機型。<span> 哪一款最適合你？</span></div>
+                      
+                </section>
+
                 <section class="list col-12 col-md-12 col-lg-12 col-xl-12" id="colorBtnSection">
                     <div class="section-title">外觀。<span>挑選喜愛的顏色。</span></div>
-                        <div class="col-6 col-md-6 col-lg-6 col-xl-6">
+                        <!-- <div class="col-6 col-md-6 col-lg-6 col-xl-6">
                             <div class="card colorBtn" id="太空灰色">
                                 <div class="circle gray"></div>
                                 <h5 class="colorBtnName">太空灰</h5>   
@@ -169,19 +160,17 @@
                                 <div class="circle silver"></div>
                                 <h5 class="colorBtnName">銀色</h5>               
                             </div>
-                        </div>                   
+                        </div>                    -->
                 </section>
             
-                    
-                
+   
                 <!-- 儲存裝置選項 -->
                 <section class="list col-12 col-md-12 col-lg-12 col-xl-12" id="storageBtnSection">          
                     <div class="section-title">儲存空間</div>
                          
                 </section>
                 
-                
-                
+ 
                 <!-- 連線能力 network 選項 -->
                 <section class="list col-12 col-md-12 col-lg-12 col-xl-12" id="networkBtnSection">            
                     <div class="section-title">連線能力</div>
@@ -216,10 +205,10 @@
    
     <template id="cardBtnColor">
         <div class="col-6 col-md-6 col-lg-6 col-xl-6">
-            <div class="card colorBtn cardTemp" id="太空灰色">
+            <div class="card colorBtn cardTemp" id="每個按鈕的ID">
                 <!-- <div class="circle circleTemp"></div> -->
                 <img src="" class="circle circleTemp">
-                <h5 class="colorBtnName colorNameTemp">太空灰</h5>   
+                <h5 class="colorBtnName colorNameTemp">公版文字</h5>   
             </div>
         </div>
     </template>
@@ -240,13 +229,14 @@
 
         // 一、宣告 + 取得 DOM
         const url = "https://raw.githubusercontent.com/hyeb407/hyeb407.github.io/main/JS_HW5%20Apple/AppleSeries.json";
+        
+        let uri = './ApplePics/ipadColor/'
+        //uri 是色票
+
+        let uri2 = './ApplePics/iphoneColor/'
        
         
         let jsonParseArr = [];
-
-        let uri = './ApplePics/ipadColor/'
-
-        // let xhr =new XMLHttpRequest();
         let colorPic;
         let showPrice;
               
@@ -254,7 +244,7 @@
         let priceBox = document.querySelector(".price-box");
         let pic = document.querySelector(".pic");
        
-
+        let mainContainer = $g(".main-container")
         let subContainer  =$g("#subContainer")
         let templateColorBtn = $g('#cardBtnColor'); //定義的 Template id
         let btnTemplate = $g('#cardBtn'); //定義的 Template id
@@ -262,33 +252,47 @@
         let allColorBtns, allStorageBtns
         let specAutoArr=[];
         let specAutoArr2=[];
-        let ipadSpecArr = [];
+        let ipadSpecArr = [] ,iphoneSpecArr=[], macSpecArr=[];
         let xhr = new XMLHttpRequest();
         let cloneBtn
         let filterArr,filterArr2
-   
-        //二、加入監聽
+        
+
+        //二、分頁監聽事件
+        let ipadPageBtn = $g("#ipad").addEventListener("click", function(){
+            alert(`加入監聽成功`)
+            mainContainer.innerHtml = "";
+            getColorBtn()
+            getStorageBtn() //放在這裡才收的到取回的 url(JSON資料在雲端)
+            getNetworkBtn()                              
+        })
+
+        let iphonePageBtn = $g("#iphone").addEventListener("click", function(){
+            alert(`加入監聽成功`)
+            mainContainer.innerHtml = "";
+            getIphoneColorBtn()
+            getSIphonetorageBtn()
+            getIphoneStyleBtn()
+        })
+
+        let macPageBtn = $g("#mac")
+        
 
 
         //三、方法
         window.onload = function(){
+            mainContainer.innerHtml = "";
             getIpadJson(url)
         }
 
-
-
         function getIpadJson(uriii) {
             xhr.onload = function () {
-                jsonParseArr = JSON.parse(this.responseText);
-  
-                getColorBtn()
-                getStorageBtn() //放在這裡才收的到取回的 url(JSON資料在雲端)
-                getNetworkBtn()
-                               
+                jsonParseArr = JSON.parse(this.responseText);        
             };
             xhr.open("GET", uriii);
             xhr.send();
         }
+
 
         function getColorBtn(){
             //取得資料
@@ -304,14 +308,14 @@
         
             //生成顏色按鈕的格線系統 (DOM 操作)
             ipadOutWarddArr.forEach(item =>{
-                allColorBtns = setColorBtnData(item.color ,item.pic)   //顏色 & 平板圖片                              
+                allColorBtns = setIpadColorBtnData(item.color ,item.pic)   //顏色 & 平板圖片                              
                 let colorBtnSection = document.querySelector("#colorBtnSection");
                 colorBtnSection.append(allColorBtns);
                 
             })      
         }
         
-        function setColorBtnData(item,pic){
+        function setIpadColorBtnData(item,pic){
             console.log(item) // 太空灰色、星光色、粉紅色、紫色、天藍色
             console.log(pic)  //太空灰色01.jpg
 
@@ -457,6 +461,219 @@
             return cloneBtn;
             //製作好的卡片回覆給呼叫端
         }
+
+
+        //iPhone
+        function getIphoneColorBtn(){
+            //取得資料
+            let iphoneOutWarddArr=[];             
+            iphoneOutWarddArr = jsonParseArr.IPhone.OutWard;
+                //現在是陣列，所以要 forEach 取裡面的 color
+        
+            //生成顏色按鈕的格線系統 (DOM 操作)
+            iphoneOutWarddArr.forEach(item =>{
+                allColorBtns = setIphoneColorBtnData(item.color ,item.pic)   //顏色 & 平板圖片                              
+                let colorBtnSection = document.querySelector("#colorBtnSection");
+                colorBtnSection.append(allColorBtns);
+                
+            })      
+        }
+
+        function setIphoneColorBtnData(item,pic){
+            console.log(item) // 太空灰色、星光色、粉紅色、紫色、天藍色
+            console.log(pic)  //太空灰色01.jpg
+
+            // <div class="card colorBtn cardTemp" id="太空灰色">
+            //     <img src="" class="circle circleTemp">
+            //     <h5 class="colorBtnName colorNameTemp">太空灰</h5> 
+
+            // 使用 template 一定要 .content.cloneNode(true)
+            cloneBtn = templateColorBtn.content.cloneNode(true); //參數要帶 true 才會層層複製
+            colorID= cloneBtn.querySelector(".cardTemp").id = item;
+            // console.log(colorID)       
+
+            cloneBtn.querySelector(".circleTemp").src = uri2+item+'.jpg'; //uri 路徑已在全域宣告
+            cloneBtn.querySelector(".colorNameTemp").innerText = item;
+            
+            cloneBtn.querySelector(".cardTemp").addEventListener("click" , function(){
+                    picBox.innerHTML = getIPhoneColorPic(pic);           
+            });
+
+            return cloneBtn;  //製作好的卡片回覆給呼叫端
+        }
+    
+        function getIPhoneColorPic(pic) {
+            console.log(pic) //太空灰色01.jpg
+            
+            let imgUrl = `https://raw.githubusercontent.com/hyeb407/hyeb407.github.io/main/JS_HW5%20Apple/ApplePics/iphone14/${pic}`;
+            let pics = `
+                <img src="${imgUrl}" class="pic" alt=""> `;
+
+            return pics;
+        }
+    
+        function getSIphonetorageBtn() { 
+            iphoneSpecArr = jsonParseArr.IPhone.Spec;
+        
+            //取得不重複的 storage 規格ˇ         
+            iphoneSpecArr.forEach(item=>{
+                if(! specAutoArr.includes(item.storage)){
+                     specAutoArr.push(item.storage)
+                     console.log(specAutoArr)                                          
+                    }
+            })
+                
+            //生成按鈕的格線系統 (DOM 操作) 
+            specAutoArr.forEach(item =>{
+                allStorageBtns = setBtnData(item)   //64GB , 256GB
+                    console.log(item)                                    
+                let storageBtnSection = document.querySelector("#storageBtnSection");
+                storageBtnSection.append(allStorageBtns);                                                    
+            })
+        };
+
+        function getIphoneStyleBtn() {        
+            //取得不重複的 network 規格ˇ         
+            iphoneSpecArr.forEach(item=>{
+                if(! specAutoArr2.includes(item.style) ){
+                     specAutoArr2.push(item.style)                               
+                    }
+                })
+                
+            //生成按鈕的格線系統 (DOM 操作)
+            specAutoArr2.forEach(item =>{
+                allStorageBtns = setBtnData(item)   
+                    console.log(item)                                    
+                let styleBtnSection = document.querySelector("#styleBtnSection");
+                styleBtnSection.append(allStorageBtns);              
+            })
+
+        };
+
+        function setIphoneBtnData(specValue){
+            console.log(specValue) //64G , 256G
+            
+            // <template id="cardBtn">
+            //     <div class="col-6 col-md-6 col-lg-6 col-xl-6">                             
+            //         <div class="card cardTemp2" id="每個按鈕的ID">
+            //             <h5 class="BtnName NameTemp">公版文字<span></span></h5>   
+            //         </div>
+            //     </div>
+            // </template>
+
+            let cloneBtn = btnTemplate.content.cloneNode(true); //參數要帶 true 才會層層複製
+            btnID = cloneBtn.querySelector(".cardTemp2").id = specValue;
+            console.log(btnID)
+            console.log(specValue)
+            cloneBtn.querySelector(".NameTemp").innerText = specValue;
+            
+            //掛入監聽事件，按下後過濾資料           
+            cloneBtn.querySelector(".cardTemp2").addEventListener("click" , function(){
+                console.log(`${specValue}加裝監聽成功`);           
+                
+                console.log(iphoneSpecArr.storage)             
+                
+                filterArr = iphoneSpecArr.filter(x=> x.storage==specValue)
+                console.log(filterArr)
+                
+                if(specValue == "Wi-Fi" || specValue == "Cellular"){
+                    filterArr2 = filterArr.filter(x=> x.network==specValue )
+                    console.log(filterArr2)
+                }
+   
+            });
+        }
+
+
+
+         //mac
+         function getIphoneColorBtn(){
+            //取得資料
+            let iphoneOutWarddArr=[];             
+            iphoneOutWarddArr = jsonParseArr.MacAir.OutWard;
+                //現在是陣列，所以要 forEach 取裡面的 color
+        
+            //生成顏色按鈕的格線系統 (DOM 操作)
+            iphoneOutWarddArr.forEach(item =>{
+                allColorBtns = setIphoneColorBtnData(item.color ,item.pic)   //顏色 & 平板圖片                              
+                let colorBtnSection = document.querySelector("#colorBtnSection");
+                colorBtnSection.append(allColorBtns);
+                
+            })      
+        }
+
+        function setIphoneColorBtnData(item,pic){
+            console.log(item) // 太空灰色、星光色、粉紅色、紫色、天藍色
+            console.log(pic)  //太空灰色01.jpg
+
+            // <div class="card colorBtn cardTemp" id="太空灰色">
+            //     <img src="" class="circle circleTemp">
+            //     <h5 class="colorBtnName colorNameTemp">太空灰</h5> 
+
+            // 使用 template 一定要 .content.cloneNode(true)
+            cloneBtn = templateColorBtn.content.cloneNode(true); //參數要帶 true 才會層層複製
+            colorID= cloneBtn.querySelector(".cardTemp").id = item;
+            // console.log(colorID)       
+
+            cloneBtn.querySelector(".circleTemp").src = uri2+item+'.jpg'; //uri 路徑已在全域宣告
+            cloneBtn.querySelector(".colorNameTemp").innerText = item;
+            
+            cloneBtn.querySelector(".cardTemp").addEventListener("click" , function(){
+                    picBox.innerHTML = getIPhoneColorPic(pic);           
+            });
+
+            return cloneBtn;  //製作好的卡片回覆給呼叫端
+        }
+    
+        function getIPhoneColorPic(pic) {
+            console.log(pic) //太空灰色01.jpg
+            
+            let imgUrl = `https://raw.githubusercontent.com/hyeb407/hyeb407.github.io/main/JS_HW5%20Apple/ApplePics/iphone14/${pic}`;
+            let pics = `
+                <img src="${imgUrl}" class="pic" alt=""> `;
+
+            return pics;
+        }
+    
+        function getSIphonetorageBtn() { 
+            iphoneSpecArr = jsonParseArr.IPhone.Spec;
+        
+            //取得不重複的 storage 規格ˇ         
+            iphoneSpecArr.forEach(item=>{
+                if(! specAutoArr.includes(item.storage)){
+                     specAutoArr.push(item.storage)
+                     console.log(specAutoArr)                                          
+                    }
+            })
+                
+            //生成按鈕的格線系統 (DOM 操作) 
+            specAutoArr.forEach(item =>{
+                allStorageBtns = setBtnData(item)   //64GB , 256GB
+                    console.log(item)                                    
+                let storageBtnSection = document.querySelector("#storageBtnSection");
+                storageBtnSection.append(allStorageBtns);                                                    
+            })
+        };
+
+        function getIphoneStyleBtn() {        
+            //取得不重複的 network 規格ˇ         
+            iphoneSpecArr.forEach(item=>{
+                if(! specAutoArr2.includes(item.style) ){
+                     specAutoArr2.push(item.style)                               
+                    }
+                })
+                
+            //生成按鈕的格線系統 (DOM 操作)
+            specAutoArr2.forEach(item =>{
+                allStorageBtns = setBtnData(item)   
+                    console.log(item)                                    
+                let styleBtnSection = document.querySelector("#styleBtnSection");
+                styleBtnSection.append(allStorageBtns);              
+            })
+
+        };
+
+        function setIphoneBtnData(specValue){
 
     
     </script>
