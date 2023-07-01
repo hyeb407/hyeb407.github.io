@@ -6,12 +6,12 @@
         },
       
         "OutWard": 
-            [{ "color": "藍色", "colorValue": "#ff0000", "imageUrl": "./ApplePics/iphoneColor/藍色.jpg" },
-            { "color": "紫色", "colorValue": "#ffff00", "imageUrl": "./ApplePics/iphoneColor/紫色.jpg" },
-            { "color": "黃色", "colorValue": "#000000", "imageUrl": "./ApplePics/iphoneColor/黃色.jpg" },
-            { "color": "午夜色", "colorValue": "#000000", "imageUrl": "./ApplePics/iphoneColor/午夜色.jpg" },
-            { "color": "星光色", "colorValue": "#000000", "imageUrl": "./ApplePics/iphoneColor/星光色.jpg" },
-            { "color": "紅色", "colorValue": "#000000", "imageUrl": "./ApplePics/iphoneColor/紅色.jpg" }],
+            [{ "color": "藍色", "colorValue": "#ff0000", "imageUrl": "./ApplePics/iphoneColor/藍色.jpg","pic":"藍色01.jpg" },
+            { "color": "紫色", "colorValue": "#ffff00", "imageUrl": "./ApplePics/iphoneColor/紫色.jpg" ,"pic":"紫色01.jpg" },
+            { "color": "黃色", "colorValue": "#000000", "imageUrl": "./ApplePics/iphoneColor/黃色.jpg" ,"pic":"黃色01.jpg"},
+            { "color": "午夜色", "colorValue": "#000000", "imageUrl": "./ApplePics/iphoneColor/午夜色.jpg" ,"pic":"午夜色01.jpg"},
+            { "color": "星光色", "colorValue": "#000000", "imageUrl": "./ApplePics/iphoneColor/星光色.jpg" ,"pic":"星光色01.jpg"},
+            { "color": "紅色", "colorValue": "#000000", "imageUrl": "./ApplePics/iphoneColor/紅色.jpg","pic":"紅色01.jpg" }],
       
         "Spec":            
             [{ "style":"14", "storage": "128GB", "price": 27900 },
@@ -51,10 +51,10 @@
         },
 
         "OutWard": 
-            [{ "color": "午夜色", "colorValue": "#6e6969", "imageUrl": "./ApplePics/macColor/午夜色.jpg" },
-             { "color": "星光色", "colorValue": "#6e6969", "imageUrl": "./ApplePics/macColor/星光色.jpg" },
-             { "color": "太空灰色", "colorValue": "#6e6969", "imageUrl": "./ApplePics/macColor/太空灰色.jpg" },
-             { "color": "銀色", "colorValue": "#b9aeae", "imageUrl": "./ApplePics/macColor/銀色.jpg" }],
+            [{ "color": "午夜色", "colorValue": "#6e6969", "imageUrl": "./ApplePics/macColor/午夜色.jpg" ,"pic":"午夜色01.jpg"},
+             { "color": "星光色", "colorValue": "#6e6969", "imageUrl": "./ApplePics/macColor/星光色.jpg" ,"pic":"星光色01.jpg"},
+             { "color": "太空灰色", "colorValue": "#6e6969", "imageUrl": "./ApplePics/macColor/太空灰色.jpg" ,"pic":"太空灰色01.jpg"},
+             { "color": "銀色", "colorValue": "#b9aeae", "imageUrl": "./ApplePics/macColor/銀色.jpg" ,"pic":"銀色01.jpg"}],
         
         "Spec": 
             [{ "Ram": "8GB", "storage": "256GB", "price": 35900 , "power":"30W USB-C 電源轉接器"},

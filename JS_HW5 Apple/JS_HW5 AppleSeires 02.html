@@ -380,7 +380,7 @@
             // 3: {color: '紫色', colorValue: '#ceb7a8', imageUrl: './ApplePics/ipadColor/紫色.png'}
             // 4: {color: '天藍色', colorValue: '#ceb7a8', imageUrl: './ApplePics/ipadColor/天藍色.png'}
         
-            //生成顏色按鈕
+            //生成顏色按鈕的格線系統 (DOM 操作)
             ipadOutWarddArr.forEach(item =>{
                 allColorBtns = colorBtnInfo(item.color ,item.pic)   //顏色 & 平板圖片   
                             
@@ -392,9 +392,11 @@
                 //創造一個 row 放 colneSubContainer
                 let row = document.createElement("div");
                 row.classList.add("row")
+                let container = document.createElement("div");
+                container.classList.add("container")
                 row.append(colneSubContainer)
                 document.body.append(row)               
-            })   
+            })      
         }
         
         function colorBtnInfo(item,pic){
@@ -412,9 +414,7 @@
          
 
             cloneCard.querySelector(".circleTemp").src = uri+item+'.png';
-
             cloneCard.querySelector(".colorNameTemp").innerText = item;
-
             cloneCard.querySelector(".cardTemp").addEventListener("click" , function(){
                 alert(item);
                 // colorFilter(colorID)
