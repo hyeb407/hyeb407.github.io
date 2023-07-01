@@ -191,6 +191,13 @@
                             </div>
                         </div> -->
                 </section>
+
+
+                <!-- 充電裝置 power 選項 -->
+                <section class="list col-12 col-md-12 col-lg-12 col-xl-12" id="powerBtnSection">            
+                    <div class="section-title">充電裝置</div>
+                      
+                </section>
                                      
                 <!-- 價格試算 -->
                 <section class="list col-12 col-md-12 col-lg-12 col-xl-12">
@@ -249,49 +256,115 @@
         let priceBox = document.querySelector(".price-box");
         let pic = document.querySelector(".pic");
        
-        let mainContainer = $g(".main-container")
+        let sectionTitle = $g(".section-title")
         let subContainer  =$g("#subContainer")
+        let cardTemp =$g(".cardTemp")
+        let cardTemp2 =$g(".cardTemp2")
+
+
         let templateColorBtn = $g('#cardBtnColor'); //定義的 Template id
         let btnTemplate = $g('#cardBtn'); //定義的 Template id
         let colorID , btnID
         let allColorBtns, allStorageBtns
         let specAutoArr=[];
         let specAutoArr2=[];
+        let specAutoArr3=[];
         let ipadSpecArr = [] ,iphoneSpecArr=[], macSpecArr=[];
         let xhr = new XMLHttpRequest();
         let cloneBtn
         let filterArr,filterArr2
+        let storageFilterArr, networkFilterArr, styleFilterArr, ramFilterArr, powerFilterArr
         
 
         //二、分頁監聽事件
         let ipadPageBtn = $g("#ipad").addEventListener("click", function(){
-            alert(`加入監聽成功`)
-            mainContainer.innerHtml = "";
-            getColorBtn()
-            getStorageBtn() //放在這裡才收的到取回的 url(JSON資料在雲端)
-            getNetworkBtn()                              
+            sectionTitle.innerHtml = "";
+            getColorBtn();
+            
+            getStorageBtn(); //放在這裡才收的到取回的 url(JSON資料在雲端)
+            document.querySelectorAll(".cardTemp2").forEach( storageNode => {
+                    let storageId = storageNode.getAttribute("id");
+
+                    storageNode.addEventListener("click" , function(event){
+                        ipadStorageFilter(storageId)
+                    })                
+            })
+
+            getNetworkBtn();
+            document.querySelectorAll(".cardTemp2").forEach( networkNode => {
+                    let networkId = networkNode.getAttribute("id");
+
+                    networkNode.addEventListener("click" , function(event){
+                        ipadNetworkFilter(networkId)
+                    })                
+            })               
         })
 
         let iphonePageBtn = $g("#iphone").addEventListener("click", function(){
-            alert(`加入監聽成功`)
-            mainContainer.innerHtml = "";
-            getIphoneColorBtn()
-            getSIphoneStorageBtn()
-            getIphoneStyleBtn()
+            sectionTitle.innerHtml = "";
+            // cardTemp.innerHtml = "";
+            // cardTemp2.innerHtml = "";
+            getIphoneColorBtn();
+
+            getIphoneStyleBtn();
+            document.querySelectorAll(".cardTemp2").forEach( Node => {
+                    let styleId = Node.getAttribute("id");
+
+                    Node.addEventListener("click" , function(event){
+                        iphoneStyleFilter(styleId)
+                    })                
+            });
+
+            getSIphoneStorageBtn();
+            document.querySelectorAll(".cardTemp2").forEach( Node => {
+                    let storageId = Node.getAttribute("id");
+
+                    Node.addEventListener("click" , function(event){
+                        iphoneStorageFilter(storageId)
+                    })                
+            })
         })
 
         let macPageBtn = $g("#mac").addEventListener("click", function(){
+            sectionTitle.innerHtml = "";    
             getMacColorBtn();
             getMacRamBtn();
+            document.querySelectorAll(".cardTemp2").forEach( Node => {
+                    let ramId = Node.getAttribute("id");
+
+                    Node.addEventListener("click" , function(event){
+                        macRamFilter(ramId)
+                    })                
+            });
+
             getMacStorageBtn();
-        })
+            document.querySelectorAll(".cardTemp2").forEach( Node => {
+                    let storageId = Node.getAttribute("id");
+
+                    Node.addEventListener("click" , function(event){
+                        macStorageFilter(storageId)
+                    })        
+            });
+
+            getMacPowerBtn();
+            document.querySelectorAll(".cardTemp2").forEach( Node => {
+                    let powerId = Node.getAttribute("id");
+
+                    Node.addEventListener("click" , function(event){
+                        macPowerFilter(powerId)
+                    })        
+            });
+        });
+
+       
         
 
 
         //三、方法
         window.onload = function(){
-            mainContainer.innerHtml = "";
-            getIpadJson(url)
+            getIpadJson(url) 
+            sectionTitle.innerHtml = "";
+        
         }
 
         function getIpadJson(uriii) {
@@ -303,6 +376,7 @@
         }
 
 
+        //iPad
         function getColorBtn(){
             //取得資料
             let ipadOutWarddArr=[];             
@@ -356,7 +430,6 @@
 
             return pics;
         }
-
 
         
         function getStorageBtn() { 
@@ -443,33 +516,55 @@
             cloneBtn.querySelector(".NameTemp").innerText = specValue;
             
             //掛入監聽事件，按下後過濾資料           
-            cloneBtn.querySelector(".cardTemp2").addEventListener("click" , function(){
-                console.log(`${specValue}加裝監聽成功`);           
-                // let refIdx = ipadSpecArr.map(x => Object.keys(x)) [0]; //map 出來的第 0 筆索引值 (本來會有3筆)
-                // refIdx = ipadSpecArr.map(x => Object.values(x)) 
-                // console.log(refIdx) 
-                // refIdx.forEach(x=>{
-                //     console.log(x);
-                console.log(ipadSpecArr.storage)             
+            // cloneBtn.querySelector(".cardTemp2").addEventListener("click" , function(){
+            //     console.log(`${specValue}加裝監聽成功`);           
+            //     // let refIdx = ipadSpecArr.map(x => Object.keys(x)) [0]; //map 出來的第 0 筆索引值 (本來會有3筆)
+            //     // refIdx = ipadSpecArr.map(x => Object.values(x)) 
+            //     // console.log(refIdx) 
+            //     // refIdx.forEach(x=>{
+            //     //     console.log(x);
+            //     console.log(ipadSpecArr.storage)             
                 
-                filterArr = ipadSpecArr.filter(x=> x.storage==specValue)
-                console.log(filterArr)
+            //     filterArr = ipadSpecArr.filter(x=> x.storage==specValue)
+            //     console.log(filterArr)
                 
-                if(specValue == "Wi-Fi" || specValue == "Cellular"){
-                    filterArr2 = filterArr.filter(x=> x.network==specValue )
-                    console.log(filterArr2)
-                }
+            //     if(specValue == "Wi-Fi" || specValue == "Cellular"){
+            //         filterArr2 = filterArr.filter(x=> x.network==specValue )
+            //         console.log(filterArr2)
+            //     }
              
                 // filterArr.forEach(data => {
                 //     showPrice = data.price
                 //     console.log(showPrice); 
                 // });
 
-            });           
+            //});           
 
             return cloneBtn;
             //製作好的卡片回覆給呼叫端
         }
+
+        function ipadStorageFilter(storage) { 
+                storageFilterArr = ipadSpecArr.filter(spec => spec.storage == storage)
+                console.log(`storageFilterArr...`)
+                console.log(storageFilterArr);
+        };
+
+        function ipadNetworkFilter(network) { 
+                networkFilterArr = storageFilterArr.filter(spec => spec.network == network)
+                console.log(`networkFilterArr...`)
+                console.log(networkFilterArr);
+
+                networkFilterArr.forEach(item =>{
+                    console.log(item)
+                    showPrice = item.price
+                    console.log(showPrice); 
+                })            
+                priceBox.innerText = `$ ${showPrice}`;  
+        };
+
+
+
 
 
         //iPhone
@@ -541,8 +636,7 @@
             })
         };
 
-        function getIphoneStyleBtn() {        
-            //取得不重複的 network 規格ˇ         
+        function getIphoneStyleBtn() {               
             iphoneSpecArr.forEach(item=>{
                 if(! specAutoArr2.includes(item.style) ){
                      specAutoArr2.push(item.style)                               
@@ -576,22 +670,25 @@
             console.log(specValue)
             cloneBtn.querySelector(".NameTemp").innerText = specValue;
             
-            //掛入監聽事件，按下後過濾資料           
-            cloneBtn.querySelector(".cardTemp2").addEventListener("click" , function(){
-                console.log(`${specValue}加裝監聽成功`);           
-                
-                console.log(iphoneSpecArr.storage)             
-                
-                filterArr = iphoneSpecArr.filter(x=> x.storage==specValue)
-                console.log(filterArr)
-                
-                if(specValue == "Wi-Fi" || specValue == "Cellular"){
-                    filterArr2 = filterArr.filter(x=> x.network==specValue )
-                    console.log(filterArr2)
-                }
-   
-            });
         }
+
+        function iphoneStyleFilter(style) { 
+                styleFilterArr = iphoneSpecArr.filter(spec => spec.style == style)
+                console.log(`styleFilterArr...`)
+                console.log(styleFilterArr);
+        };
+
+        function iphoneStorageFilter(storage) { 
+                storageFilterArr = styleFilterArr.filter(spec => spec.storage == storage)
+                console.log(`storageFilterArr...`)
+                console.log(storageFilterArr);
+
+                storageFilterArr.forEach(item =>{
+                    showPrice = item.price
+                    console.log(showPrice); 
+                })            
+                priceBox.innerText = `$ ${showPrice}`; 
+        };
 
 
 
@@ -643,10 +740,25 @@
 
             return pics;
         }
-    
-        function getMacStorageBtn() { 
-            macSpecArr = jsonParseArr.MacAir.Spec;
         
+        function getMacRamBtn() {        
+            macSpecArr = jsonParseArr.MacAir.Spec;
+            macSpecArr.forEach(item=>{
+                if(! specAutoArr2.includes(item.ram) ){
+                     specAutoArr2.push(item.ram)                               
+                    }
+                })
+                
+            //生成按鈕的格線系統 (DOM 操作)
+            specAutoArr2.forEach(item =>{
+                allStorageBtns = setBtnData(item)   
+                    console.log(item)                                    
+                let ramBtnSection = document.querySelector("#ramBtnSection");
+                ramBtnSection.append(allStorageBtns);              
+            })
+        };
+
+        function getMacStorageBtn() {    
             //取得不重複的 storage 規格ˇ         
             macSpecArr.forEach(item=>{
                 if(! specAutoArr.includes(item.storage)){
@@ -664,22 +776,23 @@
             })
         };
 
-        function getMacRamBtn() {        
-            //取得不重複的 network 規格ˇ         
+        function getMacPowerBtn() {    
+            //取得不重複的 storage 規格ˇ         
             macSpecArr.forEach(item=>{
-                if(! specAutoArr2.includes(item.ram) ){
-                     specAutoArr2.push(item.ram)                               
+                if(! specAutoArr3.includes(item.power)){
+                     specAutoArr3.push(item.power)
+                     console.log(specAutoArr3)                                          
                     }
-                })
-                
-            //生成按鈕的格線系統 (DOM 操作)
-            specAutoArr2.forEach(item =>{
-                allStorageBtns = setBtnData(item)   
-                    console.log(item)                                    
-                let ramBtnSection = document.querySelector("#ramBtnSection");
-                ramBtnSection.append(allStorageBtns);              
             })
-        };
+                
+            //生成按鈕的格線系統 (DOM 操作) 
+            specAutoArr3.forEach(item =>{
+                allStorageBtns = setBtnData(item)   //64GB , 256GB
+                    console.log(item)                                    
+                let powerBtnSection = document.querySelector("#powerBtnSection");
+                powerBtnSection.append(allStorageBtns);                                                    
+            })
+        };   
 
         function setMacBtnData(specValue){
             console.log(specValue) //64G , 256G
@@ -710,11 +823,34 @@
                 if(specValue == "Wi-Fi" || specValue == "Cellular"){
                     filterArr2 = filterArr.filter(x=> x.storage==specValue )
                     console.log(filterArr2)
-                }
-   
-            });
-        }
+                }  
+            })
+        };
 
+        function macRamFilter(ram) { 
+                ramFilterArr = macSpecArr.filter(spec => spec.ram == ram)
+                console.log(`ramFilterArr...`)
+                console.log(ramFilterArr);
+        };
+
+        function macStorageFilter(storage) { 
+                storageFilterArr = ramFilterArr.filter(spec => spec.storage == storage)
+                console.log(`storageFilterArr...`)
+                console.log(storageFilterArr);
+        };
+
+        function macPowerFilter(power) { 
+                powerFilterArr = storageFilterArr.filter(spec => spec.power == power)
+                console.log(`powerFilterArr...`)
+                console.log(powerFilterArr);
+                
+                powerFilterArr.forEach(item =>{
+                    showPrice = item.price
+                })
+              
+                console.log(showPrice); 
+                priceBox.innerText = `$ ${showPrice}`;        
+        };
         
 
     
