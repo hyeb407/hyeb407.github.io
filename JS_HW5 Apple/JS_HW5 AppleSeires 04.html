@@ -268,7 +268,9 @@
         let specAutoArr=[];
         let specAutoArr2=[];
         let specAutoArr3=[];
-        let ipadSpecArr = [] ,iphoneSpecArr=[], macSpecArr=[];
+        let ipadSpecArr = []
+        let iphoneSpecArr=[]; 
+        let macSpecArr=[];
         let xhr = new XMLHttpRequest();
         let cloneBtn
         let filterArr,filterArr2
@@ -277,57 +279,58 @@
 
         //二、分頁監聽事件
         let ipadPageBtn = $g("#iPad")
+        let ipadBtnId
         ipadPageBtn.addEventListener("click", function(){
-            sectionTitle.innerHtml = "";
-            
-            let ipadBtnId = ipadPageBtn.getAttribute("id");        
+            sectionTitle.innerHtml = "";            
+            ipadBtnId = ipadPageBtn.getAttribute("id");        
             picBox.innerHTML = setBaseImg(ipadBtnId);
             
             getColorBtn();
             
-            getStorageBtn(); //放在這裡才收的到取回的 url(JSON資料在雲端)
+            ipadSpecArr = jsonParseArr.IPad.Spec
+            getStorageBtn(ipadSpecArr); //放在這裡才收的到取回的 url(JSON資料在雲端)
             document.querySelectorAll(".cardTemp2").forEach( storageNode => {
                     let storageId = storageNode.getAttribute("id");
-
                     storageNode.addEventListener("click" , function(event){
-                        ipadStorageFilter(storageId)
+                        ipadStorageFilter(ipadSpecArr, storageId)
                     })                
             })
 
-            getNetworkBtn();
+            getNetworkBtn(ipadSpecArr);
             document.querySelectorAll(".cardTemp2").forEach( networkNode => {
                     let networkId = networkNode.getAttribute("id");
-
                     networkNode.addEventListener("click" , function(event){
                         ipadNetworkFilter(networkId)
                     })                
             })               
         })
 
+        
         let iphonePageBtn = $g("#iPhone")
+        let iphoneBtnId
         iphonePageBtn.addEventListener("click", function(){
             sectionTitle.innerHtml = "";
             // cardTemp.innerHtml = "";
             // cardTemp2.innerHtml = "";
-
-            let iphoneBtnId = iphonePageBtn.getAttribute("id");        
+            
+            iphoneBtnId = iphonePageBtn.getAttribute("id");        
             picBox.innerHTML = setBaseImg(iphoneBtnId);
+
+            getIphoneStyleBtn();          
+            document.querySelectorAll(".cardTemp2").forEach( Node => {
+                let styleId = Node.getAttribute("id");
+                Node.addEventListener("click" , function(event){
+                    iphoneStyleFilter(styleId)
+                })                
+            });
 
             getIphoneColorBtn();
 
-            getIphoneStyleBtn();
-            document.querySelectorAll(".cardTemp2").forEach( Node => {
-                    let styleId = Node.getAttribute("id");
-
-                    Node.addEventListener("click" , function(event){
-                        iphoneStyleFilter(styleId)
-                    })                
-            });
-
-            getSIphoneStorageBtn();
+            iphoneSpecArr = jsonParseArr.IPhone.Spec
+            getStorageBtn(iphoneSpecArr)
+            // getSIphoneStorageBtn();
             document.querySelectorAll(".cardTemp2").forEach( Node => {
                     let storageId = Node.getAttribute("id");
-
                     Node.addEventListener("click" , function(event){
                         iphoneStorageFilter(storageId)
                     })                
@@ -335,26 +338,26 @@
         })
 
         let macPageBtn = $g("#MacAir")
+        let macAirBtnId
         macPageBtn.addEventListener("click", function(){
             sectionTitle.innerHtml = "";    
 
-            let macAirBtnId = macPageBtn.getAttribute("id");        
+            macAirBtnId = macPageBtn.getAttribute("id");        
             picBox.innerHTML = setBaseImg(macAirBtnId);
 
             getMacColorBtn();
+
             getMacRamBtn();
             document.querySelectorAll(".cardTemp2").forEach( Node => {
                     let ramId = Node.getAttribute("id");
-
                     Node.addEventListener("click" , function(event){
                         macRamFilter(ramId)
                     })                
             });
 
-            getMacStorageBtn();
+            getStorageBtn(jsonParseArr.MacAir.Spec)
             document.querySelectorAll(".cardTemp2").forEach( Node => {
                     let storageId = Node.getAttribute("id");
-
                     Node.addEventListener("click" , function(event){
                         macStorageFilter(storageId)
                     })        
@@ -363,7 +366,8 @@
             getMacPowerBtn();
             document.querySelectorAll(".cardTemp2").forEach( Node => {
                     let powerId = Node.getAttribute("id");
-
+                    console.log(Node) 
+                    //其實面包含 ram、storage、power 的監聽，但前面都已經掛監聽，所以剩下的才能被掛上最後的監聽
                     Node.addEventListener("click" , function(event){
                         macPowerFilter(powerId)
                     })        
@@ -393,22 +397,24 @@
         function setBaseImg(id) {
             console.log(id) //太空灰色01.jpg
             
-            let imgUrl_01 = `https://raw.githubusercontent.com/hyeb407/hyeb407.github.io/main/JS_HW5%20Apple/ApplePics02/${id}/baseImgUrl01.jpg`;
-            let imgUrl_02 = `https://raw.githubusercontent.com/hyeb407/hyeb407.github.io/main/JS_HW5%20Apple/ApplePics02/${id}/baseImgUr02.jpg`;
-            let imgUrl_03 = `https://raw.githubusercontent.com/hyeb407/hyeb407.github.io/main/JS_HW5%20Apple/ApplePics02/${id}/baseImgUr03.jpg`;
+            // let imgUrl_01 = `https://raw.githubusercontent.com/hyeb407/hyeb407.github.io/main/JS_HW5%20Apple/ApplePics02/${id}/baseImgUrl01.jpg`;
+            // let imgUrl_02 = `https://raw.githubusercontent.com/hyeb407/hyeb407.github.io/main/JS_HW5%20Apple/ApplePics02/${id}/baseImgUr02.jpg`;
+            // let imgUrl_03 = `https://raw.githubusercontent.com/hyeb407/hyeb407.github.io/main/JS_HW5%20Apple/ApplePics02/${id}/baseImgUr03.jpg`;
+            let imgUrl_04 = `./ApplePics02/${id}/baseImgUrl01.jpg`;
+            let imgUrl_05 = `./ApplePics02/${id}/baseImgUrl02.jpg`;
+            // let imgUrl_06 = `./ApplePics02/${id}/baseImgUrl03.jpg`;
+            
            
             let html = `
                 <div id="carouselExample" class="carousel slide main-pic">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                        <img src="${imgUrl_01}" class="d-block w-100" alt="...">
+                        <img src="${imgUrl_04}" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                        <img src="${imgUrl_02}" class="d-block w-100" alt="...">
+                        <img src="${imgUrl_05}" class="d-block w-100" alt="...">
                         </div>
-                        <div class="carousel-item">
-                        <img src="${imgUrl_03}" class="d-block w-100" alt="...">
-                        </div>
+                        
                         
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -482,11 +488,15 @@
         }
 
         
-        function getStorageBtn() { 
-            ipadSpecArr = jsonParseArr.IPad.Spec;
+        function getStorageBtn(allSpecArr) { 
+            console.log(`getStorageBtn的allSpecArr..................`);
+            console.log(allSpecArr);
+            // ipadSpecArr = jsonParseArr.IPad.Spec;
+            // ipadSpecArr = jsonParseArr.IPad.Spec;
+            // console.log(ipadSpecArr)
         
             //取得不重複的 storage 規格ˇ         
-            ipadSpecArr.forEach(item=>{
+            allSpecArr.forEach(item=>{
                 if(! specAutoArr.includes(item.storage)){
                      specAutoArr.push(item.storage)
                      console.log(specAutoArr)                                          
@@ -513,13 +523,13 @@
             // })
         };
                
-        function getNetworkBtn() { 
+        function getNetworkBtn(allSpecArr) { 
             // ipadSpecArr = jsonParseArr.IPad.Spec;
             console.log(`ipadSpecArr...`)
             console.log(ipadSpecArr);
         
             //取得不重複的 network 規格ˇ         
-            ipadSpecArr.forEach(item=>{
+            allSpecArr.forEach(item=>{
                 console.log(item)
                 if(! specAutoArr2.includes(item.network) ){
                      specAutoArr2.push(item.network)
@@ -594,8 +604,8 @@
             //製作好的卡片回覆給呼叫端
         }
 
-        function ipadStorageFilter(storage) { 
-                storageFilterArr = ipadSpecArr.filter(spec => spec.storage == storage)
+        function ipadStorageFilter(allSpecArr, storage) { 
+                storageFilterArr = allSpecArr.filter(spec => spec.storage == storage)
                 console.log(`storageFilterArr...`)
                 console.log(storageFilterArr);
         };
@@ -646,7 +656,7 @@
             colorID= cloneBtn.querySelector(".cardTemp").id = item;
             // console.log(colorID)       
 
-            cloneBtn.querySelector(".circleTemp").src = uri2+item+'.jpg'; //uri 路徑已在全域宣告
+            cloneBtn.querySelector(".circleTemp").src = uri2 +item+'.jpg'; //uri 路徑已在全域宣告
             cloneBtn.querySelector(".colorNameTemp").innerText = item;
             
             cloneBtn.querySelector(".cardTemp").addEventListener("click" , function(){
@@ -665,26 +675,6 @@
 
             return pics;
         }
-    
-        function getSIphoneStorageBtn() { 
-            iphoneSpecArr = jsonParseArr.IPhone.Spec;
-        
-            //取得不重複的 storage 規格ˇ         
-            iphoneSpecArr.forEach(item=>{
-                if(! specAutoArr.includes(item.storage)){
-                     specAutoArr.push(item.storage)
-                     console.log(specAutoArr)                                          
-                    }
-            })
-                
-            //生成按鈕的格線系統 (DOM 操作) 
-            specAutoArr.forEach(item =>{
-                allStorageBtns = setBtnData(item)   //64GB , 256GB
-                    console.log(item)                                    
-                let storageBtnSection = document.querySelector("#storageBtnSection");
-                storageBtnSection.append(allStorageBtns);                                                    
-            })
-        };
 
         function getIphoneStyleBtn() {               
             iphoneSpecArr.forEach(item=>{
@@ -702,25 +692,6 @@
             })
 
         };
-
-        function setIphoneBtnData(specValue){
-            console.log(specValue) //64G , 256G
-            
-            // <template id="cardBtn">
-            //     <div class="col-6 col-md-6 col-lg-6 col-xl-6">                             
-            //         <div class="card cardTemp2" id="每個按鈕的ID">
-            //             <h5 class="BtnName NameTemp">公版文字<span></span></h5>   
-            //         </div>
-            //     </div>
-            // </template>
-
-            let cloneBtn = btnTemplate.content.cloneNode(true); //參數要帶 true 才會層層複製
-            btnID = cloneBtn.querySelector(".cardTemp2").id = specValue;
-            console.log(btnID)
-            console.log(specValue)
-            cloneBtn.querySelector(".NameTemp").innerText = specValue;
-            
-        }
 
         function iphoneStyleFilter(style) { 
                 styleFilterArr = iphoneSpecArr.filter(spec => spec.style == style)
@@ -741,9 +712,10 @@
         };
 
 
+        
 
-         //mac
-         function getMacColorBtn(){
+        //mac
+        function getMacColorBtn(){
             //取得資料
             let macOutWarddArr=[];             
             macOutWarddArr = jsonParseArr.MacAir.OutWard;
@@ -751,7 +723,7 @@
         
             //生成顏色按鈕的格線系統 (DOM 操作)
             macOutWarddArr.forEach(item =>{
-                allColorBtns = setMacColorBtnData(item.color ,item.pic)   //顏色 & 平板圖片                              
+                allColorBtns = setMacColorBtnData(item.color ,item.pic ,'./ApplePics02/MacAir/color/')   //顏色 & 平板圖片                              
                 let colorBtnSection = document.querySelector("#colorBtnSection");
                 colorBtnSection.append(allColorBtns);
                 
@@ -808,24 +780,6 @@
             })
         };
 
-        function getMacStorageBtn() {    
-            //取得不重複的 storage 規格ˇ         
-            macSpecArr.forEach(item=>{
-                if(! specAutoArr.includes(item.storage)){
-                     specAutoArr.push(item.storage)
-                     console.log(specAutoArr)                                          
-                    }
-            })
-                
-            //生成按鈕的格線系統 (DOM 操作) 
-            specAutoArr.forEach(item =>{
-                allStorageBtns = setBtnData(item)   //64GB , 256GB
-                    console.log(item)                                    
-                let storageBtnSection = document.querySelector("#storageBtnSection");
-                storageBtnSection.append(allStorageBtns);                                                    
-            })
-        };
-
         function getMacPowerBtn() {    
             //取得不重複的 storage 規格ˇ         
             macSpecArr.forEach(item=>{
@@ -843,39 +797,6 @@
                 powerBtnSection.append(allStorageBtns);                                                    
             })
         };   
-
-        function setMacBtnData(specValue){
-            console.log(specValue) //64G , 256G
-            
-            // <template id="cardBtn">
-            //     <div class="col-6 col-md-6 col-lg-6 col-xl-6">                             
-            //         <div class="card cardTemp2" id="每個按鈕的ID">
-            //             <h5 class="BtnName NameTemp">公版文字<span></span></h5>   
-            //         </div>
-            //     </div>
-            // </template>
-
-            let cloneBtn = btnTemplate.content.cloneNode(true); //參數要帶 true 才會層層複製
-            btnID = cloneBtn.querySelector(".cardTemp2").id = specValue;
-            console.log(btnID)
-            console.log(specValue)
-            cloneBtn.querySelector(".NameTemp").innerText = specValue;
-            
-            //掛入監聽事件，按下後過濾資料           
-            cloneBtn.querySelector(".cardTemp2").addEventListener("click" , function(){
-                console.log(`${specValue}加裝監聽成功`);           
-                
-                console.log(macSpecArr.storage)             
-                
-                filterArr = macSpecArr.filter(x=> x.ram==specValue)
-                console.log(filterArr)
-                
-                if(specValue == "Wi-Fi" || specValue == "Cellular"){
-                    filterArr2 = filterArr.filter(x=> x.storage==specValue )
-                    console.log(filterArr2)
-                }  
-            })
-        };
 
         function macRamFilter(ram) { 
                 ramFilterArr = macSpecArr.filter(spec => spec.ram == ram)
