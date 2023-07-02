@@ -375,6 +375,39 @@
         }
 
 
+        function getBaseImg(img) {
+            console.log(img) //太空灰色01.jpg
+            
+            let imgUrl01 = `https://raw.githubusercontent.com/hyeb407/hyeb407.github.io/main/JS_HW5%20Apple/ApplePics/ipad/${pic}`;
+            let html = `
+                <img src="${imgUrl}" class="pic" alt=""> 
+
+
+                <div id="carouselExample" class="carousel slide">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                        <img src="${imgUrl01}" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                        <img src="${imgUrl02}" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                        <img src="${imgUrl03}" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>`;
+
+            return html
+        }
+
 
         //iPad
         function getColorBtn(){
