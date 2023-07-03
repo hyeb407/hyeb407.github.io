@@ -6,12 +6,12 @@
         },
       
         "OutWard": 
-            [{ "color": "藍色", "colorValue": "#ff0000", "imageUrl": "./ApplePics02/iphoneColor/藍色.jpg","pic":"藍色01.jpg" },
-            { "color": "紫色", "colorValue": "#ffff00", "imageUrl": "./ApplePics02/iphoneColor/紫色.jpg" ,"pic":"紫色01.jpg" },
-            { "color": "黃色", "colorValue": "#000000", "imageUrl": "./ApplePics02/iphoneColor/黃色.jpg" ,"pic":"黃色01.jpg"},
-            { "color": "午夜色", "colorValue": "#000000", "imageUrl": "./ApplePics02/iphoneColor/午夜色.jpg" ,"pic":"午夜色01.jpg"},
-            { "color": "星光色", "colorValue": "#000000", "imageUrl": "./ApplePics02/iphoneColor/星光色.jpg" ,"pic":"星光色01.jpg"},
-            { "color": "紅色", "colorValue": "#000000", "imageUrl": "./ApplePics02/iphoneColor/紅色.jpg","pic":"紅色01.jpg" }],
+            [{ "color": "藍色", "colorValue": "#ff0000", "imageUrl": "./ApplePics02/iPhone/color/藍色.jpg","pic":"藍色01.jpg" },
+            { "color": "紫色", "colorValue": "#ffff00", "imageUrl": "./ApplePics02/iPhone/color/紫色.jpg" ,"pic":"紫色01.jpg" },
+            { "color": "黃色", "colorValue": "#000000", "imageUrl": "./ApplePics02/iPhone/color/黃色.jpg" ,"pic":"黃色01.jpg"},
+            { "color": "午夜色", "colorValue": "#000000", "imageUrl": "./ApplePics02/iPhone/color/午夜色.jpg" ,"pic":"午夜色01.jpg"},
+            { "color": "星光色", "colorValue": "#000000", "imageUrl": "./ApplePics02/iPhone/color/星光色.jpg" ,"pic":"星光色01.jpg"},
+            { "color": "紅色", "colorValue": "#000000", "imageUrl": "./ApplePics02/iPhone/color/紅色.jpg","pic":"紅色01.jpg" }],
       
         "Spec":            
             [{ "style":"14", "storage": "128GB", "price": 27900 },
@@ -30,11 +30,11 @@
         },
 
         "OutWard":
-            [{ "color": "太空灰色", "colorValue": "#6e6969", "imageUrl": "./ApplePics02/ipadColor/太空灰色.png" ,"pic":"太空灰色01.jpg"},
-            { "color": "星光色", "colorValue": "#b9aeae", "imageUrl": "./ApplePics02/ipadColor/星光色.png" ,"pic":"星光色01.jpg"},
-            { "color": "粉紅色", "colorValue": "#ceb7a8", "imageUrl": "./ApplePics02/ipadColor/粉紅色.png"  ,"pic":"粉紅色01.jpg" },
-            { "color": "紫色", "colorValue": "#ceb7a8", "imageUrl": "./ApplePics02/ipadColor/紫色.png" ,"pic":"紫色01.jpg" },
-            { "color": "天藍色", "colorValue": "#ceb7a8", "imageUrl": "./ApplePics02/ipadColor/天藍色.png" ,"pic":"天藍色01.jpg" }],
+            [{ "color": "太空灰色", "colorValue": "#6e6969", "imageUrl": "./ApplePics02/iPad/color/太空灰色.png" ,"pic":"太空灰色01.jpg"},
+            { "color": "星光色", "colorValue": "#b9aeae", "imageUrl": "./ApplePics02/iPad/color/星光色.png" ,"pic":"星光色01.jpg"},
+            { "color": "粉紅色", "colorValue": "#ceb7a8", "imageUrl": "./ApplePics02/iPad/color/粉紅色.png"  ,"pic":"粉紅色01.jpg" },
+            { "color": "紫色", "colorValue": "#ceb7a8", "imageUrl": "./ApplePics02/iPad/color/紫色.png" ,"pic":"紫色01.jpg" },
+            { "color": "天藍色", "colorValue": "#ceb7a8", "imageUrl": "./ApplePics02/iPad/color/天藍色.png" ,"pic":"天藍色01.jpg" }],
 
         "Spec": 
             [{"storage": "64GB","network": "Wi-Fi", "price": 19900 },
@@ -51,10 +51,10 @@
         },
 
         "OutWard": 
-            [{ "color": "午夜色", "colorValue": "#6e6969", "imageUrl": "./ApplePics02/macColor/午夜色.jpg" ,"pic":"午夜色01.jpg"},
-             { "color": "星光色", "colorValue": "#6e6969", "imageUrl": "./ApplePics02/macColor/星光色.jpg" ,"pic":"星光色01.jpg"},
-             { "color": "太空灰色", "colorValue": "#6e6969", "imageUrl": "./ApplePics02/macColor/太空灰色.jpg" ,"pic":"太空灰色01.jpg"},
-             { "color": "銀色", "colorValue": "#b9aeae", "imageUrl": "./ApplePics02/macColor/銀色.jpg" ,"pic":"銀色01.jpg"}],
+            [{ "color": "午夜色", "colorValue": "#6e6969", "imageUrl": "./ApplePics02/MacAir/color/午夜色.jpg" ,"pic":"午夜色01.jpg"},
+             { "color": "星光色", "colorValue": "#6e6969", "imageUrl": "./ApplePics02/MacAir/color/星光色.jpg" ,"pic":"星光色01.jpg"},
+             { "color": "太空灰色", "colorValue": "#6e6969", "imageUrl": "./ApplePics02/MacAir/color/太空灰色.jpg" ,"pic":"太空灰色01.jpg"},
+             { "color": "銀色", "colorValue": "#b9aeae", "imageUrl": "./ApplePics02/MacAir/color/銀色.jpg" ,"pic":"銀色01.jpg"}],
         
         "Spec": 
             [{ "ram": "8GB", "storage": "256GB", "price": 35900 , "power":"30W USB-C 電源轉接器"},
