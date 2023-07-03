@@ -256,7 +256,7 @@
         let mainPic = document.querySelector(".main-pic");
        
         let sectionTitle = $g(".section-title")
-        let subContainer  =$g("#subContainer")
+        let subContainer  =$g("#sub-Container")
         let cardTemp =$g(".cardTemp")
         let cardTemp2 =$g(".cardTemp2")
 
@@ -309,32 +309,38 @@
         let iphonePageBtn = $g("#iPhone")
         let iphoneBtnId
         iphonePageBtn.addEventListener("click", function(){
-            sectionTitle.innerHtml = "";
-            // cardTemp.innerHtml = "";
-            // cardTemp2.innerHtml = "";
-            
-            iphoneBtnId = iphonePageBtn.getAttribute("id");        
-            picBox.innerHTML = setBaseImg(iphoneBtnId);
+            // sectionTitle.innerHtml = "";
+            cardTemp.innerHTML =""
+            // if(cardTemp==false && cardTemp2==false)
+            // {
 
-            getIphoneStyleBtn();          
-            document.querySelectorAll(".cardTemp2").forEach( Node => {
+                
+                iphoneBtnId = iphonePageBtn.getAttribute("id");        
+                picBox.innerHTML = setBaseImg(iphoneBtnId);
+                
+                getIphoneStyleBtn();          
+                document.querySelectorAll(".cardTemp2").forEach( Node => {
                 let styleId = Node.getAttribute("id");
                 Node.addEventListener("click" , function(event){
                     iphoneStyleFilter(styleId)
                 })                
             });
-
-            getIphoneColorBtn();
-
-            iphoneSpecArr = jsonParseArr.IPhone.Spec
-            getStorageBtn(iphoneSpecArr)
-            // getSIphoneStorageBtn();
-            document.querySelectorAll(".cardTemp2").forEach( Node => {
+            
+                getIphoneColorBtn();
+                
+                iphoneSpecArr = jsonParseArr.IPhone.Spec
+                getStorageBtn(iphoneSpecArr)
+                // getSIphoneStorageBtn();
+                document.querySelectorAll(".cardTemp2").forEach( Node => {
                     let storageId = Node.getAttribute("id");
                     Node.addEventListener("click" , function(event){
                         iphoneStorageFilter(storageId)
                     })                
-            })
+                })
+            // }
+            // else{
+                
+            // }
         })
 
         let macPageBtn = $g("#MacAir")
@@ -374,7 +380,14 @@
             });
         });
 
-       
+       function clearBtn(){
+
+            if(cardTemp.innerHtml == "" && cardTemp2.innerHtml == "")
+            {
+                cardTemp.innerHtml = "";
+                cardTemp2.innerHtml = "";
+            }
+       }
         
 
 
@@ -479,7 +492,7 @@
         function getIPadColorPic(pic) {
             console.log(pic) //太空灰色01.jpg
             
-            let imgUrl = `https://github.com/hyeb407/hyeb407.github.io/blob/main/JS_HW5%20Apple/ApplePics02/iPad/OutWard/${pic}`;
+            let imgUrl = `https://raw.githubusercontent.com/hyeb407/hyeb407.github.io/main/JS_HW5%20Apple/ApplePics02/iPad/OutWard/${pic}`;
             // let imgUrl = `https://raw.githubusercontent.com/hyeb407/hyeb407.github.io/main/JS_HW5%20Apple/ApplePics02/iPad/OutWard/%E5%A4%A9%E8%97%8D%E8%89%B201.jpg`;
             let pics = `
                 <img src="${imgUrl}" class="main-pic" alt=""> `;
@@ -669,7 +682,7 @@
         function getIPhoneColorPic(pic) {
             console.log(pic) //太空灰色01.jpg
             
-            let imgUrl = `https://github.com/hyeb407/hyeb407.github.io/blob/main/JS_HW5%20Apple/ApplePics02/iPhone/OutWard/${pic}`;
+            let imgUrl = `https://raw.githubusercontent.com/hyeb407/hyeb407.github.io/main/JS_HW5%20Apple/ApplePics02/iPhone/OutWard/${pic}`;
             let pics = `
                 <img src="${imgUrl}" class="main-pic" alt=""> `;
 
@@ -756,7 +769,7 @@
         function getMacColorPic(pic) {
             console.log(pic) //太空灰色01.jpg
             
-            let imgUrl = `https://github.com/hyeb407/hyeb407.github.io/blob/main/JS_HW5%20Apple/ApplePics02/MacAir/OutWard/${pic}`;
+            let imgUrl = `https://raw.githubusercontent.com/hyeb407/hyeb407.github.io/main/JS_HW5%20Apple/ApplePics02/MacAir/OutWard/${pic}`;
             let pics = `
                 <img src="${imgUrl}" class="main-pic" alt=""> `;
 
