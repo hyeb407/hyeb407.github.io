@@ -42,10 +42,28 @@
             .calendar-col{
                 width: calc(100% / 7);
                 font-size: 25px;
-                color: #b3b3b3;
+                color: #979797;
                 font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
                 padding-left: 10px;
                 border: 0.5px dotted white;
+            }
+            .lastDateText{
+                text-align: center;
+                color: #cbc8c6b5;
+                width: 35px;
+                height: 35px;
+                /* background-color: #bfb58724; */
+                /* border: 1px solid #ae4e4e86; */
+                border-radius: 50px;
+            }
+            .nextDateText{
+                text-align: center;
+                color: #aaa6a390;
+                width: 35px;
+                height: 35px;
+                background-color: #bfb58724;
+                /* border: 1px solid #ae4e4e86; */
+                border-radius: 50px;
             }
             button{
                 background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
@@ -202,6 +220,9 @@
                 for(let column = 0; column < 7; column++){
                     let eachDay = document.createElement("div");
                     eachDay.classList.add("calendar-col")
+                    //為了方便寫 CSS
+                    let dateText = document.createElement("h5")
+                    eachDay.append(dateText)
 
                     // eachDay.querySelector(".calendar-col").addEventListener("click" , function(){
                     //     alert(`監聽有囉~`)
@@ -212,14 +233,17 @@
                     // })
 
                     if(row == 0 && column < firstDay){
-                        eachDay.innerText = beginningofLastMonth++                      
+                        dateText.innerText = beginningofLastMonth++
+                        dateText.classList.add("lastDateText")                      
                     }
                     else if(firstDate <= dateofMonth){
-                        eachDay.innerText = firstDate++;
+                        dateText.innerText = firstDate++;
                     }
                     else{                     
-                        eachDay.innerText = nextDateofMonth++
+                        dateText.innerText = nextDateofMonth++
                         //下個月的一號開始長
+                        
+                        dateText.classList.add("nextDateText")
                     }
                     eachRow.append(eachDay);
                 }
