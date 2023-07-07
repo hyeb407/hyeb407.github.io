@@ -132,7 +132,7 @@
                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                    </div>
                    <div class="modal-body">
-                       <input id="add-date" type="text" readonly>
+                       <input id="add-date" class="mb-3" type="text" readonly>
                        <input id="add-todo" type="text" class="form-control" placeholder="">
                    </div>
                    <div class="modal-footer">
@@ -153,7 +153,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <input id="edit-date" type="text" readonly>
+                    <input id="edit-date" class="mb-3" type="text" readonly>
                     <input id="edit-todo" type="text" class="form-control" placeholder="">
                 </div>
                 <div class="modal-footer">
@@ -207,8 +207,10 @@
         //bootstrap instance
         const addModal = document.querySelector('#add-modal')
         const editModal = document.querySelector('#edit-modal')
-        const addModalInstance = bootstrap.Modal.getOrCreateInstance(addModal)
-        const editModalInstance = bootstrap.Modal.getOrCreateInstance(editModal)
+        const addModalInstance = new bootstrap.Modal('#add-modal')
+        const editModalInstance = new bootstrap.Modal('#edit-modal')
+        // const addModalInstance = bootstrap.Modal.getOrCreateInstance(addModal)
+        // const editModalInstance = bootstrap.Modal.getOrCreateInstance(editModal)
         
 
 
@@ -295,8 +297,6 @@
                     eachDay.append(dateText)
 
 
-                    // addBtnModal()
-
                     if(row == 0 && column < firstDay){
                         dateText.innerText = beginningofLastMonth;
                         beginningofLastMonth++;
@@ -309,26 +309,27 @@
                         //放的位置很重要！！！！！！！！！！！！！ 
                         //要放在當天的日期，所以不能讓他 ++
                         thisMonthStr = (thisMonth+1).toString()     
-                        let dateFormat = `${thisYear}-${thisMonthStr.padStart(2,'0')}-${dateText.innerText.padStart(2,'0')}`;
-                        eachDay.append(showDailyTodo(dateFormat))
+                        let dateFormat = `${thisYear}-${thisMonthStr.padStart(2,'0')}-${dateText.innerText.padStart(2,'0')}`;                       
                         
                         //注意順序
                         firstDate++
                         
                         //建立 eachDay 格子的資料
                         eachDay.classList.add("this-date-month")
-                        eachDay.setAttribute("data-bs-toggle", "modal");
-                        eachDay.setAttribute("data-bs-target", "#add-modal");
-                                   
+                        // eachDay.setAttribute("data-bs-toggle", "modal");
+                        // eachDay.setAttribute("data-bs-target", "#add-modal");
+                         
                         // 加入監聽
-                        eachDay.addEventListener('click',function(){
+                         eachDay.addEventListener('click',function(e){
+                            console.log(e);
                             //console.log(firstDate)                       
                             addDate.value = dateFormat;
                             addTodo.value = "";
                             
                             //按下後，彈出 Modal的執行個體
-                            addModalInstance.show();                                                     
-                        });                 
+                            addModalInstance.show();  
+                        });                        
+                        eachDay.append(showDailyTodo(dateFormat))
                     }
                     else{                     
                         //下個月的一號開始長
@@ -396,12 +397,13 @@
                     li.innerText = data
 
                     li.addEventListener("click",function(event){
-                        event.stopPropagation()
                         editModalInstance.show()
                         dataListIdx = index;
-
+                        
                         editDate.value = day;
-                        editTodo.value = data; //li 按下去資料欄顯示原本的內容
+                        editTodo.value = data; 
+                        console.log(event)//li 按下去資
+                        event.stopPropagation();
                     })
                     ul.append(li)                   
                 });
