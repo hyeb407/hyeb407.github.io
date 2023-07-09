@@ -1,0 +1,18 @@
+[
+    {
+        "title": "iPhone 14 pro",
+        "dataUrl": "./data/iphone-14-pro.json"
+    },
+    {
+        "title": "iPhone 14",
+        "dataUrl": "./Apple-refTA-iPhone-14.json"
+    },
+    {
+        "title": "iPad(TODO)",
+        "dataUrl": "./Apple-refTA-iPad.json"
+    },
+    {
+        "title": "Mac(TODO)",
+        "dataUrl": ""
+    }
+]

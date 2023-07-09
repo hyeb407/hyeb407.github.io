@@ -142,17 +142,17 @@
             <!-- 顏色選項 -->
             <div class="sub-container col-12 col-md-6 col-lg-6 col-xl-6">
                 <section class="list col-12 col-md-12 col-lg-12 col-xl-12" id="styleBtnSection">
-                    <div class="section-title">機型。<span> 哪一款最適合你？</span></div>
+                    <!-- <div class="section-title">機型。<span> 哪一款最適合你？</span></div> -->
                       
                 </section>
 
                 <section class="list col-12 col-md-12 col-lg-12 col-xl-12" id="ramBtnSection">
-                    <div class="section-title">記憶體。<span>你需要多少記憶體？</span></div>
+                    <!-- <div class="section-title">記憶體。<span>你需要多少記憶體？</span></div> -->
                       
                 </section>
 
                 <section class="list col-12 col-md-12 col-lg-12 col-xl-12" id="colorBtnSection">
-                    <div class="section-title">外觀。<span>挑選喜愛的顏色。</span></div>
+                    <!-- <div class="section-title">外觀。<span>挑選喜愛的顏色。</span></div> -->
                         <!-- <div class="col-6 col-md-6 col-lg-6 col-xl-6">
                             <div class="card colorBtn" id="太空灰色">
                                 <div class="circle gray"></div>
@@ -171,14 +171,14 @@
    
                 <!-- 儲存裝置選項 -->
                 <section class="list col-12 col-md-12 col-lg-12 col-xl-12" id="storageBtnSection">          
-                    <div class="section-title">儲存空間</div>
+                    <!-- <div class="section-title">儲存空間</div> -->
                          
                 </section>
                 
  
                 <!-- 連線能力 network 選項 -->
                 <section class="list col-12 col-md-12 col-lg-12 col-xl-12" id="networkBtnSection">            
-                    <div class="section-title">連線能力</div>
+                    <!-- <div class="section-title">連線能力</div> -->
                         <!-- <div class="col-12 col-md-12 col-lg-12 col-xl-12">
                             <div class="card networkBtn" id="Wi-Fi">
                                 <h5 class="networkBtnName">Wi-Fi<span>每部 iPad 都可連接到 Wi-Fi 網路，使你能保持連線。 </span></h5>   
@@ -195,7 +195,7 @@
 
                 <!-- 充電裝置 power 選項 -->
                 <section class="list col-12 col-md-12 col-lg-12 col-xl-12" id="powerBtnSection">            
-                    <div class="section-title">充電裝置</div>
+                    <!-- <div class="section-title">充電裝置</div> -->
                       
                 </section>
                                      
@@ -216,6 +216,7 @@
     <!-- 定義一個 Template  -->
    
     <template id="cardBtnColor">
+        <!-- <div class="section-title">機型。<span> 哪一款最適合你？</span></div> -->
         <div class="col-6 col-md-6 col-lg-6 col-xl-6">
             <div class="card colorBtn cardTemp" id="每個按鈕的ID">
                 <!-- <div class="circle circleTemp"></div> -->
@@ -226,6 +227,7 @@
     </template>
 
     <template id="cardBtn">
+        <div class="section-title">連線能力</div>
         <div class="col-6 col-md-6 col-lg-6 col-xl-6">                             
             <div class="card cardTemp2" id="每個按鈕的ID">
                 <h5 class="BtnName NameTemp">公版文字<span></span></h5>   
@@ -394,13 +396,15 @@
         //三、方法
         window.onload = function(){
             getIpadJson(url) 
+            console.log(getIpadJson(url) )
             sectionTitle.innerHtml = "";
         
         }
 
         function getIpadJson(uriii) {
             xhr.onload = function () {
-                jsonParseArr = JSON.parse(this.responseText);        
+                jsonParseArr = JSON.parse(this.responseText);
+                console.log(jsonParseArr)        
             };
             xhr.open("GET", uriii);
             xhr.send();

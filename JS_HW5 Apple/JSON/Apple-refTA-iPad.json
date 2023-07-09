@@ -1,0 +1,320 @@
+{
+    "title": "購買 iPad Air",
+    "name": "iPad Air",
+    "images": {
+        "spacegray": [
+            "../ApplePics02/iPhone/OutWard/午夜色01.jpg",
+            "../ApplePics02/iPhone/OutWard/午夜色02.jpg",
+            "../ApplePics02/iPhone/OutWard/午夜色03.jpg"
+        ],
+        "blue": [
+            "../ApplePics02/iPhone/OutWard/紫色01.jpg",
+            "../ApplePics02/iPhone/OutWard/紫色02.jpg",
+            "../ApplePics02/iPhone/OutWard/紫色03.jpg"
+        ],
+        "pink": [
+            "../ApplePics02/iPhone/OutWard/黃色01.jpg",
+            "../ApplePics02/iPhone/OutWard/黃色02.jpg",
+            "../ApplePics02/iPhone/OutWard/黃色04.jpg"
+        ],
+        "purple": [
+            "../ApplePics02/iPhone/OutWard/午夜色01.jpg",
+            "../ApplePics02/iPhone/OutWard/午夜色02.jpg",
+            "../ApplePics02/iPhone/OutWard/午夜色03.jpg"
+        ],
+        "starlight": [
+            "../ApplePics02/iPhone/OutWard/星光色01.jpg",
+            "../ApplePics02/iPhone/OutWard/星光色02.jpg",
+            "../ApplePics02/iPhone/OutWard/星光色03.jpg"
+        ]
+    },
+    "widgets": [
+        {
+            "title": "外觀",
+            "subTitle": "挑選你喜愛的外觀。",
+            "type": "color",
+            "col": 2
+        },
+        {
+            "title": "儲存裝置",
+            "subTitle": "你需要多少儲存空間？",
+            "type": "storage",
+            "col": 2
+        },
+        {
+            "title": "連線能力",
+            "subTitle": "選擇連線方式。",
+            "type": "network",
+            "col": 1
+        }
+    ],
+    "colors": [
+        {
+            "colorName": "太空灰色",
+            "colorCode": "spacegray",
+            "colorImg": "../ApplePics02/iPad/color/太空灰色.png.jpg"
+        },
+        {
+            "colorName": "藍色",
+            "colorCode": "blue",
+            "colorImg": "../ApplePics02/iPad/color/天藍色.png"
+        },
+        {
+            "colorName": "粉色",
+            "colorCode": "pink",
+            "colorImg": "../ApplePics02/iPhone/color/黃色.jpg"
+        },
+        {
+            "colorName": "紫色",
+            "colorCode": "purple",
+            "colorImg": "../ApplePics02/iPhone/color/紫色.jpg"
+        },
+        {
+            "colorName": "星光色",
+            "colorCode": "starlight",
+            "colorImg": "../ApplePics02/iPhone/color/星光色.jpg"
+        }
+    ],
+    "spec-description":{
+        "network":
+        [{    
+            "Wi-fi": "每部 iPad 都可連接到 Wi-Fi 網路，使你能保持連線。",
+            "Wi-fi+行動網路": "Wi-Fi + 行動網路機型讓你在無法使用 Wi-Fi 時也能進行連線。"
+        }]
+    },
+    
+    "spec": [
+        {
+            "sku": "iPad-Air-spacegray-64",
+            "storage": "64GB",
+            "network": "Wi-Fi",
+            "network-description": "每部 iPad 都可連接到 Wi-Fi 網路，使你能保持連線。",
+            "color": "blue",
+            "price": 27900
+        },
+        {
+            "sku": "iPhone-14-blue-256",
+            "model": "iPhone 14",
+            "storage": "256GB",
+            "color": "blue",
+            "price": 31400
+        },
+        {
+            "sku": "iPhone-14-blue-512",
+            "model": "iPhone 14",
+            "storage": "512GB",
+            "color": "blue",
+            "price": 38400
+        },
+        {
+            "sku": "iPhone-14-yellow-128",
+            "model": "iPhone 14",
+            "storage": "128GB",
+            "color": "yellow",
+            "price": 27900
+        },
+        {
+            "sku": "iPhone-14-yellow-256",
+            "model": "iPhone 14",
+            "storage": "256GB",
+            "color": "yellow",
+            "price": 31400
+        },
+        {
+            "sku": "iPhone-14-yellow-512",
+            "model": "iPhone 14",
+            "storage": "512GB",
+            "color": "yellow",
+            "price": 38400
+        },
+        {
+            "sku": "iPhone-14-midnight-128",
+            "model": "iPhone 14",
+            "storage": "128GB",
+            "color": "midnight",
+            "price": 27900
+        },
+        {
+            "sku": "iPhone-14-midnight-256",
+            "model": "iPhone 14",
+            "storage": "256GB",
+            "color": "midnight",
+            "price": 31400
+        },
+        {
+            "sku": "iPhone-14-midnight-512",
+            "model": "iPhone 14",
+            "storage": "512GB",
+            "color": "midnight",
+            "price": 38400
+        },
+        {
+            "sku": "iPhone-14-starlight-128",
+            "model": "iPhone 14",
+            "storage": "128GB",
+            "color": "starlight",
+            "price": 27900
+        },
+        {
+            "sku": "iPhone-14-starlight-256",
+            "model": "iPhone 14",
+            "storage": "256GB",
+            "color": "starlight",
+            "price": 31400
+        },
+        {
+            "sku": "iPhone-14-starlight-512",
+            "model": "iPhone 14",
+            "storage": "512GB",
+            "color": "starlight",
+            "price": 38400
+        },
+        {
+            "sku": "iPhone-14-red-128",
+            "model": "iPhone 14",
+            "storage": "128GB",
+            "color": "red",
+            "price": 27900
+        },
+        {
+            "sku": "iPhone-14-red-256",
+            "model": "iPhone 14",
+            "storage": "256GB",
+            "color": "red",
+            "price": 31400
+        },
+        {
+            "sku": "iPhone-14-red-512",
+            "model": "iPhone 14",
+            "storage": "512GB",
+            "color": "red",
+            "price": 38400
+        },
+        {
+            "sku": "iPhone-14-plus-blue-128",
+            "model": "iPhone 14 plus",
+            "storage": "128GB",
+            "color": "blue",
+            "price": 31900
+        },
+        {
+            "sku": "iPhone-14-plus-blue-256",
+            "model": "iPhone 14 plus",
+            "storage": "256GB",
+            "color": "blue",
+            "price": 35400
+        },
+        {
+            "sku": "iPhone-14-plus-blue-512",
+            "model": "iPhone 14 plus",
+            "storage": "512GB",
+            "color": "blue",
+            "price": 42400
+        },
+        {
+            "sku": "iPhone-14-plus-purple-128",
+            "model": "iPhone 14 plus",
+            "storage": "128GB",
+            "color": "purple",
+            "price": 31900
+        },
+        {
+            "sku": "iPhone-14-plus-purple-256",
+            "model": "iPhone 14 plus",
+            "storage": "256GB",
+            "color": "purple",
+            "price": 35400
+        },
+        {
+            "sku": "iPhone-14-plus-purple-512",
+            "model": "iPhone 14 plus",
+            "storage": "512GB",
+            "color": "purple",
+            "price": 42400
+        },
+        {
+            "sku": "iPhone-14-plus-yellow-128",
+            "model": "iPhone 14 plus",
+            "storage": "128GB",
+            "color": "yellow",
+            "price": 31900
+        },
+        {
+            "sku": "iPhone-14-plus-yellow-256",
+            "model": "iPhone 14 plus",
+            "storage": "256GB",
+            "color": "yellow",
+            "price": 35400
+        },
+        {
+            "sku": "iPhone-14-plus-yellow-512",
+            "model": "iPhone 14 plus",
+            "storage": "512GB",
+            "color": "yellow",
+            "price": 42400
+        },
+        {
+            "sku": "iPhone-14-plus-midnight-128",
+            "model": "iPhone 14 plus",
+            "storage": "128GB",
+            "color": "midnight",
+            "price": 31900
+        },
+        {
+            "sku": "iPhone-14-plus-midnight-256",
+            "model": "iPhone 14 plus",
+            "storage": "256GB",
+            "color": "midnight",
+            "price": 35400
+        },
+        {
+            "sku": "iPhone-14-plus-midnight-512",
+            "model": "iPhone 14 plus",
+            "storage": "512GB",
+            "color": "midnight",
+            "price": 42400
+        },
+        {
+            "sku": "iPhone-14-plus-starlight-128",
+            "model": "iPhone 14 plus",
+            "storage": "128GB",
+            "color": "starlight",
+            "price": 31900
+        },
+        {
+            "sku": "iPhone-14-plus-starlight-256",
+            "model": "iPhone 14 plus",
+            "storage": "256GB",
+            "color": "starlight",
+            "price": 35400
+        },
+        {
+            "sku": "iPhone-14-plus-starlight-512",
+            "model": "iPhone 14 plus",
+            "storage": "512GB",
+            "color": "starlight",
+            "price": 42400
+        },
+        {
+            "sku": "iPhone-14-plus-red-128",
+            "model": "iPhone 14 plus",
+            "storage": "128GB",
+            "color": "red",
+            "price": 31900
+        },
+        {
+            "sku": "iPhone-14-plus-red-256",
+            "model": "iPhone 14 plus",
+            "storage": "256GB",
+            "color": "red",
+            "price": 35400
+        },
+        {
+            "sku": "iPhone-14-plus-red-512",
+            "model": "iPhone 14 plus",
+            "storage": "512GB",
+            "color": "red",
+            "price": 42400
+        }
+    ]
+}

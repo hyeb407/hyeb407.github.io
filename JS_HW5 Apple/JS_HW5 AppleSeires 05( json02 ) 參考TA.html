@@ -132,6 +132,14 @@
     <!-- 圖片+選項區塊 -->
     <div class="container main-container">
         <div class="row">
+            <!-- 大標 -->
+            <h1>
+                購買 iPhone 14
+            </h1>
+            <div class="total-price">
+                NT 34,900 起
+            </div>
+
             <!-- 圖片區 -->
             <div class="col-12 col-md-6 col-lg-6 col-xl-6">
                 <div class="pic-box">
@@ -167,7 +175,9 @@
                             </div>
                         </div>                    -->
                 </section>
-            
+                <section class="list col-12 col-md-12 col-lg-12 col-xl-12" id="styleBtnSection">
+                    <div class="section-title">有句號的標題<span>行銷文案</span></div>             
+                </section>
    
                 <!-- 儲存裝置選項 -->
                 <section class="list col-12 col-md-12 col-lg-12 col-xl-12" id="storageBtnSection">          
@@ -214,6 +224,11 @@
     </div>
 
     <!-- 定義一個 Template  -->
+    <template id="btn-title">
+        <section class="list col-12 col-md-12 col-lg-12 col-xl-12" id="每個Section">
+            <div class="widget-title">有句號的標題<span>行銷文案</span></div>             
+        </section>
+    </template>
    
     <template id="cardBtnColor">
         <div class="col-6 col-md-6 col-lg-6 col-xl-6">
@@ -240,12 +255,14 @@
         import { $g } from './helpers.js';
 
         // 一、宣告 + 取得 DOM
-        const url = "https://raw.githubusercontent.com/hyeb407/hyeb407.github.io/main/JS_HW5%20Apple/AppleSeries02.json";
+        const categoryJsonUrl = "./JSON/Apple-refTA-Category.json";       
+        const IPhone14JsonUrl = "./JSON/Apple-refTA-iPhone-14.json";       
+        const IPadJsonUrl = "./JSON/Apple-refTA-iPad.json";
         
         //uri 是色票
-        let uri = './ApplePics02/iPad/color/'
-        let uri2 = './ApplePics02/iPhone/color/'     
-        let uri3 = './ApplePics02/MacAir/color/'
+        const IPhone14ColorUrl = './ApplePics02/iPad/color/'
+        const IPadColorUrl = './ApplePics02/iPhone/color/'     
+        const macColorUrl = './ApplePics02/MacAir/color/'
         
         let jsonParseArr = [];
         let colorPic;
@@ -389,35 +406,72 @@
             }
        }
         
-
-
+       let IPhoneParseObj
+       let IPadParseObj
+       let MacAirParseObj
         //三、方法
-        window.onload = function(){
-            getIpadJson(url) 
-            sectionTitle.innerHtml = "";
+        // window.onload = function(){
+        //     fetch(IPhone14JsonUrl)
+        //         .then(response => response.json())
+        //         .then(resIPhone=> {
+        //             IPhoneParseObj = resIPhone;
+        //             console.log(IPhoneParseObj)
+        //             return fetchJSON(IPadJsonUrl)
+        //         })
+        //         .then(resIPad => {
+        //             IPadParseObj = resIPad;
+        //             console.log(IPadParseObj)
+        //             // return fetchJSON(macJsonUrl)
+        //         })
+        //         // .then(resMac=> {
+        //         //     MacJsonArr = resMac;
+        //         //     console.log(+MacJsonArr)
+        //         // })          
+        // }
+        // function fetchJSON(url) {
+        //     return fetch(url)
+        //     .then(response => response.json())
+        // }
+
         
+        
+        //實驗中....
+        window.onload = function(){
+            fetchJSON("IPhone-14")
+            IPhoneParseObj = data // not defined 沒接到data...
+            console.log(IPhoneParseObj)
+            // fetchJSON("IPad")
         }
+        
+        function fetchJSON(productType) {           
+            fetch(`./JSON/Apple-refTA-${productType}.json`)
+            .then(response => {
+                return response.json()
+                console.log(response)
 
-        function getIpadJson(uriii) {
-            xhr.onload = function () {
-                jsonParseArr = JSON.parse(this.responseText);        
-            };
-            xhr.open("GET", uriii);
-            xhr.send();
+            })
+            .then(data => {
+                console.log(data); //有資料
+                // return data //不明所以...
+                // let A = data.colors //沒用
+                // console.log(A)
+                getColorBtn(data)
+                console.log(data);
+            })
+            
         }
+        
+        
 
-
+        
+        //主圖幻燈片
         function setBaseImg(id) {
             console.log(id) //太空灰色01.jpg
             
-            // let imgUrl_01 = `https://raw.githubusercontent.com/hyeb407/hyeb407.github.io/main/JS_HW5%20Apple/ApplePics02/${id}/baseImgUrl01.jpg`;
-            // let imgUrl_02 = `https://raw.githubusercontent.com/hyeb407/hyeb407.github.io/main/JS_HW5%20Apple/ApplePics02/${id}/baseImgUr02.jpg`;
-            // let imgUrl_03 = `https://raw.githubusercontent.com/hyeb407/hyeb407.github.io/main/JS_HW5%20Apple/ApplePics02/${id}/baseImgUr03.jpg`;
             let imgUrl_04 = `./ApplePics02/${id}/baseImgUrl01.jpg`;
             let imgUrl_05 = `./ApplePics02/${id}/baseImgUrl02.jpg`;
             // let imgUrl_06 = `./ApplePics02/${id}/baseImgUrl03.jpg`;
-            
-           
+                   
             let html = `
                 <div id="carouselExample" class="carousel slide main-pic">
                     <div class="carousel-inner">
@@ -442,33 +496,43 @@
 
             return html
         }
-
-
+       
+          
         //iPad
-        function getColorBtn(){
+        function getColorBtn(data){
             //取得資料
-            let ipadOutWarddArr=[];             
-            ipadOutWarddArr = jsonParseArr.IPad.OutWard;
+            let productMainImgObj = data.images;
+            console.log(productMainImgObj)
+            //物件包陣列，傳入資料，再去 forEach
+            //{blue: Array(3), purple: Array(3), yellow: Array(3), midnight: Array(3), starlight: Array(3), …}
+           
+            let colorArr=[];                       
+            colorArr = data.colors;
+            console.log(colorArr)
                 //現在是陣列，所以要 forEach 取裡面的 color
-                //(5) [{…}, {…}, {…}, {…}, {…}]
-                // 0: {color: '太空灰色', colorValue: '#6e6969', imageUrl: './ApplePics/ipadColor/太空灰色.png'}
-                // 1: {color: '星光色', colorValue: '#b9aeae', imageUrl: './ApplePics/ipadColor/星光色.png'}
-                // 2: {color: '粉紅色', colorValue: '#ceb7a8', imageUrl: './ApplePics/ipadColor/粉紅色.png'}
-                // 3: {color: '紫色', colorValue: '#ceb7a8', imageUrl: './ApplePics/ipadColor/紫色.png'}
-                // 4: {color: '天藍色', colorValue: '#ceb7a8', imageUrl: './ApplePics/ipadColor/天藍色.png'}
+                // (6) [{…}, {…}, {…}, {…}, {…}, {…}]
+                // 0: {colorName: '藍色', colorCode: 'blue', colorImg: '../ApplePics02/iPhone/color/藍色.jpg'}
+                // 1: {colorName: '紫色', colorCode: 'purple', colorImg: '../ApplePics02/iPhone/color/紫色.jpg'}
+                // 2: {colorName: '黃色', colorCode: 'yellow', colorImg: '../ApplePics02/iPhone/color/黃色.jpg'}
+                // 3: {colorName: '午夜色', colorCode: 'midnight', colorImg: '../ApplePics02/iPhone/color/午夜色.jpg'}
+                // 4: {colorName: '星光色', colorCode: 'starlight', colorImg: '../ApplePics02/iPhone/color/星光色.jpg'}
+                // 5: {colorName: '(PRODUCT)RED', colorCode: 'red', colorImg: '../ApplePics02/iPhone/color/紅色.jpg'}
+
         
-            //生成顏色按鈕的格線系統 (DOM 操作)
-            ipadOutWarddArr.forEach(item =>{
-                allColorBtns = setIpadColorBtnData(item.color ,item.pic)   //顏色 & 平板圖片                              
+            // 生成顏色按鈕的格線系統 (DOM 操作)
+            colorArr.forEach(item =>{
+                allColorBtns = setIpadColorBtnData(item.colorName ,item.colorCode, item.colorImg)   //顏色 & 平板圖片                              
                 let colorBtnSection = document.querySelector("#colorBtnSection");
                 colorBtnSection.append(allColorBtns);
                 
             })      
         }
+
         
-        function setIpadColorBtnData(item,pic){
-            console.log(item) // 太空灰色、星光色、粉紅色、紫色、天藍色
-            console.log(pic)  //太空灰色01.jpg
+        function setIpadColorBtnData( colorName, colorCode, colorPic){
+            console.log(colorName) // 太空灰色、星光色、粉紅色、紫色、天藍色
+            console.log(colorCode) //blue、purple、yellow、midnight....
+            console.log(colorPic)  //太空灰色01.jpg
 
             // <div class="card colorBtn cardTemp" id="太空灰色">
             //     <img src="" class="circle circleTemp">
@@ -476,23 +540,26 @@
 
             // 使用 template 一定要 .content.cloneNode(true)
             cloneBtn = templateColorBtn.content.cloneNode(true); //參數要帶 true 才會層層複製
-            colorID= cloneBtn.querySelector(".cardTemp").id = item;
+            colorID= cloneBtn.querySelector(".cardTemp").id = colorName;
             // console.log(colorID)       
             
-            cloneBtn.querySelector(".circleTemp").src = uri+item+'.png'; //uri 路徑已在全域宣告
-            cloneBtn.querySelector(".colorNameTemp").innerText = item;
+            // cloneBtn.querySelector(".circleTemp").src = uri+item+'.png'; //uri 路徑已在全域宣告
+            cloneBtn.querySelector(".circleTemp").src = colorPic; 
+            cloneBtn.querySelector(".colorNameTemp").innerText = colorName;
+            console.log(colorName)
             
             cloneBtn.querySelector(".cardTemp").addEventListener("click" , function(){
-                    picBox.innerHTML = getIPadColorPic(pic);           
+                    picBox.innerHTML = getIPadColorPic(colorCode); 
+                    console.log(colorCode)  //colorCode沒進來.....
             });
 
             return cloneBtn;  //製作好的卡片回覆給呼叫端
         }
 
-        function getIPadColorPic(pic) {
-            console.log(pic) //太空灰色01.jpg
+        function getIPadColorPic(colorCode) {
+            console.log(colorCode) //blue、purple、yellow、midnight....
             
-            let imgUrl = `https://raw.githubusercontent.com/hyeb407/hyeb407.github.io/main/JS_HW5%20Apple/ApplePics02/iPad/OutWard/${pic}`;
+            // let imgUrl = `https://raw.githubusercontent.com/hyeb407/hyeb407.github.io/main/JS_HW5%20Apple/ApplePics02/iPad/OutWard/${pic}`;
             // let imgUrl = `https://raw.githubusercontent.com/hyeb407/hyeb407.github.io/main/JS_HW5%20Apple/ApplePics02/iPad/OutWard/%E5%A4%A9%E8%97%8D%E8%89%B201.jpg`;
             let pics = `
                 <img src="${imgUrl}" class="main-pic" alt=""> `;

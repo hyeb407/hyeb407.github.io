@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./grid.css">
+    <style>
+        .row{
+            justify-content: center;
+        }
+        .show-msg{
+            /* display: flex; */
+            max-width: 100%;
+            margin: 10px;
+      
+            border-radius: 5px;
+            text-align:  center;
+            font-size: 30px;
+
+            background-image: linear-gradient(135deg, #ffffff 0%, #bababa 55%, #cb9eff 100% );      
+            color:rgb(79, 64, 84);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .control-pad{
+            max-width: 100%;
+            /* height: 400px; */
+            display: flex;
+            flex-direction: column;
+            /* place-content: center; */
+            justify-content: center;
+            align-content: center;
+            align-items: center;  
+            position: relative;
+        }
+        .cover-pad{
+            position: absolute;
+ 
+            width: 360px;
+            height: 500px;
+            background-color: rgb(201, 201, 201) ;
+            opacity: 0.9;
+            border-radius: 20px;
+            transform: translateX(0%);
+            transition: 2s;
+            display: flex;
+            justify-content: center;
+        }
+        .cover-pad:hover{
+            transform: translateX(100%);
+        }
+        .start-btn:hover .cover-pad{
+            transform: translateX(100%);
+            transform: translate(0%, -50%);
+        }
+        .start-btn{
+            display: flex;
+            width: 200px;
+            height: 200px;
+            border-radius: 200px;
+            border:2px dashed rgb(255, 244, 212);
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top:50%;
+            transform: translate(0%, -50%);
+        }
+        .input{
+            width: auto;
+            max-width:360px;
+            max-height: 80px;
+            border-radius: 30px;
+            font-size: 40px;
+            text-align: center;
+            margin-top: 10px;
+
+            background-image: linear-gradient(135deg, #ffffff 0%, #bababa 55%, #cb9eff 100% );      
+            border:none;
+            color:rgb(79, 64, 84);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        .guess-btn, .answer-btn, .reset-btn{
+            width: 80px;
+            height: 80px;
+
+            max-width: 80px;
+            max-height: 80px;
+            border-radius: 50px;
+            background-color: transparent;
+            border-color: #ccc;
+            margin: 20px 20px 0px 20px;
+
+            background-image: linear-gradient(135deg, #ffffff 0%, #bababa 55%, #cb9eff 100% );      
+            border:none;
+            color:rgb(79, 64, 84);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        .guess-btn{
+            width: 100px;
+            height: 100px;
+
+            max-width: 100px;
+            max-height: 100px;
+            background-color: rgb(255, 181, 181);
+        }
+        .num-pad , .basic-pad{
+            min-width: 300px;
+            max-width: 400px;
+            margin-top: 20px;
+            display: flex; 
+            align-items: center;
+        }
+        .btn-num-css{
+            min-width: 70px;    
+            min-height: 70px;           
+        
+            border-radius: 50px;
+            background-color: transparent;
+    
+            margin:10px;
+            background-image: 
+            linear-gradient(
+                135deg, 
+                #ffffff 20%, 
+                #bababa 55%,
+                /* #cb9eff 100%,  */
+                transparent 100%
+                );      
+            
+            border:none;
+            color:rgb(122, 85, 134);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        span{
+            background-color: rgba(122, 85, 134, 0.752);
+            color:white;
+            border-radius: 10px;
+            padding:0px 10px;
+        }
+
+
+
+        @media screen and (min-width:768px){
+           
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-4 col-lg-4 col-xl-4">
+                
+                <div class="show-msg">
+                    <!-- <P>
+                        ！Notice！
+                    </P> -->
+                </div>        
+            </div>
+        <!-- </div> -->
+          
+            <!-- <div class="row"> -->
+                <div class="col-12 col-md-4 col-lg-4 col-xl-4">
+                    <div class="control-pad">
+                        
+                        <input type="input" class="input">
+
+                        <div class="basic-pad">
+                            <button class="answer-btn">謎底</button>
+                            <button class="guess-btn">猜</button> 
+                            <button class="reset-btn">重新開始</button>             
+                        </div>
+                        
+                        <div class="num-pad">
+                            <div>
+                                <button class="btn-num-css btn_num btn1">1</button>
+                                <button class="btn-num-css btn_num btn4">4</button>
+                                <button class="btn-num-css btn_num btn7">7</button>
+                            </div>
+                            
+                            <div>
+                                <button class="btn-num-css btn_num btn2">2</button>
+                                <button class="btn-num-css btn_num btn5">5</button>
+                                <button class="btn-num-css btn_num btn8">8</button>
+                            </div>
+                            
+                            <div>
+                                <button class="btn-num-css btn_num btn3">3</button>
+                                <button class="btn-num-css btn_num btn6">6</button>
+                                <button class="btn-num-css btn_num btn9">9</button>
+                            </div>
+                            <div>
+                                <button class="btn-num-css btn-back">back</button>
+                                <button class="btn-num-css">-</button>
+                                <button class="btn-num-css btn_num btn0">0</button>
+                         
+                            </div>
+                        </div>     
+                        
+                        <!-- <div class="cover-pad">
+                            <div class="start-btn">
+                                <p>WELCOME</p>
+                            </div>
+                        </div> -->
+                        
+                    </div>
+                </div>
+                
+            </div>
+    </div>
+        
+
+
+
+    <script>
+        //宣告 + 取得 DOM
+            let btn1, btn2, btn3, btn4, btn5;
+            let btn6, btn7, btn8, btn9, btn0;    
+
+            let input;
+            let msgBox;
+            let guessBtn;
+            let answerBtn;
+            let backBtn;
+
+            let answerNum;
+            let answerArr=[];
+
+            let inputArr=[];
+
+            let numString;
+            let btnNumArr=[];
+            let backArr=[];
+
+            let a = 0;
+            let b = 0;
+            
+            let _gameHistoryList=[];
+
+            input = document.querySelector("input");
+            guessBtn = document.querySelector(".guess-btn");
+            answerBtn = document.querySelector(".answer-btn");
+            resetBtn = document.querySelector(".reset-btn");
+            msgBox = document.querySelector(".show-msg");
+            backBtn = document.querySelector(".btn-back")
+
+
+
+        //加入監聽
+            function insertNum(btn_num){
+                // input.value += btn_num.target.innerText;
+                
+                //為了倒退鍵，改成推進陣列
+                numString = btn_num.target.innerText;
+                btnNumArr.push(numString);
+                console.log(btn_num);
+
+                btnNumArr.forEach(num => {
+                    input.value += num
+                });
+                btnNumArr=[];
+                // input.value = null;
+                // input.value = btnNumArr    
+                btn_num.target.blur();
+            }
+
+            document.querySelectorAll(".btn_num").forEach(e => {
+                e.addEventListener("click" , insertNum)
+            })         
+  
+        //     //為什麼跑 for 迴圈不行
+        //    let btnGroup = document.querySelectorAll(".btn_num")
+        //     for(let i=0; i<10; i++){
+        //         btnGroup.addEventListener("click" , insertNum);
+        //     }
+        
+        
+            // input.addEventListener('input',function(){
+            //     getRandom();
+            //     judgeInputValue()
+            //     input.value ="";
+            // });
+
+            
+            //enter 鍵的 監聽事件
+            window.addEventListener("keyup" , function(event){
+                    console.log(event);
+                    if(event.code==="Enter"){
+                        getRandom();
+                        judgeInputValue()
+                        input.value ="";
+                        // input.focus();
+                    }
+                })
+            
+            guessBtn.addEventListener("click", function(){
+                console.log("猜：加入監聽成功");
+                //按下去的同時，要有亂數謎底、判斷正確與否
+                getRandom();
+                judgeInputValue()
+                input.value ="";
+            })
+          
+            answerBtn.addEventListener("click",function(){                
+                answerNum= [...answerArr].map(x=>x).join('')
+                
+                alert(answerNum)
+                console.log(answerNum)
+            })
+
+            resetBtn.addEventListener("click", reset)
+
+            backBtn.addEventListener("click" , function(){
+                //因為 btnNUmArr 清空了...
+                //改為取得 input.value 內容 and pop lastest one from array
+                let backArr = input.value.split("").map(x => parseInt(x));
+                //console.log(`backArr: ${backArr}`);
+                backArr.pop();
+                //console.log(`pop 後的 backArr: ${backArr}`);
+               
+                input.value=""
+                backArr.forEach(num => {                   
+                    input.value += num
+                });
+            })
+
+            
+
+
+        //方法
+            function getRandom(){
+                //不能用 for 因為當作了四次，發現有重複的，部會放入陣列，但那個是就被略過，不會補新的亂數
+                //for(let i=0; i<4; i++){
+                while(answerArr.length !=4){
+                    let randonNum = Math.floor(Math.random()* (10-0) +0)
+                    
+                    if(!answerArr.includes(randonNum) ){
+                    answerArr.push(randonNum)
+                    }
+                }               
+                console.log(answerArr)               
+            };
+
+
+            function judgeInputValue(){
+                //取得 input 值，並轉型為數字
+                let inputStr = input.value.trim();
+                console.log(`分割前:${inputStr}`)
+                inputArr = inputStr.split('').map(x => parseInt(x));
+
+                console.log(`分割 + 轉型後:${inputArr}`)
+                               
+                //檢查是否為正常輸入值：沒有四個、不是文字
+                if(inputArr.length !=4 || inputStr !=parseInt(inputStr)){
+                    alert("請檢查輸入的數字！！")
+                    input.value = "";
+                }
+                // 檢查輸入的數值是否重複
+                //Set 輸入重複地值，會被忽略，他是物件，要展開
+                inputArr = new Set(inputArr)
+                inputArr = [...inputArr]
+                if(inputArr.length != 4){             
+                    alert("請輸入不重複的數字~~")
+                    input.value = "";   
+                    return;             
+                }
+               
+                //利用索引位置判斷：                                
+                for(let i=0; i <answerArr.length; i++){
+                    if(inputArr[i] == answerArr[i]){
+                        a +=1;                 
+                    }
+                    else if(answerArr.includes(inputArr[i])){
+                        b += 1;
+                    }
+                }
+                console.log(`a:${a}`)
+                console.log(`b:${b}`)
+                
+                //判斷成功
+                if( a==4 && b==0){
+                    alert("破關成功！！！！！！！")
+                }
+                else{                  
+                    showResult();
+                    // AppendHistory();                  
+                }
+                
+                a=0; b=0;
+                return          
+            };
+
+            //顯示結果：方法一 (不用推進陣列，每次增加一個 div)
+            // function showResult(){            
+            //     let result = `${inputArr.join("")}：${a}A${b}B`
+            //     let resultDiv = document.createElement("div")
+            //     resultDiv.innerHTML = result;
+            //     msgBox.append(resultDiv)
+            //     result = "";             
+            // }
+
+            function showResult(){            
+                let resultDiv = document.createElement("div")
+                let result = `<span>${a}A${b}B</span> ${inputArr.join("")}`
+
+                resultDiv.innerHTML = result;
+                msgBox.append(resultDiv)
+                
+                result = "";             
+            }
+
+
+            
+            // //顯示結果：方法二 (推進陣列，不會增加 div 的數量)
+            // function AppendHistory()
+            // {
+            //     let result = `${inputArr.join("")}：${a}A${b}B<br>`;
+            //     _gameHistoryList.push(result);
+            //     ChangeData();
+            // }   
+            
+            // function ChangeData()
+            // {
+            //     // msgBox.innerText = null;
+            //     // msgBox.innerText = _gameHistoryList;
+            //     msgBox.innerHTML = "";
+            //     console.log(_gameHistoryList)
+            //     _gameHistoryList.forEach( item => {
+
+            //         msgBox.innerHTML += item;
+            //         //有 br 的關係，不能用 innerText
+            //     })
+            // }
+            
+            function reset() {
+                msgBox.innerText = "";
+                input.value = ""
+                getRandom();
+                msgBox.innerText = "遊戲重新開始，請輸入 4 位數整數";
+            }
+
+    </script>
+</body>
+</html>

@@ -398,7 +398,10 @@
 
                     li.addEventListener("click",function(event){
                         editModalInstance.show()
+                    
                         dataListIdx = index;
+                        console.log(`li迭代的dataListIdx`)
+                        console.log(dataListIdx)
                         
                         editDate.value = day;
                         editTodo.value = data; 
@@ -463,6 +466,7 @@
 
             dateList.splice(dataListIdx,1)
             //arr1.splice(要插入或刪除的索引位置, 要刪除的元素數量, 要插入的元素內容)
+            console.log(dataListIdx);
            
             setLocalStorage(dateKey, dateList)
             editModalInstance.hide()
