@@ -293,6 +293,9 @@
         let filterArr,filterArr2
         let storageFilterArr, networkFilterArr, styleFilterArr, ramFilterArr, powerFilterArr
         
+        let jsonParseObj= {}
+       let IPadParseObj
+       let MacAirParseObj
 
         //二、分頁監聽事件
         let ipadPageBtn = $g("#iPad")
@@ -302,7 +305,7 @@
             ipadBtnId = ipadPageBtn.getAttribute("id");        
             picBox.innerHTML = setBaseImg(ipadBtnId);
             
-            getColorBtn();
+            getColorBtn(IPadParseObj);
             
             ipadSpecArr = jsonParseArr.IPad.Spec
             getStorageBtn(ipadSpecArr); //放在這裡才收的到取回的 url(JSON資料在雲端)
@@ -323,42 +326,7 @@
         })
 
         
-        let iphonePageBtn = $g("#iPhone")
-        let iphoneBtnId
-        iphonePageBtn.addEventListener("click", function(){
-            // sectionTitle.innerHtml = "";
-            cardTemp.innerHTML =""
-            // if(cardTemp==false && cardTemp2==false)
-            // {
-
-                
-                iphoneBtnId = iphonePageBtn.getAttribute("id");        
-                picBox.innerHTML = setBaseImg(iphoneBtnId);
-                
-                getIphoneStyleBtn();          
-                document.querySelectorAll(".cardTemp2").forEach( Node => {
-                let styleId = Node.getAttribute("id");
-                Node.addEventListener("click" , function(event){
-                    iphoneStyleFilter(styleId)
-                })                
-            });
-            
-                getIphoneColorBtn();
-                
-                iphoneSpecArr = jsonParseArr.IPhone.Spec
-                getStorageBtn(iphoneSpecArr)
-                // getSIphoneStorageBtn();
-                document.querySelectorAll(".cardTemp2").forEach( Node => {
-                    let storageId = Node.getAttribute("id");
-                    Node.addEventListener("click" , function(event){
-                        iphoneStorageFilter(storageId)
-                    })                
-                })
-            // }
-            // else{
-                
-            // }
-        })
+        
 
         let macPageBtn = $g("#MacAir")
         let macAirBtnId
@@ -406,16 +374,14 @@
             }
        }
         
-       let IPhoneParseObj
-       let IPadParseObj
-       let MacAirParseObj
+       
         //三、方法
         // window.onload = function(){
         //     fetch(IPhone14JsonUrl)
         //         .then(response => response.json())
         //         .then(resIPhone=> {
-        //             IPhoneParseObj = resIPhone;
-        //             console.log(IPhoneParseObj)
+        //             jsonParseObj = resIPhone;
+        //             console.log(jsonParseObj)
         //             return fetchJSON(IPadJsonUrl)
         //         })
         //         .then(resIPad => {
@@ -436,30 +402,55 @@
         
         
         //實驗中....
-        window.onload = function(){
-            fetchJSON("IPhone-14")
-            IPhoneParseObj = data // not defined 沒接到data...
-            console.log(IPhoneParseObj)
+        // window.onload = function(){
+            
+            // fetchJSON(IPhone14JsonUrl)
+            // console.log(fetchJSON("IPhone-14"))      
             // fetchJSON("IPad")
-        }
+        // }
+
+
         
-        function fetchJSON(productType) {           
-            fetch(`./JSON/Apple-refTA-${productType}.json`)
-            .then(response => {
-                return response.json()
-                console.log(response)
+        window.onload = function() {
+            // return fetch  //要怎麼接出來
+            fetch("./JSON/Apple-refTA-Category.json") //產生一個promise，只有then 或 await 可以解開他
+            .then(res => res.json())
+            .then(categoryData => {
+                console.log(categoryData)
+                // return response.json() //就是 data，這個 return 是往下走的
+                return fetchMerchandise(categoryData[0].dataUrl)
 
             })
             .then(data => {
-                console.log(data); //有資料
-                // return data //不明所以...
-                // let A = data.colors //沒用
-                // console.log(A)
+                jsonParseObj = data // not defined 沒接到data...
+                console.log(`jsonParseObj...................`)
+                console.log(jsonParseObj)
                 getColorBtn(data)
-                console.log(data);
-            })
-            
+                
+            })          
         }
+
+        function fetchMerchandise(url) {
+            return fetch(url) //return 的是 promise 物件
+                .then(response => response.json())
+}
+      
+
+        // function fetchJSON(Url) {
+        //     fetch
+        //     .then(response => {
+        //         console.log(response)
+        //         return response.json() //就是 data，這個 return 是往下走的
+
+        //     })
+        //     .then(data => {
+        //         jsonParseObj = data // not defined 沒接到data...
+        //         console.log(`jsonParseObj...................`)
+        //         console.log(jsonParseObj)
+        //         // getColorBtn(data)              
+        //     })
+            
+        // }
         
         
 
@@ -498,9 +489,9 @@
         }
        
           
-        //iPad
+        //可共用了！！！
         function getColorBtn(data){
-            //取得資料
+            // console.log(data)
             let productMainImgObj = data.images;
             console.log(productMainImgObj)
             //物件包陣列，傳入資料，再去 forEach
@@ -521,18 +512,18 @@
         
             // 生成顏色按鈕的格線系統 (DOM 操作)
             colorArr.forEach(item =>{
-                allColorBtns = setIpadColorBtnData(item.colorName ,item.colorCode, item.colorImg)   //顏色 & 平板圖片                              
+                allColorBtns = setColorBtnData(item.colorName ,item.colorCode, item.colorImg, productMainImgObj[item.colorCode])   //注意：最後一個參數寫法，因為資料裡面沒有 colorCode 這個東西                           
                 let colorBtnSection = document.querySelector("#colorBtnSection");
                 colorBtnSection.append(allColorBtns);
                 
             })      
         }
-
         
-        function setIpadColorBtnData( colorName, colorCode, colorPic){
+        function setColorBtnData( colorName, colorCode, colorPic, imgArr){
             console.log(colorName) // 太空灰色、星光色、粉紅色、紫色、天藍色
             console.log(colorCode) //blue、purple、yellow、midnight....
-            console.log(colorPic)  //太空灰色01.jpg
+            console.log(colorPic)  //../ApplePics02/iPhone/color/星光色.jpg
+            console.log(imgArr)  //太空灰色01.jpg
 
             // <div class="card colorBtn cardTemp" id="太空灰色">
             //     <img src="" class="circle circleTemp">
@@ -549,25 +540,50 @@
             console.log(colorName)
             
             cloneBtn.querySelector(".cardTemp").addEventListener("click" , function(){
-                    picBox.innerHTML = getIPadColorPic(colorCode); 
-                    console.log(colorCode)  //colorCode沒進來.....
+                    picBox.innerHTML = getColorImg(colorCode,imgArr); 
+                    console.log(colorCode) 
             });
 
             return cloneBtn;  //製作好的卡片回覆給呼叫端
         }
 
-        function getIPadColorPic(colorCode) {
+        function getColorImg(colorCode,imgArr) {
             console.log(colorCode) //blue、purple、yellow、midnight....
-            
-            // let imgUrl = `https://raw.githubusercontent.com/hyeb407/hyeb407.github.io/main/JS_HW5%20Apple/ApplePics02/iPad/OutWard/${pic}`;
-            // let imgUrl = `https://raw.githubusercontent.com/hyeb407/hyeb407.github.io/main/JS_HW5%20Apple/ApplePics02/iPad/OutWard/%E5%A4%A9%E8%97%8D%E8%89%B201.jpg`;
-            let pics = `
-                <img src="${imgUrl}" class="main-pic" alt=""> `;
+            console.log(imgArr) 
 
-            return pics;
+            let imgUrlContainer
+            imgArr.forEach((imgUrl, index) => {
+                imgUrlContainer += 
+                `<div class="carousel-item ${index === 0 ? "active" : ""}>
+                    <img src="${imgUrl}" class="d-block w-100" alt="...">
+                </div>`;
+            })
+            console.log(imgUrlContainer) //undefined???
+            
+
+            let carousel = `
+            <div id="carouselExample" class="carousel slide main-pic">
+                    <div class="carousel-inner">
+                       ${imgUrlContainer}
+  
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>`;
+
+            return carousel;
         }
 
+ 
         
+
+
         function getStorageBtn(allSpecArr) { 
             console.log(`getStorageBtn的allSpecArr..................`);
             console.log(allSpecArr);
