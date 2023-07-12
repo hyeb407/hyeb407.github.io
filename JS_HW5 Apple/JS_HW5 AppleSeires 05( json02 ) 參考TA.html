@@ -426,35 +426,24 @@
                 jsonParseObj = productData // not defined 沒接到data...
                 console.log(`jsonParseObj...................`)
                 console.log(jsonParseObj)
-                getColorBtn(data)
-                
-            })          
+                getColorBtn(jsonParseObj)
+
+                return fetchMerchandise(categoryData[1].dataUrl)               
+            })
+            .then(IPadData =>{
+                IPadParseObj = IPadData
+                console.log(`IPadParseObj..........`)
+                console.log(IPadParseObj)
+            })    
         }
 
         function fetchMerchandise(url) {
             return fetch(url) //return 的是 promise 物件
                 .then(response => response.json())
-}
+        }
       
 
-        // function fetchJSON(Url) {
-        //     fetch
-        //     .then(response => {
-        //         console.log(response)
-        //         return response.json() //就是 data，這個 return 是往下走的
-
-        //     })
-        //     .then(data => {
-        //         jsonParseObj = data // not defined 沒接到data...
-        //         console.log(`jsonParseObj...................`)
-        //         console.log(jsonParseObj)
-        //         // getColorBtn(data)              
-        //     })
-            
-        // }
         
-        
-
         
         //主圖幻燈片
         function setBaseImg(id) {
