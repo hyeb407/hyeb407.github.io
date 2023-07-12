@@ -419,10 +419,11 @@
                 console.log(categoryData)
                 // return response.json() //就是 data，這個 return 是往下走的
                 return fetchMerchandise(categoryData[0].dataUrl)
+                //因為他要去路徑的抓資料，所以不能直接用屬性找，要再去fetch一次資料
 
             })
-            .then(data => {
-                jsonParseObj = data // not defined 沒接到data...
+            .then(productData => {
+                jsonParseObj = productData // not defined 沒接到data...
                 console.log(`jsonParseObj...................`)
                 console.log(jsonParseObj)
                 getColorBtn(data)

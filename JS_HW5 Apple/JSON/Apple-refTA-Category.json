@@ -1,11 +1,11 @@
 [
     {
         "title": "iPhone 14",
-        "dataUrl": "./Apple-refTA-iPhone-14.json"
+        "dataUrl": "../JSON/Apple-refTA-iPhone-14.json"
     },
     {
         "title": "iPad(TODO)",
-        "dataUrl": "./Apple-refTA-iPad.json"
+        "dataUrl": "../JSON/Apple-refTA-iPad.jsonn"
     },
     {
         "title": "Mac(TODO)",
