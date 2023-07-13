@@ -239,7 +239,7 @@
             </div>
         </div>
     </template>
-
+<a href="./JSON/Apple-refTA-iPad.json"></a>
     <template id="cardBtn">
         <div class="col-6 col-md-6 col-lg-6 col-xl-6">                             
             <div class="card cardTemp2" id="每個按鈕的ID">
@@ -571,7 +571,9 @@
         }
 
  
-        
+        function getWidget (){
+
+        }
 
 
         function getStorageBtn(allSpecArr) { 
@@ -596,17 +598,7 @@
                 let storageBtnSection = document.querySelector("#storageBtnSection");
                 storageBtnSection.append(allStorageBtns);                                                    
             })
-            // //掛入監聽事件，按下後過濾資料
-            // document.querySelectorAll(".cardTemp2").forEach(node =>{        
-            //     console.log(node)
-    
-            //     node.addEventListener("click" , function(){
-            //         console.log(`${item}加裝監聽成功`);                      
-            //         filterArr = ipadSpecArr.filter(x=> x.storage==item)
-            //         console.log(filterArr)
-                    
-            //     });           
-            // })
+         
         };
                
         function getNetworkBtn(allSpecArr) { 
