@@ -293,7 +293,7 @@
         let filterArr,filterArr2
         let storageFilterArr, networkFilterArr, styleFilterArr, ramFilterArr, powerFilterArr
         
-        let jsonParseObj= {}
+        let IPhoneParseObj
        let IPadParseObj
        let MacAirParseObj
 
@@ -380,8 +380,8 @@
         //     fetch(IPhone14JsonUrl)
         //         .then(response => response.json())
         //         .then(resIPhone=> {
-        //             jsonParseObj = resIPhone;
-        //             console.log(jsonParseObj)
+        //             IPhoneParseObj = resIPhone;
+        //             console.log(IPhoneParseObj)
         //             return fetchJSON(IPadJsonUrl)
         //         })
         //         .then(resIPad => {
@@ -423,18 +423,35 @@
 
             })
             .then(productData => {
-                jsonParseObj = productData // not defined 沒接到data...
-                console.log(`jsonParseObj...................`)
-                console.log(jsonParseObj)
-                getColorBtn(jsonParseObj)
+                IPhoneParseObj = productData // not defined 沒接到data...
+                console.log(`IPhoneParseObj...................`)
+                console.log(IPhoneParseObj)
+                getColorBtn(IPhoneParseObj)
 
-                return fetchMerchandise(categoryData[1].dataUrl)               
+                return fetchMerchandise("./JSON/Apple-refTA-Category.json")               
+                             
+            })
+            .then(categoryData2 =>{
+                console.log(categoryData2)
+                return fetchMerchandise(categoryData2[1].dataUrl)  
             })
             .then(IPadData =>{
                 IPadParseObj = IPadData
                 console.log(`IPadParseObj..........`)
                 console.log(IPadParseObj)
-            })    
+
+                getWidget ()
+                // return fetchMerchandise("./JSON/Apple-refTA-Category.json")     
+            })
+            // .then(categoryData3 =>{
+                // console.log(categoryData3)
+                // return fetchMerchandise(categoryData3[2].dataUrl)  
+            // })
+            // .then(MacAirData =>{
+            //     MacAirParseObj = MacAirData
+            //     console.log(`MacAirParseObj..........`)
+            //     console.log(MacAirParseObj)    
+            // })    
         }
 
         function fetchMerchandise(url) {
@@ -530,7 +547,10 @@
             console.log(colorName)
             
             cloneBtn.querySelector(".cardTemp").addEventListener("click" , function(){
-                    picBox.innerHTML = getColorImg(colorCode,imgArr); 
+                    let data = getColorImg(colorCode,imgArr); 
+                    console.log(data)
+                    picBox.innerHTML = data
+                    console.log(picBox)
                     console.log(colorCode) 
             });
 
@@ -541,10 +561,12 @@
             console.log(colorCode) //blue、purple、yellow、midnight....
             console.log(imgArr) 
 
-            let imgUrlContainer
+            let imgUrlContainer=''
             imgArr.forEach((imgUrl, index) => {
+
+                console.log(imgUrl)
                 imgUrlContainer += 
-                `<div class="carousel-item ${index === 0 ? "active" : ""}>
+                `<div class="carousel-item ${index === 0 ? "active" : ""}">
                     <img src="${imgUrl}" class="d-block w-100" alt="...">
                 </div>`;
             })
@@ -565,13 +587,36 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
-                </div>`;
+            </div>`;
 
             return carousel;
         }
 
- 
-        function getWidget (){
+        //先找出來，加上HTML字串差值，return 給 button 區域
+        //或是把button 的參數放進來，widget 的字串差值內
+        //我需要 Widgets 裡面 type 屬性，用來生成btn
+        //因為字串差值不能再插入
+
+        function createWidgetHTML (){
+            let widgetsArr = IPhoneParseObj.widgets
+            widgetsArr.forEach(item =>{
+                console.log(item) 
+                //{title: '外觀', subTitle: '挑選你喜愛的外觀。', type: 'color', col: 2}
+            
+                let html = `
+                <section class="list col-12 col-md-12 col-lg-12 col-xl-12" id="styleBtnSection">
+                    <div class="section-title">${item.title}<span> ${item.subtitle}</span></div>
+                    
+                </section>`     
+            })
+
+            let specArr = IPhoneParseObj.spec //現在是陣列
+            specArr.forEach(obj => {
+                odj.storage
+            })
+        }
+
+        function getWidget(){
 
         }
 

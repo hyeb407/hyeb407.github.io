@@ -3,29 +3,29 @@
     "name": "iPad Air",
     "images": {
         "spacegray": [
-            "../ApplePics02/iPhone/OutWard/午夜色01.jpg",
-            "../ApplePics02/iPhone/OutWard/午夜色02.jpg",
-            "../ApplePics02/iPhone/OutWard/午夜色03.jpg"
+            "./ApplePics02/iPhone/OutWard/午夜色01.jpg",
+            "./ApplePics02/iPhone/OutWard/午夜色02.jpg",
+            "./ApplePics02/iPhone/OutWard/午夜色03.jpg"
         ],
         "blue": [
-            "../ApplePics02/iPhone/OutWard/紫色01.jpg",
-            "../ApplePics02/iPhone/OutWard/紫色02.jpg",
-            "../ApplePics02/iPhone/OutWard/紫色03.jpg"
+            "./ApplePics02/iPhone/OutWard/紫色01.jpg",
+            "./ApplePics02/iPhone/OutWard/紫色02.jpg",
+            "./ApplePics02/iPhone/OutWard/紫色03.jpg"
         ],
         "pink": [
-            "../ApplePics02/iPhone/OutWard/黃色01.jpg",
-            "../ApplePics02/iPhone/OutWard/黃色02.jpg",
-            "../ApplePics02/iPhone/OutWard/黃色04.jpg"
+            "./ApplePics02/iPhone/OutWard/黃色01.jpg",
+            "./ApplePics02/iPhone/OutWard/黃色02.jpg",
+            "./ApplePics02/iPhone/OutWard/黃色04.jpg"
         ],
         "purple": [
-            "../ApplePics02/iPhone/OutWard/午夜色01.jpg",
-            "../ApplePics02/iPhone/OutWard/午夜色02.jpg",
-            "../ApplePics02/iPhone/OutWard/午夜色03.jpg"
+            "./ApplePics02/iPhone/OutWard/午夜色01.jpg",
+            "./ApplePics02/iPhone/OutWard/午夜色02.jpg",
+            "./ApplePics02/iPhone/OutWard/午夜色03.jpg"
         ],
         "starlight": [
-            "../ApplePics02/iPhone/OutWard/星光色01.jpg",
-            "../ApplePics02/iPhone/OutWard/星光色02.jpg",
-            "../ApplePics02/iPhone/OutWard/星光色03.jpg"
+            "./ApplePics02/iPhone/OutWard/星光色01.jpg",
+            "./ApplePics02/iPhone/OutWard/星光色02.jpg",
+            "./ApplePics02/iPhone/OutWard/星光色03.jpg"
         ]
     },
     "widgets": [
@@ -52,27 +52,27 @@
         {
             "colorName": "太空灰色",
             "colorCode": "spacegray",
-            "colorImg": "../ApplePics02/iPad/color/太空灰色.png.jpg"
+            "colorImg": "./ApplePics02/iPad/color/太空灰色.png"
         },
         {
             "colorName": "藍色",
             "colorCode": "blue",
-            "colorImg": "../ApplePics02/iPad/color/天藍色.png"
+            "colorImg": "./ApplePics02/iPad/color/天藍色.png"
         },
         {
             "colorName": "粉色",
             "colorCode": "pink",
-            "colorImg": "../ApplePics02/iPhone/color/黃色.jpg"
+            "colorImg": "./ApplePics02/iPhone/color/黃色.jpg"
         },
         {
             "colorName": "紫色",
             "colorCode": "purple",
-            "colorImg": "../ApplePics02/iPhone/color/紫色.jpg"
+            "colorImg": "./ApplePics02/iPhone/color/紫色.jpg"
         },
         {
             "colorName": "星光色",
             "colorCode": "starlight",
-            "colorImg": "../ApplePics02/iPhone/color/星光色.jpg"
+            "colorImg": "./ApplePics02/iPhone/color/星光色.jpg"
         }
     ],
     "spec-description":{
