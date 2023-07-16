@@ -424,9 +424,14 @@
             })
             .then(productData => {
                 IPhoneParseObj = productData // not defined 沒接到data...
-                console.log(`IPhoneParseObj...................`)
+                // console.log(`IPhoneParseObj...................`)
                 console.log(IPhoneParseObj)
                 getColorBtn(IPhoneParseObj)
+                let widgetHTML=""
+                IPhoneParseObj.widgets.forEach(widgetData => {
+                    widgetHTML += createWidgetTitleAndBtn(widgetData)
+                })
+
 
                 return fetchMerchandise("./JSON/Apple-refTA-Category.json")               
                              
@@ -440,7 +445,7 @@
                 console.log(`IPadParseObj..........`)
                 console.log(IPadParseObj)
 
-                getWidget ()
+                // getWidget ()
                 // return fetchMerchandise("./JSON/Apple-refTA-Category.json")     
             })
             // .then(categoryData3 =>{
@@ -597,27 +602,46 @@
         //我需要 Widgets 裡面 type 屬性，用來生成btn
         //因為字串差值不能再插入
 
-        function createWidgetHTML (){
-            let widgetsArr = IPhoneParseObj.widgets
-            widgetsArr.forEach(item =>{
-                console.log(item) 
+        
+        function createWidgetTitleAndBtn (widgetData){
+            console.log(widgetData)
+            //{title: '外觀', subTitle: '挑選你喜愛的外觀。', type: 'color', col: 2}
+            //{title: '儲存裝置', subTitle: '你需要多少儲存空間？', type: 'storage', col: 2}
+            //...
+
+            let widgetType = selectWidgetType(widgetData.type)
+            //每一筆widget 物件資料的 type，要去比對 spec 裡面的內容
+            console.log(`widgetType：`)
+            console.log(widgetType)
+             //Set(4) {'64GB', '256GB', '512GB', '128GB'}
+             //
+
+            widgetType.forEach(btn => {
+                if(widgetData.type == "model"){
+                    let specs = IPhoneParseObj.specs.filter(x=> x.model)
+                }
+            })
+
+
+            
+         
+             
+            // widgetData.forEach(item =>{
+                // console.log(item) 
                 //{title: '外觀', subTitle: '挑選你喜愛的外觀。', type: 'color', col: 2}
             
                 let html = `
                 <section class="list col-12 col-md-12 col-lg-12 col-xl-12" id="styleBtnSection">
-                    <div class="section-title">${item.title}<span> ${item.subtitle}</span></div>
+                    <div class="section-title">${widgetData.title}<span> ${widgetData.subtitle}</span></div>
                     
                 </section>`     
-            })
+            // })
 
-            let specArr = IPhoneParseObj.spec //現在是陣列
-            specArr.forEach(obj => {
-                odj.storage
-            })
         }
 
-        function getWidget(){
-
+        function selectWidgetType(widgetType){
+            //要選取 spec 裡面的資料，跟 widget.type 一樣的話，則納入
+            return new Set(IPhoneParseObj.spec.map(specData => specData[widgetType]))
         }
 
 
