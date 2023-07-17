@@ -571,6 +571,14 @@
                     selectModel = element.dataset.model
                     //處理儲存裝置區價錢
                     const specs = shopData.specifications.filter(s => s.model === selectModel)
+
+
+                    // 假設btn 是 model(14 and 14MAX)
+                    //先找到 spec 陣列中 一樣是 model 的資料
+
+                    //查詢 storage 的 DOM 裡面的
+                    //讓 specs 陣列找出符合那個 storage btn 的 price
+                    //innerText 給他
                     specWidget.querySelectorAll('[data-storage]').forEach(el => {
                         const spec = specs.find(s => s.storage === el.dataset.storage)
                         el.querySelector('.price').textContent = `NT$ ${spec.price.toLocaleString()}`
