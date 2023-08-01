@@ -149,7 +149,7 @@
                 
             <!-- 顏色選項 -->
             <div class="sub-container col-12 col-md-6 col-lg-6 col-xl-6">
-                <section class="list col-12 col-md-12 col-lg-12 col-xl-12" id="styleBtnSection">
+                <!-- <section class="list col-12 col-md-12 col-lg-12 col-xl-12" id="styleBtnSection">
                     <div class="section-title">機型。<span> 哪一款最適合你？</span></div>
                       
                 </section>
@@ -157,7 +157,7 @@
                 <section class="list col-12 col-md-12 col-lg-12 col-xl-12" id="ramBtnSection">
                     <div class="section-title">記憶體。<span>你需要多少記憶體？</span></div>
                       
-                </section>
+                </section> -->
 
                 <section class="list col-12 col-md-12 col-lg-12 col-xl-12" id="colorBtnSection">
                     <div class="section-title">外觀。<span>挑選喜愛的顏色。</span></div>
@@ -175,21 +175,21 @@
                             </div>
                         </div>                    -->
                 </section>
-                <section class="list col-12 col-md-12 col-lg-12 col-xl-12" id="styleBtnSection">
+                <!-- <section class="list col-12 col-md-12 col-lg-12 col-xl-12" id="styleBtnSection">
                     <div class="section-title">有句號的標題<span>行銷文案</span></div>             
-                </section>
+                </section> -->
    
                 <!-- 儲存裝置選項 -->
-                <section class="list col-12 col-md-12 col-lg-12 col-xl-12" id="storageBtnSection">          
+                <!-- <section class="list col-12 col-md-12 col-lg-12 col-xl-12" id="storageBtnSection">          
                     <div class="section-title">儲存空間</div>
                          
-                </section>
+                </section> -->
                 
  
                 <!-- 連線能力 network 選項 -->
-                <section class="list col-12 col-md-12 col-lg-12 col-xl-12" id="networkBtnSection">            
+                <!-- <section class="list col-12 col-md-12 col-lg-12 col-xl-12" id="networkBtnSection">            
                     <div class="section-title">連線能力</div>
-                        <!-- <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+                        <div class="col-12 col-md-12 col-lg-12 col-xl-12">
                             <div class="card networkBtn" id="Wi-Fi">
                                 <h5 class="networkBtnName">Wi-Fi<span>每部 iPad 都可連接到 Wi-Fi 網路，使你能保持連線。 </span></h5>   
                             </div>
@@ -199,15 +199,15 @@
                             <div class="card networkBtn" id="Cellular">
                                 <h5 class="networkBtnName">Wi-Fi + 行動網路<span>Wi-Fi + 行動網路機型讓你在無法使用 Wi-Fi 時也能進行連線。</span></h5>               
                             </div>
-                        </div> -->
-                </section>
+                        </div>
+                </section> -->
 
 
                 <!-- 充電裝置 power 選項 -->
-                <section class="list col-12 col-md-12 col-lg-12 col-xl-12" id="powerBtnSection">            
+                <!-- <section class="list col-12 col-md-12 col-lg-12 col-xl-12" id="powerBtnSection">            
                     <div class="section-title">充電裝置</div>
                       
-                </section>
+                </section> -->
                                      
                 <!-- 價格試算 -->
                 <section class="list col-12 col-md-12 col-lg-12 col-xl-12">
@@ -251,8 +251,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
     
-    <script type="module">
-        import { $g } from './helpers.js';
+    <script>
+       
 
         // 一、宣告 + 取得 DOM
         const categoryJsonUrl = "./JSON/Apple-refTA-Category.json";       
@@ -272,14 +272,14 @@
         let priceBox = document.querySelector(".price-box");
         let mainPic = document.querySelector(".main-pic");
        
-        let sectionTitle = $g(".section-title")
-        let subContainer  =$g("#sub-Container")
-        let cardTemp =$g(".cardTemp")
-        let cardTemp2 =$g(".cardTemp2")
+        let sectionTitle = document.querySelector(".section-title")
+        let subContainer  =document.querySelector("#sub-Container")
+        let cardTemp =document.querySelector(".cardTemp")
+        let cardTemp2 =document.querySelector(".cardTemp2")
 
 
-        let templateColorBtn = $g('#cardBtnColor'); //定義的 Template id
-        let btnTemplate = $g('#cardBtn'); //定義的 Template id
+        let templateColorBtn = document.querySelector('#cardBtnColor'); //定義的 Template id
+        let btnTemplate = document.querySelector('#cardBtn'); //定義的 Template id
         let colorID , btnID
         let allColorBtns, allStorageBtns
         let specAutoArr=[];
@@ -298,7 +298,7 @@
        let MacAirParseObj
 
         //二、分頁監聽事件
-        let ipadPageBtn = $g("#iPad")
+        let ipadPageBtn = document.querySelector("#iPad")
         let ipadBtnId
         ipadPageBtn.addEventListener("click", function(){
             sectionTitle.innerHtml = "";            
@@ -328,7 +328,7 @@
         
         
 
-        let macPageBtn = $g("#MacAir")
+        let macPageBtn = document.querySelector("#MacAir")
         let macAirBtnId
         macPageBtn.addEventListener("click", function(){
             sectionTitle.innerHtml = "";    
@@ -426,12 +426,14 @@
                 IPhoneParseObj = productData // not defined 沒接到data...
                 // console.log(`IPhoneParseObj...................`)
                 console.log(IPhoneParseObj)
-                getColorBtn(IPhoneParseObj)
                 let widgetHTML=""
                 IPhoneParseObj.widgets.forEach(widgetData => {
                     widgetHTML += createWidgetTitleAndBtn(widgetData)
                 })
-
+                document.querySelector(".sub-container").innerHTML = widgetHTML
+                
+                // getColorBtn(IPhoneParseObj)
+                // getColorBtn()
 
                 return fetchMerchandise("./JSON/Apple-refTA-Category.json")               
                              
@@ -502,15 +504,15 @@
        
           
         //可共用了！！！
-        function getColorBtn(data){
+        function getColorBtn(){
             // console.log(data)
-            let productMainImgObj = data.images;
+            let productMainImgObj = IPhoneParseObj.images;
             console.log(productMainImgObj)
             //物件包陣列，傳入資料，再去 forEach
             //{blue: Array(3), purple: Array(3), yellow: Array(3), midnight: Array(3), starlight: Array(3), …}
            
             let colorArr=[];                       
-            colorArr = data.colors;
+            colorArr = IPhoneParseObj.colors;
             console.log(colorArr)
                 //現在是陣列，所以要 forEach 取裡面的 color
                 // (6) [{…}, {…}, {…}, {…}, {…}, {…}]
@@ -525,8 +527,9 @@
             // 生成顏色按鈕的格線系統 (DOM 操作)
             colorArr.forEach(item =>{
                 allColorBtns = setColorBtnData(item.colorName ,item.colorCode, item.colorImg, productMainImgObj[item.colorCode])   //注意：最後一個參數寫法，因為資料裡面沒有 colorCode 這個東西                           
-                let colorBtnSection = document.querySelector("#colorBtnSection");
-                colorBtnSection.append(allColorBtns);
+                // let colorBtnSection = document.querySelector("#colorBtnSection");
+                // colorBtnSection.append(allColorBtns);
+                document.querySelector(".sub-container").append(allColorBtns)
                 
             })      
         }
@@ -552,9 +555,9 @@
             console.log(colorName)
             
             cloneBtn.querySelector(".cardTemp").addEventListener("click" , function(){
-                    let data = getColorImg(colorCode,imgArr); 
-                    console.log(data)
-                    picBox.innerHTML = data
+                    let IPhoneParseObj = getColorImg(colorCode,imgArr); 
+                    console.log(IPhoneParseObj)
+                    picBox.innerHTML = IPhoneParseObj
                     console.log(picBox)
                     console.log(colorCode) 
             });
@@ -613,30 +616,62 @@
             //每一筆widget 物件資料的 type，要去比對 spec 裡面的內容
             console.log(`widgetType：`)
             console.log(widgetType)
+            //Set(2) {'iPhone 14', 'iPhone 14 plus'}
              //Set(4) {'64GB', '256GB', '512GB', '128GB'}
-             //
+             //Set(6) {'blue', 'yellow', 'midnight', 'starlight', 'red', …}
+
+            let btnHTML='';
 
             widgetType.forEach(btn => {
                 if(widgetData.type == "model"){
-                    let specs = IPhoneParseObj.specs.filter(x=> x.model)
+                    const model = IPhoneParseObj.spec.filter( specData=>  specData.model == btn)
+                    console.log(model)
+
+                    const minPrice = Math.floor(...model.map(s => s.price))
+                    console.log(minPrice)
+
+                    btnHTML += `
+                    <div class="col-6 col-md-6 col-lg-6 col-xl-6">                             
+                        <div class="card cardTemp2" id="model" onclick="clickHandler(this,'${widgetData.type}')" data-model="${btn}">
+                            <h5 class="BtnName">${btn}<span>$ ${minPrice} 起</span></h5>   
+                        </div>
+                    </div>`
+                }
+
+                else if(widgetData.type == "color"){
+                    btnHTML = getColorBtn()
+                }
+
+                else if(widgetData.type == "storage"){
+                    const storage = IPhoneParseObj.spec.filter( specData=>  specData.storage == btn)
+                    console.log(storage)
+
+                    const minPrice = Math.floor(...storage.map(s => s.price))
+                    console.log(minPrice)
+
+                    btnHTML += `
+                    <div class="col-6 col-md-6 col-lg-6 col-xl-6">                             
+                        <div class="card cardTemp2" id="storage" onclick="clickHandler(this,'${widgetData.type}')" data-model="${btn}">
+                            <h5 class="BtnName">${btn}<span>$ ${minPrice} 起</span></h5>   
+                        </div>
+                    </div>`
+
                 }
             })
 
-
-            
-         
-             
             // widgetData.forEach(item =>{
                 // console.log(item) 
                 //{title: '外觀', subTitle: '挑選你喜愛的外觀。', type: 'color', col: 2}
             
                 let html = `
                 <section class="list col-12 col-md-12 col-lg-12 col-xl-12" id="styleBtnSection">
-                    <div class="section-title">${widgetData.title}<span> ${widgetData.subtitle}</span></div>
+                    <div class="section-title">${widgetData.title}<span> ${widgetData.subTitle}</span></div>
                     
+                        ${btnHTML}
+
                 </section>`     
             // })
-
+            return html
         }
 
         function selectWidgetType(widgetType){
@@ -644,66 +679,28 @@
             return new Set(IPhoneParseObj.spec.map(specData => specData[widgetType]))
         }
 
+        let selectModel, selectColor, selectStorage
+        function clickHandler(element, type){
+            console.log(element) //element 對我來說好像不重要...
+            console.log(type) //clickHandler
+            const specWidget = document.querySelector('.sub-container')
 
-        function getStorageBtn(allSpecArr) { 
-            console.log(`getStorageBtn的allSpecArr..................`);
-            console.log(allSpecArr);
-            // ipadSpecArr = jsonParseArr.IPad.Spec;
-            // ipadSpecArr = jsonParseArr.IPad.Spec;
-            // console.log(ipadSpecArr)
-        
-            //取得不重複的 storage 規格ˇ         
-            allSpecArr.forEach(item=>{
-                if(! specAutoArr.includes(item.storage)){
-                     specAutoArr.push(item.storage)
-                     console.log(specAutoArr)                                          
-                    }
-            })
-                
-            //生成按鈕的格線系統 (DOM 操作) 
-            specAutoArr.forEach(item =>{
-                allStorageBtns = setBtnData(item)   //64GB , 256GB
-                    console.log(item)                                    
-                let storageBtnSection = document.querySelector("#storageBtnSection");
-                storageBtnSection.append(allStorageBtns);                                                    
-            })
-         
-        };
-               
-        function getNetworkBtn(allSpecArr) { 
-            // ipadSpecArr = jsonParseArr.IPad.Spec;
-            console.log(`ipadSpecArr...`)
-            console.log(ipadSpecArr);
-        
-            //取得不重複的 network 規格ˇ         
-            allSpecArr.forEach(item=>{
-                console.log(item)
-                if(! specAutoArr2.includes(item.network) ){
-                     specAutoArr2.push(item.network)
-                     console.log(specAutoArr2)                                   
-                    }
-                })
-                
-            //生成按鈕的格線系統 (DOM 操作)
-            specAutoArr2.forEach(item =>{
-                allStorageBtns = setBtnData(item)   
-                    console.log(item)                                    
-                let networkBtnSection = document.querySelector("#networkBtnSection");
-                networkBtnSection.append(allStorageBtns);              
-                //掛入監聽事件，按下後過濾資料
-                // document.querySelectorAll(".cardTemp2").forEach(node =>{        
-                //     console.log(node)
+            if (type === 'model') {
+                    selectModel = element.dataset.model
+                    //處理儲存裝置區價錢
+                    const specs = IPhoneParseObj.spec.filter(s => s.model === selectModel)
+                    specWidget.querySelectorAll('[data-storage]').forEach(el => {
+                        const spec = specs.find(s => s.storage === el.dataset.storage)
+                        el.querySelector('.price-box').textContent = `NT$ ${spec.price.toLocaleString()}`
+                    })
 
-                //     node.addEventListener("click" , function(){
-                //         console.log(`${item}加裝監聽成功`);                      
-                //         filterArr2 = filterArr.filter(x=> x.network==item)
-                //         console.log(filterArr2)
-                        
-                //     });           
-                // })
-            })
+                } else if (type === 'storage') {
+                    selectStorage = element.dataset.storage
+                }
+        }
 
-        };
+
+    
 
         function setBtnData(specValue){
             console.log(specValue) //64G , 256G
@@ -972,6 +969,9 @@
         
 
     
+    </script>
+    <script>
+
     </script>
 </body>
 </html>
