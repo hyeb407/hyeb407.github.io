@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="./grid.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    
     <style>
         i{
             font-size: 36px;
@@ -28,8 +36,13 @@
         }
 
         button{
+            font-size: 30px;
+            width: 100%;
+            height: 100%;
             border: none;
-            color: #00E6E6;
+            color: #ffffff;
+            background-color: rgba(255, 0, 0, 0.658);
+            border-radius: 20px;
         }
 
         #msg{
@@ -37,96 +50,167 @@
             text-align: center;
         }
 
+
+        img{
+            width :70%;
+        }
+        body{
+            position: relative;
+        }
+
+        body {
+            background-color: white;
+            background-image: url(./男子.png);
+            background-size:500px;
+            background-repeat: no-repeat;
+            background-position: center;
+            
+        }
+        #exampleModalLabel{
+            font-weight: bold;
+            font-size: 25px;
+        }
+ 
+        .modal-body{
+            display: flex;
+            justify-content: center;
+        }
+
+        .modal-body > img{
+            width: 50%;
+            height: 50%;
+        }
+        .modal-title{
+            padding: 0px 50px;
+        }
+        #close_x{
+            margin: 0px;
+            padding: 0px;
+        }
+
     </style>
 </head>
 <body>
     <div class="container">
         <div class="row">
-            <div box-id="1" class="col-1"><i class="fa-solid fa-fish-fins"></i></div>
-            <div box-id="2" class="col-1"><i class="fa-solid fa-kiwi-bird"></i></div>
-            <div box-id="3" class="col-1"><i class="fa-solid fa-church"></i></div>
-            <div box-id="4" class="col-1"><i class="fa-solid fa-person-through-window"></i></div>
-            <div box-id="5" class="col-1"><i class="fa-solid fa-cloud-bolt"></i></i></div>
-            <div box-id="6" class="col-1"><i class="fa-solid fa-ranking-star"></i></div>
-            <div box-id="7" class="col-1"><i class="fa-solid fa-house-chimney"></i></div>
-            <div box-id="8" class="col-1"><i class="fa-solid fa-sack-dollar"></i></div>
-            <div box-id="9" class="col-1"><i class="fa-solid fa-cow"></i></div>
-            <div box-id="10" class="col-1"><i class="fa-solid fa-parachute-box"></i></div>
-            <div box-id="11" class="col-1"><i class="fa-solid fa-volcano"></i></div>
-            <div box-id="12" class="col-1"><i class="fa-solid fa-bowl-rice"></i></div>
+            <div box-id="1" class="col-1"></div>
+            <div box-id="2" class="col-1"></div>
+            <div box-id="3" class="col-1"></div>
+            <div box-id="4" class="col-1"></div>
+            <div box-id="5" class="col-1"></div>
+            <div box-id="6" class="col-1"></div>
+            <div box-id="7" class="col-1"></div>
+            <div box-id="8" class="col-1"></div>
+            <div box-id="9" class="col-1"></div>
+            <div box-id="10" class="col-1"></div>
+            <div box-id="11" class="col-1"></div>
+            <div box-id="12" class="col-1"></div>
         </div>
 
         <div class="row">
-            <div box-id="32" class="col-1"><i class="fa-solid fa-car-on"></i></div>
+            <div box-id="32" class="col-1"></div>
             <div id="msg" class="col-10"></div>
-            <div box-id="13" class="col-1"><i class="fa-solid fa-plane-up"></i></div>
+            <div box-id="13" class="col-1"></div>
         </div>
 
         <div class="row">
-            <div box-id="31" class="col-1"><i class="fa-solid fa-burst"></i></div>
+            <div box-id="31" class="col-1"></div>
+            <div id=""  class="col-10">
+            </div>
+            <div box-id="14" class="col-1"></div>
+        </div>
+
+        <div class="row">
+            <div box-id="30" class="col-1"></div>
             <div id=""  class="col-10"></div>
-            <div box-id="14" class="col-1"><i class="fa-solid fa-light fa-wand-magic-sparkles"></i></div>
+            <div box-id="15" class="col-1"></div>
         </div>
 
         <div class="row">
-            <div box-id="30" class="col-1"><i class="fa-solid fa-cloud-bolt"></i></div>
-            <div id=""  class="col-10"></div>
-            <div box-id="15" class="col-1"><i class="fa-solid fa-bowl-rice"></i></div>
-        </div>
-
-        <div class="row">
-            <div box-id="29" class="col-1"><i class="fa-solid fa-plane-up"></i></div>
+            <div box-id="29" class="col-1"></div>
             <div id="" class="col-3"></div>
-            <button id="" class="col-4">START</button>
+            <button id="" class="col-4">有求有保庇！GO！</button>
             <div id="" class="col-3"></div>
-            <div box-id="16" class="col-1"><i class="fa-solid fa-cloud-bolt"></i></div>
+            <div box-id="16" class="col-1"></div>
         </div>
 
         <div class="row">
-            <div box-id="28" class="col-1"><i class="fa-sharp fa-solid fa-truck-fast"></i></div>
-            <div box-id="27" class="col-1"><i class="fa-solid fa-kiwi-bird"></i></div>
-            <div box-id="26" class="col-1"><i class="fa-sharp fa-solid fa-lemon"></i></div>
-            <div box-id="25" class="col-1"><i class="fa-solid fa-light fa-person"></i></div>
-            <div box-id="24" class="col-1"><i class="fa-sharp fa-solid fa-bath"></i></div>
-            <div box-id="23" class="col-1"><i class="fa-sharp fa-solid fa-bug"></i></div>
-            <div box-id="22" class="col-1"><i class="fa-solid fa-fish-fins"></i></i></div>
-            <div box-id="21" class="col-1"><i class="fa-solid fa-kiwi-bird"></i></div>
-            <div box-id="20" class="col-1"><i class="fa-solid fa-kiwi-bird"></i></div>
-            <div box-id="19" class="col-1"><i class="fa-solid fa-car-on"></i></div>
-            <div box-id="18" class="col-1"><i class="fa-solid fa-ranking-star"></i></div>
-            <div box-id="17" class="col-1"><i class="fa-sharp fa-solid fa-icons"></i></div>
-        </div>
+            <div box-id="28" class="col-1"></div>
+            <div box-id="27" class="col-1"></div>
+            <div box-id="26" class="col-1"></div>
+            <div box-id="25" class="col-1"></div>
+            <div box-id="24" class="col-1"></div>
+            <div box-id="23" class="col-1"></div>
+            <div box-id="22" class="col-1"></div>
+            <div box-id="21" class="col-1"></div>
+            <div box-id="20" class="col-1"></div>
+            <div box-id="19" class="col-1"></div>
+            <div box-id="18" class="col-1"></div>
+            <div box-id="17" class="col-1"></div>
+        </div>   
 
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close_x">
+                        <!-- <span aria-hidden="true">&times;</span> -->
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img id="resultPic">
+                    Modal內容
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
     <script>
 
         const brickData = [
                     {
                         id:"1",
                         color:"#00E6E6",
-                        icon: "fa-solid fa-fish-fins",
+                        icon: "./不倒翁御守.png",
+                        resultPic: "./日富一日.png",
                         target: function(){
-                            return '1 恭喜你!獲得一隻可以做成生魚片的高級魚!'
+                            return '1 多多累金'
                         }
                     },
                     {
                         id:"2",
                         color:"#EBEB00",
-                        icon: "fa-thin fa-kiwi-bird",
+                        icon: "./富士山守.png",
+                        resultPic: "./旅行七天守.png",
                         target: function(){
-                            return '2 這裡甚麼也沒有..他只是一隻無辜的奇異鳥...'
+                            return '2 休息是為了走更長遠的路'
                         }
                     },
                     {
                         id:"3",
                         color:"#EBEB00",
-                        icon: "fa-sharp fa-light fa-angel",
+                        icon: "./神社守.png",
+                        resultPic: "./背單字守.png",
                         target: function(){
-                            return '3 「天使保佑」是Hook 最常說的台詞，他是我喜愛的Youtuber之一，穿梭古今中外的歷史系才女，以輕鬆詼諧的腳本讓你在無意間攝取歷史養分，同時達到放空療癒身心之妙用，一舉兩得，推薦給你！'
+                            return '3 '
                         }
                     },
                     {
-                        id:"4", color:"#EBEB00", icon: "",
+                        id:"4", color:"#EBEB00",
+                        icon: "./富士山守.png",
+                        resultPic: "./瘦十公斤守.png",
                         target: function(){
                             return '4'
                         }
@@ -134,7 +218,8 @@
                     {
                         id:"5",
                         color:"lightgreen",
-                        icon: "",
+                        icon: "./金魚守1.png",
+                        resultPic: "./看五本書守.png",
                         target: function(){
                             return '5'
                         }
@@ -142,7 +227,8 @@
                     {
                         id:"6",
                         color:"#EBEB00",
-                        icon: "",
+                        icon: "./不倒翁御守.png",
+                        resultPic: "./背單字守.png",
                         target: function(){
                             return '6'
                         }
@@ -150,7 +236,8 @@
                     {
                         id:"7",
                         color:"#EBEB00",
-                        icon: "",
+                        icon: "./富士山守.png",
+                        resultPic: "./旅行七天守.png",
                         target: function(){
                             return '7'
                         }
@@ -158,7 +245,8 @@
                     {
                         id:"8",
                         color:"#EBEB00",
-                        icon: "",
+                        icon: "./金魚守1.png",
+                        resultPic: "./瘦十公斤守.png",
                         target: function(){
                             return '9'
                         }
@@ -166,15 +254,17 @@
                     {
                         id:"9",
                         color:"lightgreen",
-                        icon: "",
+                        icon: "./神社守.png",
+                        resultPic: "./日富一日.png",
                         target: function(){
-                            return '9 現金入袋，恭喜你成為大富翁世界的大富翁，但現實...'
+                            return '9 最近有現金入袋的機會，訣竅是看緊你的荷包！'
                         }
                     },
                     {
                         id:"10",
                         color:"#00E6E6",
-                        icon: "",
+                        icon: "./金魚守1.png",
+                        resultPic: "./看五本書守.png",
                         target: function(){
                             return '10'
                         }
@@ -182,7 +272,8 @@
                     {
                         id:"11",
                         color:"#EBEB00",
-                        icon: "",
+                        icon: "./不倒翁御守.png",
+                        resultPic: "./旅行七天守.png",
                         target: function(){
                             return '11'
                         }
@@ -190,7 +281,8 @@
                     {
                         id:"12",
                         color:"#EBEB00",
-                        icon: "",
+                        icon: "./富士山守.png",
+                        resultPic: "./背單字守.png",
                         target: function(){
                             return '12'
                         }
@@ -198,30 +290,34 @@
                     {
                         id:"13",
                         color:"#EBEB00",
-                        icon: "",
+                        icon: "./神社守.png",
+                        resultPic: "./日富一日.png",
                         target: function(){
                             return '13'
                         }
                     },{
                         id:"14",
                         color:"#00E6E6",
-                        icon: "",
+                        icon: "./金魚守1.png",
+                        resultPic: "./旅行七天守.png",
                         target: function(){
-                            return '14 只能變出香菸的魔術棒'
+                            return '14'
                         }
                     },
                     {
                         id:"15",
                         color:"lightgreen",
-                        icon: "",
+                        icon: "./不倒翁御守.png",
+                        resultPic: "./背單字守.png",
                         target: function(){
-                            return '15 你知道為什麼韓國每餐都有小菜呢？ 因為戰後缺糧，米飯成為珍貴食物，而蔬菜漁獲類得以醃漬保存的關係喔~'
+                            return '15 '
                         }
                     },
                     {
                         id:"16",
                         color:"#EBEB00",
-                        icon: "",
+                        icon: "./富士山守.png",
+                        resultPic: "./看五本書守.png",
                         target: function(){
                             return '16'
                         }
@@ -229,7 +325,8 @@
                     {
                         id:"17",
                         color:"#EBEB00",
-                        icon: "",
+                        icon: "./神社守.png",
+                        resultPic: "./瘦十公斤守.png",
                         target: function(){
                             return '17'
                         }
@@ -237,7 +334,8 @@
                     {
                         id:"18",
                         color:"#00E6E6",
-                        icon: "",
+                        icon: "./金魚守1.png",
+                        resultPic: "./背單字守.png",
                         target: function(){
                             return '18'
                         }
@@ -245,7 +343,8 @@
                     {
                         id:"19",
                         color:"#EBEB00",
-                        icon: "",
+                        icon: "./不倒翁御守.png",
+                        resultPic: "./瘦十公斤守.png",
                         target: function(){
                             return '19'
                         }
@@ -253,23 +352,26 @@
                     {
                         id:"20",
                         color:"#EBEB00",
-                        icon: "",
+                        icon: "./富士山守.png",
+                        resultPic: "./旅行七天守.png",
                         target: function(){
-                            return '20 這裡甚麼也沒有..他只是一隻無辜的奇異鳥...'
+                            return '20 '
                         }
                     },
                     {
                         id:"21",
                         color:"#EBEB00",
-                        icon: "",
+                        icon: "./神社守.png",
+                        resultPic: "./看五本書守.png",
                         target: function(){
-                            return '21 這裡甚麼也沒有..他只是一隻無辜的奇異鳥...'
+                            return '21 '
                         }
                     },
                     {
                         id:"22",
                         color:"#00E6E6",
-                        icon: "",
+                        icon: "./金魚守1.png",
+                        resultPic: "./日富一日.png",
                         target: function(){
                             return '22'
                         }
@@ -277,15 +379,17 @@
                     {
                         id:"23",
                         color:"#EBEB00",
-                        icon: "",
+                        icon: "./不倒翁御守.png",
+                        resultPic: "./背單字守.png",
                         target: function(){
-                            return '23 他只是一隻bug，請不要de他..'
+                            return '23 '
                         }
                     },
                     {
                         id:"24",
                         color:"lightgreen",
-                        icon: "",
+                        icon: "./富士山守.png",
+                        resultPic: "./看五本書守.png",
                         target: function(){
                             return '24'
                         }
@@ -293,7 +397,8 @@
                     {
                         id:"25",
                         color:"#EBEB00",
-                        icon: "",
+                        icon: "./金魚守1.png",
+                        resultPic: "./日富一日.png",
                         target: function(){
                             return '25'
                         }
@@ -301,7 +406,8 @@
                     {
                         id:"26",
                         color:"lightgreen",
-                        icon: "",
+                        icon: "./神社守.png",
+                        resultPic: "./背單字守.png",
                         target: function(){
                             return '26'
                         }
@@ -309,15 +415,17 @@
                     {
                         id:"27",
                         color:"#EBEB00",
-                        icon: "",
+                        icon: "./不倒翁御守.png",
+                        resultPic: "./瘦十公斤守.png",
                         target: function(){
-                            return '27 這裡甚麼也沒有..他只是一隻無辜的奇異鳥...'
+                            return '27 '
                         }
                     },
                     {
                         id:"28",
                         color:"#00E6E6",
-                        icon: "",
+                        icon: "./富士山守.png",
+                        resultPic: "./旅行七天守.png",
                         target: function(){
                             return '28'
                         }
@@ -325,7 +433,8 @@
                     {
                         id:"29",
                         color:"#EBEB00",
-                        icon: "",
+                        icon: "./金魚守1.png",
+                        resultPic: "./看五本書守.png",
                         target: function(){
                             return '29'
                         }
@@ -333,7 +442,8 @@
                     {
                         id:"30",
                         color:"#EBEB00",
-                        icon: "",
+                        icon: "./神社守.png",
+                        resultPic: "./瘦十公斤守.png",
                         target: function(){
                             return '30'
                         }
@@ -341,7 +451,8 @@
                     {
                         id:"31",
                         color:"#00E6E6",
-                        icon: "",
+                        icon: "./不倒翁御守.png",
+                        resultPic: "./日富一日.png",
                         target: function(){
                             return '31'
                         }
@@ -349,7 +460,8 @@
                     {
                         id:"32",
                         color:"lightgreen",
-                        icon: "",
+                        icon: "./金魚守1.png",
+                        resultPic: "./背單字守.png",
                         target: function(){
                             return '32'
                         }
@@ -363,6 +475,13 @@
         let speed;  //速率，越大表示越慢
         let bricks
         let msg = document.querySelector("#msg")
+        let modal = document.getElementById('exampleModal');
+        let close = document.getElementById('close_x').addEventListener("click" , function(){
+            $(modal).modal('hide'); 
+        });
+        let closeBtn = document.getElementById('close').addEventListener("click" , function(){
+            $(modal).modal('hide'); 
+        });
 
 
         //設定 brick 的裡面資料
@@ -382,6 +501,9 @@
             let data = brickData.find(data => data.id == brickID);
             console.log(data)
             item.style.color = data.color
+            let icon = document.createElement("img");
+            icon.src = data.icon;
+            item.append(icon);
         })
 
         
@@ -432,11 +554,24 @@
                             
                             // }
                             
-                            if(steps== 0){                       
-                            msg.innerText = brickData[currentIdx].target();                        
-                               }
+                            if(steps== 0){ 
+                            console.log(0);                      
+                            let resultText = brickData[currentIdx].target(); 
+                           
+                            let modalTitle = modal.querySelector('.modal-title');
+                            modalTitle.innerText = `今日錦囊： ${resultText}`;
 
-                        },60*i)
+                            let modalBody = modal.querySelector('.modal-body');
+                            let imgElement = document.createElement('img');
+                            imgElement.src =brickData[currentIdx].resultPic;
+                            modalBody.innerHTML = '';
+                            modalBody.appendChild(imgElement);
+
+                            $(modal).modal('show');                 
+
+                        }
+                        
+                    },60*i)
                     })(i)
                     
                 
