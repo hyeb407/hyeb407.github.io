@@ -24,47 +24,64 @@
             margin-bottom: 0.8em;
         }
 
+
         .product-list > .row > .col > h6,
-        .brand-mind > .row > .col > .text > h6{
+        .brand-mind > .wrap-space > .row > .col > .text > h6{
             font-size: 0.8em;
             font-weight: bold;
         }
-        .product-list > .row > .col > .brand{
+        .product-list > .row > .col > a > .brand{
             font-size: 0.7em;
             color: gray;
             overflow: hidden;
         }
         .product-list > .row > .col > .price,
-        .brand-mind > .row > .col > .text > p{
+        .brand-mind > .wrap-space > .row > .col > .text > p{
             font-size: 0.7em;
             color:#003354;
         }
 
-        .info > .col-3 > h6{
+        /* 品牌推廣 */
+        .info > .col-3 > a > h6{
             font-size: 0.7em;
+            color: #39393e;
         }
         .info  > .col-3 > p{
             font-size: 0.5em;
         }
 
-        .brand-list > .info > .col > h6{
-            font-size: 0.8em;            
+        /* 品牌旗艦館 */
+        .brand-list > .row > .col > a > h6{
+            font-size: 0.8em;
+            color: #39393e; 
+            /* overflow: hidden;            */
         }
-        .newstar-list >.row > .col >.info > .col-8 > h6{
+
+        /* 每日新星 */
+        .info > .col-8 > a > h6{
             font-size: 0.7em;
+            color: #39393e; 
         }
-        .newstar-list >.row > .col > .info > .col-8 > p{
+        .info > .col-8 > p{
             font-size: 0.9em;
             color: rgb(254, 150, 167);
         }
-        .newstar-list >.row > .col > .info > .col-4 > button{
+        .info > .col-4 > a > button{
             font-size: 0.7em;
             background-color:#003354;
         }
+
+        /* 品牌理念 */
         .brand-mind{
             width: 100%;
             background-color:#F7F7F8;
+            /* display: flex;
+            justify-content: center; */
 
+        }
+        .wrap-space{
+            width: 70%;
+            margin: auto;
         }
 
         
@@ -109,7 +126,9 @@
                         <img class="w-100" src="./LandingPage-carousel/prouduct01.png" alt="">
                     </a>
                     <h6 class=" m-1">袖珍款 花語銀杏 925純銀 兩戴式銀杏耳環</h6>
-                    <p class="brand m-1">On One's Own</p>
+                    <a class="text-decoration-none" href="">
+                        <p class="brand m-1">On One's Own</p>
+                    </a>
                     <p class="price m-1">NT$ 2,939</p>
                 </div>
                 <div class="col">
@@ -117,7 +136,9 @@
                         <img class="w-100" src="./LandingPage-carousel/prouduct02.png" alt="">
                     </a>
                     <h6 class=" m-1">Cool dress that is beautiful in simmer</h6>
-                    <p class="brand m-1">deorart</p>
+                    <a class="text-decoration-none" href="">
+                        <p class="brand m-1">deorart</p>
+                    </a>
                     <p class="price  m-1">NT$ 4,939</p>
                 </div>
                 <div class="col">
@@ -125,7 +146,9 @@
                         <img class="w-100" src="./LandingPage-carousel/prouduct03.png" alt="">
                     </a>
                     <h6 class=" m-1">Sleeveless check dress pocket wide belt design</h6>
-                    <p class="brand m-1">On One's Own</p>
+                    <a class="text-decoration-none" href="">
+                        <p class="brand m-1">On One's Own</p>
+                    </a>
                     <p class="price m-1">NT$ 2,939</p>
                 </div>
                 <div class="col">
@@ -133,7 +156,9 @@
                         <img class="w-100" src="./LandingPage-carousel/prouduct04.png" alt="">
                     </a>
                     <h6 class=" m-1">Cool dress that is beautiful in simmer</h6>
-                    <p class="brand m-1">deorart</p>
+                    <a class="text-decoration-none" href="">
+                        <p class="brand m-1">deorart</p>
+                    </a>
                     <p class="price  m-1">NT$ 4,939</p>
                 </div>
                 <div class="col">
@@ -141,7 +166,9 @@
                         <img class="w-100" src="./LandingPage-carousel/prouduct05.png" alt="">
                     </a>
                     <h6 class=" m-1">Sleeveless check dress pocket wide belt design</h6>
-                    <p class="brand m-1">On One's Own</p>
+                    <a class="text-decoration-none" href="">
+                        <p class="brand m-1">On One's Own</p>
+                    </a>
                     <p class="price  m-1">NT$ 2,939</p>
                 </div>
                 <div class="col">
@@ -149,12 +176,14 @@
                         <img class="w-100" src="./LandingPage-carousel/prouduct06.png" alt="">
                     </a>
                     <h6 class=" m-1">Cool dress that is beautiful in simmer</h6>
-                    <p class="brand m-1">deorart</p>
+                    <a class="text-decoration-none" href="">
+                        <p class="brand m-1">deorart</p>
+                    </a>
                     <p class="price  m-1">NT$ 4,939</p>
                 </div>
             </div>
         </section>
-        <!-- 編輯嚴選 END -->
+     
         
         <!-- 品牌推廣 -->
         <section class="widget ">
@@ -167,29 +196,41 @@
                         <!-- 三張圖片 -->
                         <div class="row image gx-0">
                             <div class="col-8">
-                                <img class="w-100 pe-0" src="./LandingPage-carousel/prouduct01.png" alt="">
+                                <a href="">
+                                    <img class="w-100 pe-0" src="./LandingPage-carousel/prouduct01.png" alt="">
+                                </a>          
                             </div>
                             
                             <div class="col-4">
-                                <img class="w-100 pb-0" src="./LandingPage-carousel/prouduct02.png" alt="">                       
-                                <img class="w-100 pt-0" src="./LandingPage-carousel/prouduct03.png" alt="">
+                                <a href="">
+                                    <img class="w-100 pb-0" src="./LandingPage-carousel/prouduct02.png" alt="">                       
+                                </a>
+                                <a href="">
+                                    <img class="w-100 pt-0" src="./LandingPage-carousel/prouduct03.png" alt="">
+                                </a>
                             </div>
                         </div>
                         
                         <!-- 品牌資訊 -->
                         <div class="row info d-flex align-items-center gx-2 my-2">
                             <div class="col-3 p-3">
-                                <img class="w-100" src="./pics/Google Logo01.png" alt="">
+                                <a href="">
+                                    <img class="w-100" src="./pics/Google Logo01.png" alt="">
+                                </a>
                             </div>
                             
                             <div class="col-3 ">
-                                <h6 class="m-1">品牌名稱</h6>
+                                <a class="text-decoration-none" href="">
+                                    <h6 class="m-1">品牌名稱</h6>
+                                </a>
                                 <p class="m-1"><i class="fa-regular fa-star"></i>&ensp;評價</p>
                                 <p class="m-1"> <i class="fa-regular fa-user"></i>&ensp;關注人數</p>
                             </div>
                             
-                            <div class="col-6 d-flex justify-content-center">                 
-                                <button type="button" class="btn btn-outline-secondary btn-sm me-1 px-3">即刻探索</button>                               
+                            <div class="col-6 d-flex justify-content-center">
+                                <a href="">
+                                    <button type="button" class="btn btn-outline-secondary btn-sm me-1 px-3">即刻探索</button>                               
+                                </a>                
                                 <button type="button" class="btn btn-outline-secondary btn-sm ms-1"><i class="fa-regular fa-heart"></i></button>
                             </div>
                         </div>
@@ -203,29 +244,41 @@
                         <!-- 三張圖片 -->
                         <div class="row image gx-0">
                             <div class="col-8">
-                                <img class="w-100 pe-0" src="./LandingPage-carousel/prouduct04.png" alt="">
+                                <a href="">
+                                    <img class="w-100 pe-0" src="./LandingPage-carousel/prouduct04.png" alt="">
+                                </a>          
                             </div>
                             
                             <div class="col-4">
-                                <img class="w-100 pb-0" src="./LandingPage-carousel/prouduct05.png" alt="">                       
-                                <img class="w-100 pt-0" src="./LandingPage-carousel/prouduct06.png" alt="">
+                                <a href="">
+                                    <img class="w-100 pb-0" src="./LandingPage-carousel/prouduct05.png" alt="">                       
+                                </a>
+                                <a href="">
+                                    <img class="w-100 pt-0" src="./LandingPage-carousel/prouduct06.png" alt="">
+                                </a>
                             </div>
                         </div>
-                    
+                        
                         <!-- 品牌資訊 -->
                         <div class="row info d-flex align-items-center gx-2 my-2">
                             <div class="col-3 p-3">
-                                <img class="w-100" src="./LandingPage-carousel/品牌旗艦館01.png" alt="">
+                                <a href="">
+                                    <img class="w-100" src="./LandingPage-carousel/品牌旗艦館01.png" alt="">
+                                </a>
                             </div>
-
+                            
                             <div class="col-3 ">
-                                <h6 class="m-1">品牌名稱</h6>
+                                <a class="text-decoration-none" href="">
+                                    <h6 class="m-1">品牌名稱</h6>
+                                </a>
                                 <p class="m-1"><i class="fa-regular fa-star"></i>&ensp;評價</p>
                                 <p class="m-1"> <i class="fa-regular fa-user"></i>&ensp;關注人數</p>
                             </div>
-
-                            <div class="col-6 d-flex justify-content-center">                 
-                                <button type="button" class="btn btn-outline-secondary btn-sm me-1 px-3">即刻探索</button>                               
+                            
+                            <div class="col-6 d-flex justify-content-center">
+                                <a href="">
+                                    <button type="button" class="btn btn-outline-secondary btn-sm me-1 px-3">即刻探索</button>                               
+                                </a>                
                                 <button type="button" class="btn btn-outline-secondary btn-sm ms-1"><i class="fa-regular fa-heart"></i></button>
                             </div>
                         </div>
@@ -239,34 +292,46 @@
                         <!-- 三張圖片 -->
                         <div class="row image gx-0">
                             <div class="col-8">
-                                <img class="w-100 pe-0" src="./LandingPage-carousel/prouduct07.png" alt="">
+                                <a href="">
+                                    <img class="w-100 pe-0" src="./LandingPage-carousel/prouduct07.png" alt="">
+                                </a>          
                             </div>
                             
                             <div class="col-4">
-                                <img class="w-100 pb-0" src="./LandingPage-carousel/prouduct08.png" alt="">                       
-                                <img class="w-100 pt-0" src="./LandingPage-carousel/prouduct09.png" alt="">
+                                <a href="">
+                                    <img class="w-100 pb-0" src="./LandingPage-carousel/prouduct08.png" alt="">                       
+                                </a>
+                                <a href="">
+                                    <img class="w-100 pt-0" src="./LandingPage-carousel/prouduct09.png" alt="">
+                                </a>
                             </div>
                         </div>
-                    
+                        
                         <!-- 品牌資訊 -->
                         <div class="row info d-flex align-items-center gx-2 my-2">
                             <div class="col-3 p-3">
-                                <img class="w-100" src="./LandingPage-carousel/品牌旗艦館02.png" alt="">
+                                <a href="">
+                                    <img class="w-100" src="./LandingPage-carousel/品牌旗艦館02.png" alt="">
+                                </a>
                             </div>
-
+                            
                             <div class="col-3 ">
-                                <h6 class="m-1">品牌名稱</h6>
+                                <a class="text-decoration-none" href="">
+                                    <h6 class="m-1">品牌名稱</h6>
+                                </a>
                                 <p class="m-1"><i class="fa-regular fa-star"></i>&ensp;評價</p>
                                 <p class="m-1"> <i class="fa-regular fa-user"></i>&ensp;關注人數</p>
                             </div>
-
-                            <div class="col-6 d-flex justify-content-center">                 
-                                        <button type="button" class="btn btn-outline-secondary btn-sm me-1 px-3">即刻探索</button>                               
-                                        <button type="button" class="btn btn-outline-secondary btn-sm ms-1"><i class="fa-regular fa-heart"></i></button>
+                            
+                            <div class="col-6 d-flex justify-content-center">
+                                <a href="">
+                                    <button type="button" class="btn btn-outline-secondary btn-sm me-1 px-3">即刻探索</button>                               
+                                </a>                
+                                <button type="button" class="btn btn-outline-secondary btn-sm ms-1"><i class="fa-regular fa-heart"></i></button>
                             </div>
                         </div>
                     </div>            
-                </article>                                          
+                </article>                         
             </div>
         </section>    
         
@@ -277,38 +342,52 @@
             <h3>品牌旗艦館</h3>
             <div class="row row-cols-7 row-cols-md-7 gx-2">
                 <div class="col">
-                    <img class="w-100" src="./LandingPage-carousel/品牌旗艦館01.png" alt="">
-                    <h6 class=" m-1 text-center">RITE</h6>            
+                    <a class="text-decoration-none" href="">
+                        <img class="w-100" src="./LandingPage-carousel/品牌旗艦館01.png" alt="">
+                        <h6 class=" mt-3 text-center text-break">RITE</h6>            
+                    </a>
                 </div>
 
                 <div class="col">
-                    <img class="w-100" src="./LandingPage-carousel/品牌旗艦館02.png" alt="">
-                    <h6 class=" m-1 text-center">犀牛盾</h6>            
+                    <a class="text-decoration-none" href="">
+                        <img class="w-100" src="./LandingPage-carousel/品牌旗艦館02.png" alt="">
+                        <h6 class=" mt-3 text-center text-break">犀牛盾</h6>            
+                    </a>
                 </div>
 
                 <div class="col">
-                    <img class="w-100" src="./LandingPage-carousel/品牌旗艦館03.png" alt="">
-                    <h6 class=" m-1 text-center">茶籽堂</h6>            
+                    <a class="text-decoration-none" href="">
+                        <img class="w-100" src="./LandingPage-carousel/品牌旗艦館03.png" alt="">
+                        <h6 class=" mt-3 text-center text-break">茶籽堂</h6>            
+                    </a>
                 </div>
             
                 <div class="col">
-                    <img class="w-100" src="./LandingPage-carousel/品牌旗艦館01.png" alt="">
-                    <h6 class=" m-1 text-center">花語銀杏</h6>            
+                    <a class="text-decoration-none" href="">
+                        <img class="w-100" src="./LandingPage-carousel/品牌旗艦館01.png" alt="">
+                        <h6 class=" mt-3 text-center text-break">花語銀杏</h6>            
+                    </a>
                 </div>
 
                 <div class="col">
-                    <img class="w-100" src="./LandingPage-carousel/品牌旗艦館02.png" alt="">
-                    <h6 class=" m-1 text-center text-break">Unipapa</h6>            
+                    <a class="text-decoration-none" href="">
+                        <img class="w-100" src="./LandingPage-carousel/品牌旗艦館02.png" alt="">
+                        <h6 class=" mt-3 text-center text-break">Unipapa</h6>            
+                    </a>
                 </div>
 
                 <div class="col">
-                    <img class="w-100" src="./LandingPage-carousel/品牌旗艦館03.png" alt="">
-                    <h6 class=" m-1 text-center">袖珍</h6>            
+                    <a class="text-decoration-none" href="">
+                        <img class="w-100" src="./LandingPage-carousel/品牌旗艦館03.png" alt="">
+                        <h6 class=" mt-3 text-center text-break">袖珍</h6>            
+                    </a>
                 </div>
 
                 <div class="col">
-                    <img class="w-100" src="./LandingPage-carousel/品牌旗艦館02.png" alt="">
-                    <h6 class=" m-1 text-center">銀杏</h6>            
+                    <a class="text-decoration-none" href="">
+                        <img class="w-100" src="./LandingPage-carousel/品牌旗艦館02.png" alt="">
+                        <h6 class=" mt-3 text-center text-break">銀杏</h6>            
+                    </a>
                 </div>
 
             </div>
@@ -321,39 +400,63 @@
             <h3>最近熱門</h3>
             <div class="row row-cols-2 row-cols-md-6 gx-2">
                 <div class="col">
-                    <img class="w-100" src="./LandingPage-carousel/prouduct10.png" alt="">
+                    <a href="">
+                        <img class="w-100" src="./LandingPage-carousel/prouduct10.png" alt="">
+                    </a>
                     <h6 class=" m-1">袖珍款 花語銀杏 925純銀 兩戴式銀杏耳環</h6>
-                    <p class="brand m-1">On One's Own</p>
+                    <a class="text-decoration-none" href="">
+                        <p class="brand m-1">On One's Own</p>
+                    </a>
                     <p class="price m-1">NT$ 2,939</p>
                 </div>
                 <div class="col">
-                    <img class="w-100" src="./LandingPage-carousel/prouduct09.png" alt="">
+                    <a href="">
+                        <img class="w-100" src="./LandingPage-carousel/prouduct09.png" alt="">
+                    </a>
                     <h6 class=" m-1">Cool dress that is beautiful in simmer</h6>
-                    <p class="brand m-1">deorart</p>
+                    <a class="text-decoration-none" href="">
+                        <p class="brand m-1">deorart</p>
+                    </a>
                     <p class="price  m-1">NT$ 4,939</p>
                 </div>
                 <div class="col">
-                    <img class="w-100" src="./LandingPage-carousel/prouduct08.png" alt="">
+                    <a href="">
+                        <img class="w-100" src="./LandingPage-carousel/prouduct08.png" alt="">
+                    </a>
                     <h6 class=" m-1">Sleeveless check dress pocket wide belt design</h6>
-                    <p class="brand m-1">On One's Own</p>
+                    <a class="text-decoration-none" href="">
+                        <p class="brand m-1">On One's Own</p>
+                    </a>
                     <p class="price m-1">NT$ 2,939</p>
                 </div>
                 <div class="col">
-                    <img class="w-100" src="./LandingPage-carousel/prouduct07.png" alt="">
+                    <a href="">
+                        <img class="w-100" src="./LandingPage-carousel/prouduct07.png" alt="">
+                    </a>
                     <h6 class=" m-1">Cool dress that is beautiful in simmer</h6>
-                    <p class="brand m-1">deorart</p>
+                    <a class="text-decoration-none" href="">
+                        <p class="brand m-1">deorart</p>
+                    </a>
                     <p class="price  m-1">NT$ 4,939</p>
                 </div>
                 <div class="col">
-                    <img class="w-100" src="./LandingPage-carousel/prouduct06.png" alt="">
+                    <a href="">
+                        <img class="w-100" src="./LandingPage-carousel/prouduct06.png" alt="">
+                    </a>
                     <h6 class=" m-1">Sleeveless check dress pocket wide belt design</h6>
-                    <p class="brand m-1">On One's Own</p>
+                    <a class="text-decoration-none" href="">
+                        <p class="brand m-1">On One's Own</p>
+                    </a>
                     <p class="price  m-1">NT$ 2,939</p>
                 </div>
                 <div class="col">
-                    <img class="w-100" src="./LandingPage-carousel/prouduct05.png" alt="">
+                    <a href="">
+                        <img class="w-100" src="./LandingPage-carousel/prouduct05.png" alt="">
+                    </a>
                     <h6 class=" m-1">Cool dress that is beautiful in simmer</h6>
-                    <p class="brand m-1">deorart</p>
+                    <a class="text-decoration-none" href="">
+                        <p class="brand m-1">deorart</p>
+                    </a>
                     <p class="price  m-1">NT$ 4,939</p>
                 </div>
             </div>
@@ -372,24 +475,74 @@
                         <!-- 三張圖片 -->
                         <div class="row image gx-0">
                             <div class="col-8">
-                                <img class="w-100 pe-0" src="./LandingPage-carousel/prouduct10.png" alt="">
+                                <a href="">
+                                    <img class="w-100 pe-0" src="./LandingPage-carousel/prouduct10.png" alt="">
+                                </a>
                             </div>
                             
                             <div class="col-4">
-                                <img class="w-100 pb-0" src="./LandingPage-carousel/prouduct09.png" alt="">                       
-                                <img class="w-100 pt-0" src="./LandingPage-carousel/prouduct08.png" alt="">
+                                <a href="">
+                                    <img class="w-100 pb-0" src="./LandingPage-carousel/prouduct09.png" alt="">                       
+                                </a>
+                                <a href="">
+                                    <img class="w-100 pt-0" src="./LandingPage-carousel/prouduct08.png" alt="">
+                                </a>
                             </div>
                         </div>
                     
                         <!-- 品牌資訊 -->
                         <div class="row info d-flex align-items-center gx-2 my-1">
                             <div class="col-8 p-2">
-                                <h6 class="m-1 fw-bold">品牌名稱</h6>
+                                <a class="text-decoration-none" href="">
+                                    <h6 class="m-1 fw-bold">品牌名稱</h6>
+                                </a>
                                 <p class="m-1"> ★ ★ ★ ★ ★</p>
                             </div>
 
-                            <div class="col-4 d-flex justify-content-center">                 
-                                <button type="button" class="btn btn-secondary btn-sm me-1 px-3"><i class="fa-solid fa-plus"></i>&ensp;關注</button>                               
+                            <div class="col-4 d-flex justify-content-center">       
+                                <a href="">
+                                    <button type="button" class="btn btn-secondary btn-sm me-1 px-3"><i class="fa-solid fa-plus"></i>&ensp;關注</button>                               
+                                </a>          
+                            </div>
+                        </div>
+                    </div>            
+                </article>
+
+                
+                <!-- 品牌卡片 -->
+                <article class="col">
+                    <div class="brand-card border">
+                        <!-- 三張圖片 -->
+                        <div class="row image gx-0">
+                            <div class="col-8">
+                                <a href="">
+                                    <img class="w-100 pe-0" src="./LandingPage-carousel/prouduct07.png" alt="">
+                                </a>
+                            </div>
+                            
+                            <div class="col-4">
+                                <a href="">
+                                    <img class="w-100 pb-0" src="./LandingPage-carousel/prouduct06.png" alt="">                       
+                                </a>
+                                <a href="">
+                                    <img class="w-100 pt-0" src="./LandingPage-carousel/prouduct05.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    
+                        <!-- 品牌資訊 -->
+                        <div class="row info d-flex align-items-center gx-2 my-1">
+                            <div class="col-8 p-2">
+                                <a class="text-decoration-none" href="">
+                                    <h6 class="m-1 fw-bold">品牌名稱</h6>
+                                </a>
+                                <p class="m-1"> ★ ★ ★ ★ ★</p>
+                            </div>
+
+                            <div class="col-4 d-flex justify-content-center">       
+                                <a href="">
+                                    <button type="button" class="btn btn-secondary btn-sm me-1 px-3"><i class="fa-solid fa-plus"></i>&ensp;關注</button>                               
+                                </a>          
                             </div>
                         </div>
                     </div>            
@@ -398,62 +551,42 @@
 
                 <!-- 品牌卡片 -->
                 <article class="col">
-                    <div class="brand-card border">                    
+                    <div class="brand-card border">
                         <!-- 三張圖片 -->
                         <div class="row image gx-0">
                             <div class="col-8">
-                                <img class="w-100 pe-0" src="./LandingPage-carousel/prouduct07.png" alt="">
+                                <a href="">
+                                    <img class="w-100 pe-0" src="./LandingPage-carousel/prouduct04.png" alt="">
+                                </a>
                             </div>
                             
                             <div class="col-4">
-                                <img class="w-100 pb-0" src="./LandingPage-carousel/prouduct06.png" alt="">                       
-                                <img class="w-100 pt-0" src="./LandingPage-carousel/prouduct05.png" alt="">
+                                <a href="">
+                                    <img class="w-100 pb-0" src="./LandingPage-carousel/prouduct03.png" alt="">                       
+                                </a>
+                                <a href="">
+                                    <img class="w-100 pt-0" src="./LandingPage-carousel/prouduct02.png" alt="">
+                                </a>
                             </div>
                         </div>
                     
                         <!-- 品牌資訊 -->
                         <div class="row info d-flex align-items-center gx-2 my-1">
                             <div class="col-8 p-2">
-                                <h6 class="m-1 fw-bold">品牌名稱</h6>
+                                <a class="text-decoration-none" href="">
+                                    <h6 class="m-1 fw-bold">品牌名稱</h6>
+                                </a>
                                 <p class="m-1"> ★ ★ ★ ★ ★</p>
                             </div>
 
-                            <div class="col-4 d-flex justify-content-center">                 
-                                <button type="button" class="btn btn-secondary btn-sm me-1 px-3"><i class="fa-solid fa-plus"></i>&ensp;關注</button>                               
+                            <div class="col-4 d-flex justify-content-center">       
+                                <a href="">
+                                    <button type="button" class="btn btn-secondary btn-sm me-1 px-3"><i class="fa-solid fa-plus"></i>&ensp;關注</button>                               
+                                </a>          
                             </div>
                         </div>
                     </div>            
-                </article>
-
-
-                <!-- 品牌卡片 -->
-                <article class="col">
-                    <div class="brand-card border">         
-                        <!-- 三張圖片 -->
-                        <div class="row image gx-0">
-                            <div class="col-8">
-                                <img class="w-100 pe-0" src="./LandingPage-carousel/prouduct04.png" alt="">
-                            </div>
-                            
-                            <div class="col-4">
-                                <img class="w-100 pb-0" src="./LandingPage-carousel/prouduct03.png" alt="">                       
-                                <img class="w-100 pt-0" src="./LandingPage-carousel/prouduct02.png" alt="">
-                            </div>
-                        </div>
-                    
-                        <!-- 品牌資訊 -->
-                        <div class="row info d-flex align-items-center gx-2 my-1">
-                            <div class="col-8 p-2">
-                                <h6 class="m-1 fw-bold">品牌名稱</h6>
-                                <p class="m-1"> ★ ★ ★ ★ ★</p>
-                            </div>
-
-                            <div class="col-4 d-flex justify-content-center">                 
-                                <button type="button" class="btn btn-secondary btn-sm me-1 px-3"><i class="fa-solid fa-plus"></i>&ensp;關注</button>                               
-                            </div>
-                        </div>
-                    </div>            
-                </article>                                         
+                </article>                                   
             </div>
         </section>    
         
@@ -464,28 +597,31 @@
 
     <!-- 品牌理念 -->
     <section class="brand-mind">
-        <div class="row row-cols-1 row-cols-md-3 m-0 p-4">
-            <div class="col">
-                <object data="./LandingPage-carousel/brand mind01.svg" class="mx-auto d-block" width="60%" height="60%"> </object>
-                <div class="text my-2 text-center px-0">
-                    <h6>集結全球好設計</h6>
-                    <p>販售超過百萬件獨特商品，透過好設計實現心中的理想生活！</p>
+        <div class="wrap-space">
+        
+            <div class="row row-cols-1 row-cols-md-3 py-4 gx-0">
+                <div class="col">
+                    <object data="./LandingPage-carousel/brand mind01.svg" class="mx-auto d-block" width="60%" height="60%"> </object>
+                    <div class="text text-center px-3 my-0 mb-5">
+                        <h6>集結全球好設計</h6>
+                        <p>販售超過百萬件獨特商品，透過好設計實現心中的理想生活！</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col">
-                <object data="./LandingPage-carousel/brand mind02.svg" class="mx-auto d-block" width="60%" height="60%"> </object>
-                <div class="text my-2 text-center px-0">
-                    <h6>優質獨立創作者</h6>
-                    <p>串連全球優質設計師群，直接與他們溝通購買專屬你的設計品。</p>
+                <div class="col">
+                    <object data="./LandingPage-carousel/brand mind02.svg" class="mx-auto d-block" width="60%" height="60%"> </object>
+                    <div class="text text-center px-3 my-0 mb-5">
+                        <h6>優質獨立創作者</h6>
+                        <p>串連全球優質設計師群，直接與他們溝通購買專屬你的設計品。</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col">
-                <object data="./LandingPage-carousel/brand mind03.svg" class="mx-auto d-block" width="60%" height="60%"> </object>
-                <div class="text my-2 text-center px-0">
-                    <h6>安心消費有保障</h6>
-                    <p>專業工程團隊時時把關，保障你的個資安全。</p>
+                <div class="col">
+                    <object data="./LandingPage-carousel/brand mind03.svg" class="mx-auto d-block" width="60%" height="60%"> </object>
+                    <div class="text text-center px-3 my-0 mb-5">
+                        <h6>安心消費有保障</h6>
+                        <p>專業工程團隊時時把關，保障你的個資安全。</p>
+                    </div>
                 </div>
             </div>
         </div>
