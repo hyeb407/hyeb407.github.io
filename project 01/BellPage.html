@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Owl幻燈片 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css" integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Swiper幻燈片 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <style>
+        .bar-mobile > .col > .text > p{
+            font-size: 0.8em;
+        }
+        
+        .bar-PadPC > a > h4{
+            color: black;
+        }
+        .bar-PadPC > .function > a > h4{
+            color: black;
+        }
+
+        .news-notice{
+            background-color: azure;
+        }
+
+        .news{
+            background-color: beige;
+        }
+        .news-text > h6{
+            color: black;
+            font-size: 0.9em;
+        }
+        .news-text > p{
+            color:black;
+            font-size: 0.8em;
+        }
+
+        .news-tag{
+            color: rgb(90, 90, 90);
+            font-size: 0.8em;
+        }
+
+        .line{
+            width: 100%;
+            height: 1px;
+            background-color: rgb(178, 178, 178);
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row gx-md-5 mt-md-5">
+            <!-- 選單 -->
+            <section class="col-12 col-md-3">
+                
+                <!-- 選單：手機 -->
+                <div class="row row-cols-1 bar-mobile d-block d-md-none">
+                    
+                    <!-- 4個功能 -->
+                    <article class="col d-flex align-items-center justify-content-between border px-3 py-2">
+                        <div class="text">
+                            <h4 class="fs-6">訂單通知</h4>
+                            <p class="m-0">還沒有收到通知</p>
+                        </div>
+                        <a class="more-icon" href="">
+                            <div class="arrow-icon"><i class="fa-solid fa-chevron-right"></i></div>
+                        </a>
+                    </article>
+
+                    <article class="col d-flex align-items-center justify-content-between border px-3 py-2">
+                        <div class="text">
+                            <h4 class="fs-6">主題活動</h4>
+                            <p class="m-0">還沒有收到通知</p>
+                        </div>
+                        <a class="more-icon" href="">
+                            <div class="arrow-icon"><i class="fa-solid fa-chevron-right"></i></div>
+                        </a>
+                    </article>
+
+                    <article class="col d-flex align-items-center justify-content-between border px-3 py-2">
+                        <div class="text">
+                            <h4 class="fs-6">Sugoi 公告</h4>
+                            <p class="m-0">新版地址...</p>
+                        </div>
+                        <a class="more-icon" href="">
+                            <div class="arrow-icon"><i class="fa-solid fa-chevron-right"></i></div>
+                        </a>
+                    </article>
+
+                    <article class="col d-flex align-items-center justify-content-between border px-3 py-2">
+                        <div class="text">
+                            <h4 class="fs-6">我的專屬通知</h4>
+                            <p class="m-0">【會員權益公告】.....</p>
+                        </div>
+                        <a class="more-icon" href="">
+                            <div class="arrow-icon"><i class="fa-solid fa-chevron-right"></i></div>
+                        </a>
+                    </article>
+                    
+                </div>
+
+                <!-- 選單：平板 & 電腦 -->
+                <div class="bar-PadPC d-none d-md-block">
+                    <h3 class="fs-5">通知中心</h3>
+                    <a class="text-decoration-none" href="">
+                        <h4 class="fs-6">訂單總覽</h4>
+                    </a>
+                    <!-- 4個功能 -->
+                    <div class="ps-3 py-2 function">                      
+                        <a class="text-decoration-none" href="">
+                            <h4 class="fs-6">訂單通知</h4>
+                        </a>
+                        <a class="text-decoration-none" href="">
+                            <h4 class="fs-6">主題活動</h4>
+                        </a>
+                        <a class="text-decoration-none" href="">
+                            <h4 class="fs-6">Sugoi 公告</h4>
+                        </a>
+                        <a class="text-decoration-none" href="">
+                            <h4 class="fs-6">專屬優惠</h4>
+                        </a>
+                    </div>  
+                    
+                </div>
+            </section>
+
+            <!-- 手機 only-->
+            <section class="news-notice d-block d-md-none border">
+                <h5 class="m-0 px-1 py-2 fs-6">最新通知</h5>
+            </section>
+
+            <!-- 訊息區塊 -->
+            <section class="col-12 col-md-9 p-0">
+                <!-- 訊息模組 -->
+                <article class="news d-flex px-3">
+                    <a class="text-decoration-none" href="">
+                        <div class="row gx-3 my-2 align-items-center ">
+
+                            <div class="col-2 d-flex justify-content-center">
+                                <img class="w-100 d-block d-lg-none" src="./pics/Google Logo01.png" alt="">
+                                <img class="w-75 d-none d-lg-block" src="./pics/Google Logo01.png" alt="">
+                            </div>
+
+                            <div class="col-10">
+                                <div class="news-text">
+                                    <h6 class="my-1">獻給獨具個性的父親\父親節禮物賞/</h6>
+                                    <p class="my-1">一起透過父親節向爸爸抒發平時不常說出口的愛！</p>
+
+                                    <!-- 分類 & 時間 -->
+                                    <div class="row row-cols-1 gx-3 my-1 news-tag">
+                                        <div class="col d-flex">
+                                            <p class="border px-1 m-0">專屬</p>
+                                            <p class="px-1 m-0">3天前</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>                       
+                    </a>
+                </article>
+                <div class="line"></div>
+
+                <!-- 訊息模組 -->
+                <article class="news d-flex px-3">
+                    <a class="text-decoration-none" href="">
+                        <div class="row gx-3 my-2 align-items-center ">
+
+                            <div class="col-2 d-flex justify-content-center">
+                                <img class="w-100 d-block d-lg-none" src="./pics/Google Logo01.png" alt="">
+                                <img class="w-75 d-none d-lg-block" src="./pics/Google Logo01.png" alt="">
+                            </div>
+
+                            <div class="col-10">
+                                <div class="news-text">
+                                    <h6 class="my-1">獻給獨具個性的父親\父親節禮物賞/</h6>
+                                    <p class="my-1">一起透過父親節向爸爸抒發平時不常說出口的愛！</p>
+
+                                    <!-- 分類 & 時間 -->
+                                    <div class="row row-cols-1 gx-3 my-1 news-tag">
+                                        <div class="col d-flex">
+                                            <p class="border px-1 m-0">專屬</p>
+                                            <p class="px-1 m-0">3天前</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>                       
+                    </a>
+                </article>
+                <div class="line"></div>
+
+            </section>
+
+        </div>
+    </div>
+    
+
+
+
+
+
+
+
+    
+    
+    
+    <!-- BootStrapt JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+
+
+    <!-- Owl JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+  <!-- Demo styles -->
+  <style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      height: calc((100% - 30px) / 2) !important;
+
+      /* Center slide text vertically */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    } */
+  </style>
+</head>
+
+<body>
+        <!-- 編輯嚴選 -->
+        <section class="widget product-list">
+            <h3>編輯嚴選</h3>
+            <div class="swiper mySwiper swiper-product-list">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+
+                    <div class="row row-cols-2  row-cols-4 gx-2">
+                    <div class="col">
+                        <a href="">
+                            <img class="w-100" src="./LandingPage-carousel/prouduct01.png" alt="">
+                        </a>
+                        <h6 class=" m-1">袖珍款 花語銀杏 925純銀 兩戴式銀杏耳環</h6>
+                        <a class="text-decoration-none" href="">
+                            <p class="brand m-1">On One's Own</p>
+                        </a>
+                        <p class="price m-1">NT$ 2,939</p>
+                    </div>
+                    <div class="col">
+                        <a href="">
+                            <img class="w-100" src="./LandingPage-carousel/prouduct02.png" alt="">
+                        </a>
+                        <h6 class=" m-1">Cool dress that is beautiful in simmer</h6>
+                        <a class="text-decoration-none" href="">
+                            <p class="brand m-1">deorart</p>
+                        </a>
+                        <p class="price  m-1">NT$ 4,939</p>
+                    </div>
+                    <div class="col">
+                        <a href="">
+                            <img class="w-100" src="./LandingPage-carousel/prouduct03.png" alt="">
+                        </a>
+                        <h6 class=" m-1">Sleeveless check dress pocket wide belt design</h6>
+                        <a class="text-decoration-none" href="">
+                            <p class="brand m-1">On One's Own</p>
+                        </a>
+                        <p class="price m-1">NT$ 2,939</p>
+                    </div>
+                    <div class="col">
+                        <a href="">
+                            <img class="w-100" src="./LandingPage-carousel/prouduct04.png" alt="">
+                        </a>
+                        <h6 class=" m-1">Cool dress that is beautiful in simmer</h6>
+                        <a class="text-decoration-none" href="">
+                            <p class="brand m-1">deorart</p>
+                        </a>
+                        <p class="price  m-1">NT$ 4,939</p>
+                    </div>
+                    
+                    <div class="col">
+                        <a href="">
+                            <img class="w-100" src="./LandingPage-carousel/prouduct05.png" alt="">
+                        </a>
+                        <h6 class=" m-1">Sleeveless check dress pocket wide belt design</h6>
+                        <a class="text-decoration-none" href="">
+                            <p class="brand m-1">On One's Own</p>
+                        </a>
+                        <p class="price  m-1">NT$ 2,939</p>
+                    </div>
+                    <div class="col">
+                        <a href="">
+                            <img class="w-100" src="./LandingPage-carousel/prouduct06.png" alt="">
+                        </a>
+                        <h6 class=" m-1">Cool dress that is beautiful in simmer</h6>
+                        <a class="text-decoration-none" href="">
+                            <p class="brand m-1">deorart</p>
+                        </a>
+                        <p class="price  m-1">NT$ 4,939</p>
+                    </div>
+                    <div class="col">
+                        <a href="">
+                            <img class="w-100" src="./LandingPage-carousel/prouduct07.png" alt="">
+                        </a>
+                        <h6 class=" m-1">Sleeveless check dress pocket wide belt design</h6>
+                        <a class="text-decoration-none" href="">
+                            <p class="brand m-1">On One's Own</p>
+                        </a>
+                        <p class="price  m-1">NT$ 2,939</p>
+                    </div>
+                    <div class="col">
+                        <a href="">
+                            <img class="w-100" src="./LandingPage-carousel/prouduct08.png" alt="">
+                        </a>
+                        <h6 class=" m-1">Cool dress that is beautiful in simmer</h6>
+                        <a class="text-decoration-none" href="">
+                            <p class="brand m-1">deorart</p>
+                        </a>
+                        <p class="price  m-1">NT$ 4,939</p>
+                    </div>
+                </div>
+                </div>
+
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+     
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+  <script>
+    var swiper = new Swiper(".swiper-product-list", {
+      slidesPerView: 6,
+    //   grid: {
+    //     rows: 2,
+    //   },
+      spaceBetween: 10,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 6,
+          spaceBetween: 10,
+        },
+        1024: {
+          slidesPerView: 6,
+          spaceBetween: 10,
+        },
+        1200: {
+          slidesPerView: 6,
+          spaceBetween: 10,
+        },
+      },
+    });
+  </script>
+</body>
+
+</html>
