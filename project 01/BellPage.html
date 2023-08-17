@@ -15,36 +15,49 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
     <style>
-        .bar-mobile > .col > .text > p{
-            font-size: 0.8em;
+        /* 選單 */
+        i{
+            color:#53c2e0; 
         }
-        
-        .bar-PadPC > a > h4{
-            color: black;
+        .bar-mobile > .col > .text > p{
+            font-size: 0.7em;
         }
         .bar-PadPC > .function > a > h4{
             color: black;
+            font-size: 0.8em;
         }
+        #newsAll{
+            color:#53c2e0; 
+            font-size: 0.9em;
+        } 
 
+        /* 訊息區塊 */
         .news-notice{
-            background-color: azure;
+            background-color: #ffdedc;
+            color:#611700;
         }
 
         .news{
-            background-color: beige;
+            background-color: #e6f2f6;
         }
         .news-text > h6{
             color: black;
-            font-size: 0.9em;
+            font-size: 0.8em;
         }
         .news-text > p{
             color:black;
-            font-size: 0.8em;
+            font-size: 0.7em;
         }
 
-        .news-tag{
-            color: rgb(90, 90, 90);
-            font-size: 0.8em;
+        .news-tag > .col > .time{
+            color: #53c2e0; 
+            font-size: 0.7em;
+        }
+        .news-tag > .col > .tag{
+            font-size: 0.7em;
+            color: #ff3435;
+            background-color: #ffdedc;
+            border-radius: 3px;
         }
 
         .line{
@@ -112,21 +125,21 @@
                 <div class="bar-PadPC d-none d-md-block">
                     <h3 class="fs-5">通知中心</h3>
                     <a class="text-decoration-none" href="">
-                        <h4 class="fs-6">訂單總覽</h4>
+                        <h4 class="" id="newsAll">通知總覽</h4>
                     </a>
                     <!-- 4個功能 -->
                     <div class="ps-3 py-2 function">                      
                         <a class="text-decoration-none" href="">
-                            <h4 class="fs-6">訂單通知</h4>
+                            <h4 class="">訂單通知</h4>
                         </a>
                         <a class="text-decoration-none" href="">
-                            <h4 class="fs-6">主題活動</h4>
+                            <h4 class="">主題活動</h4>
                         </a>
                         <a class="text-decoration-none" href="">
-                            <h4 class="fs-6">Sugoi 公告</h4>
+                            <h4 class="">Sugoi 公告</h4>
                         </a>
                         <a class="text-decoration-none" href="">
-                            <h4 class="fs-6">專屬優惠</h4>
+                            <h4 class="">專屬優惠</h4>
                         </a>
                     </div>  
                     
@@ -146,8 +159,8 @@
                         <div class="row gx-3 my-2 align-items-center ">
 
                             <div class="col-2 d-flex justify-content-center">
-                                <img class="w-100 d-block d-lg-none" src="./pics/Google Logo01.png" alt="">
-                                <img class="w-75 d-none d-lg-block" src="./pics/Google Logo01.png" alt="">
+                                <img class="w-100 d-block d-lg-none" src="https://picsum.photos/200/200/?random=10" alt="">
+                                <img class="w-75 d-none d-lg-block" src="https://picsum.photos/200/200/?random=08" alt="">
                             </div>
 
                             <div class="col-10">
@@ -158,8 +171,8 @@
                                     <!-- 分類 & 時間 -->
                                     <div class="row row-cols-1 gx-3 my-1 news-tag">
                                         <div class="col d-flex">
-                                            <p class="border px-1 m-0">專屬</p>
-                                            <p class="px-1 m-0">3天前</p>
+                                            <p class="tag px-1 m-0">專屬</p>
+                                            <p class="time px-1 m-0">3天前</p>
                                         </div>
                                     </div>
 
@@ -177,8 +190,8 @@
                         <div class="row gx-3 my-2 align-items-center ">
 
                             <div class="col-2 d-flex justify-content-center">
-                                <img class="w-100 d-block d-lg-none" src="./pics/Google Logo01.png" alt="">
-                                <img class="w-75 d-none d-lg-block" src="./pics/Google Logo01.png" alt="">
+                                <img class="w-100 d-block d-lg-none" src="https://picsum.photos/200/200/?random=18" alt="">
+                                <img class="w-75 d-none d-lg-block" src="https://picsum.photos/200/200/?random=07" alt="">
                             </div>
 
                             <div class="col-10">
@@ -189,8 +202,8 @@
                                     <!-- 分類 & 時間 -->
                                     <div class="row row-cols-1 gx-3 my-1 news-tag">
                                         <div class="col d-flex">
-                                            <p class="border px-1 m-0">專屬</p>
-                                            <p class="px-1 m-0">3天前</p>
+                                            <p class="tag px-1 m-0">專屬</p>
+                                            <p class="time px-1 m-0">3天前</p>
                                         </div>
                                     </div>
 

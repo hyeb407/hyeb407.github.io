@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue3 Demo</title>
+</head>
+
+<body>
+
+    <!-- step2. 定義要被Vue控制的HTML區域 -->
+    <div id="app">
+        <input v-bind:value="message1" v-on:input="message1=$event.target.value" type="text">
+        <p>{{message1}} </p>
+
+        <!-- 雙向綁定 v-model 只能用在 input 喔 -->
+        <input v-model="message2" type="text">
+        <p>{{message2}}</p>
+    </div>
+    <!-- step1. 引入Vue.js CDN-->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- step3. 加入 script，並新增 Vue實體 -->
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    message1: "Say hi~~@@##",
+                    message2: "Say 2"
+                }
+            }
+        }).mount('#app')
+    </script>
+
+</body>
+
+</html>

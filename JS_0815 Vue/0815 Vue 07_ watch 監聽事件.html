@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue3 Demo</title>
+</head>
+
+<body>
+
+    <!-- step2. 定義要被Vue控制的HTML區域 -->
+    <div id="app">
+        <input v-model="inputVal" type="text">
+        <p>最後更新日期時間：{{ msg }}</p>
+    </div>
+    <!-- step1. 引入Vue.js CDN-->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- step3. 加入 script，並新增 Vue實體 -->
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    inputVal: '12345',
+                    msg:''
+                }
+            },
+            watch:{
+                inputVal: function(){
+                    this.msg = `input異動 ${new Date()}`
+                }
+            }
+        }).mount('#app')
+    </script>
+
+</body>
+
+</html>

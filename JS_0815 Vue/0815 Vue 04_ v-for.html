@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue3 Demo</title>
+</head>
+
+<body>
+
+    <!-- step2. 定義要被Vue控制的HTML區域 -->
+    <div id="app">
+        <!-- step5. 用{{}} 加上vue3 變數-->
+        <ul v-for="item, index in dataArray">
+            <li> 索引 {{index}} : 第 {{item.no}} 位 {{item.name}} 今年 {{item.age}} 歲~</li>
+        </ul>
+    </div>
+    <!-- step1. 引入Vue.js CDN-->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- step3. 加入 script，並新增 Vue實體 -->
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    dataArray: [{
+                        no: 1,
+                        name: 'Dora',
+                        age: 3
+                    },{
+                        no: 2,
+                        name: 'Andy',
+                        age: 30
+                    },{
+                        no:3,
+                        name: 'Dann',
+                        age: 40
+                    }]
+                }
+            }
+        }).mount('#app')
+    </script>
+
+</body>
+
+</html>

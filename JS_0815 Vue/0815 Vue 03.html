@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue3 Demo</title>
+</head>
+
+<body>
+
+    <!-- step2. 定義要被Vue控制的HTML區域 -->
+    <div id="app">
+        <!-- step5. 用{{}} 加上vue3 變數-->
+
+        <!-- 如果data內有定義HTML語法則變數，
+            透過{{}}及v-text無法將字串變成HTML語法，
+            要改用v-html才會解析。 -->
+        <p v-html="text">!!!</p>
+        <p v-text="text">!!!</p>  <!-- <H1>Hello World </H1> -->
+        <p>{{text}} !!!</p>  <!-- <H1>Hello World </H1> !!! -->
+        
+    </div>
+
+    <div id="app2">
+        <button type="button" v-bind:disabled="isBtnDisabled">v-bind 完整指令</button>
+        <button type="button" :disabled="isBtnDisabled">v-bind 縮寫指令</button>
+        <img v-bind:src="imgSrc" alt="">
+        <img :src="imgSrc" alt="">
+        <p v-if="isShow">v-if : isShow 是 true</p>
+        <p v-else>v-if : isShow是 false</p>
+      
+    </div>
+    
+    
+    <!-- step1. 引入Vue.js CDN-->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- step3. 加入 script，並新增 Vue實體 -->
+    <script>
+        Vue.createApp({
+            data(){
+                return{
+                    text: '<H1>Hello World </H1>'
+                }
+            }
+        }).mount("#app")
+
+        Vue.createApp({
+            data(){
+                return{
+                    isBtnDisabled: false,
+                    imgSrc: "https://picsum.photos/200/300",
+                    isShow: true
+                }
+            }
+        }).mount("#app2")
+    </script>
+
+</body>
+
+</html>

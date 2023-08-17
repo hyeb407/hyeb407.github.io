@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue3 Demo</title>
+</head>
+
+<body>
+
+    <!-- step2. 定義要被Vue控制的HTML區域 -->
+    <div id="app">
+        <!-- step5. 用{{}} 加上vue3 變數-->
+        <h1>{{title}}{{content}}</h1>
+        <p>總金額：{{ price * quantity}}</p>
+        <p>總金額：{{ price * quantity}}</p>
+        <p>總金額：{{ price * quantity}}</p>
+        <p>總金額: 共 {{ subtotal() }} 元</p>
+        <p>總金額: 共 {{ subtotal() }} 元</p>
+        <p>總金額: 共 {{ subtotal() }} 元</p>
+        <p>methods: 總金額: 共 {{methodsSubtotal() }} 元</p>
+        <!-- computedSubtotal不用()，因為是屬性 -->
+        <p>computed: 總金額: 共 {{computedSubtotal }} 元(打八折)</p>
+        
+    </div>
+    
+    
+    <!-- step1. 引入Vue.js CDN-->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- step3. 加入 script，並新增 Vue實體 -->
+    <script>
+        Vue.createApp({
+            data(){
+                return{
+                    // title: "Build School",
+                    // content: "好棒棒！！",
+                    price: 100,
+                    quantity: 5
+                }
+            },
+            methods: {
+                subtotal: function(){
+                    return this.price * this.quantity
+                },
+                methodsSubtotal: function(){
+                    return this.price * this.quantity
+                }
+            },
+            computed: {
+                //computed 是計算屬性
+                // computed內的方法都要有回傳值，也就是return
+                // computed的每個欄位都可以當作是data，不管是畫面渲染或是其他方法都可以使用
+                computedSubtotal: function(){
+                    return this.price * this.quantity * 0.8
+                }
+            }
+        }).mount("#app")
+    </script>
+
+</body>
+
+</html>

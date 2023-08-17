@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+</head>
+
+<body>
+    <div id="app">
+        <button v-on:click="sayHello">Click Me</button>
+        <br>
+        <br>
+        <button @click="sayHello">Click Me 簡寫</button>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+
+        Vue.createApp({
+            data() {
+                return {
+                    Message: 'Build School'
+                }
+            },
+            methods: {
+                sayHello: function() {
+                    alert('Hello')
+                }
+            }
+        }).mount('#app')
+
+    </script>
+
+</body>
+
+</html>
